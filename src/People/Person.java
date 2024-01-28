@@ -1,5 +1,7 @@
 package People;
 
+import Weapons.*;
+
 import java.util.ArrayList;
 
 /*
@@ -12,14 +14,15 @@ public class Person {
     private boolean isSuspect;  // Flag to indicate if the person is a suspect
     private ArrayList<String> conversations;  // List to store conversations with the person
     private int relationshipWithPlayer;  // Numerical value representing the relationship with the player
-    private String relationsipWithVictim; // Wife, children, colleagues;
+    private String relationshipWithVictim; // Wife, children, colleagues;
     private boolean isUseful;
     private String currentLocation;
+    protected Weapon currWeapon = null;
     public Person(String name,
                   String role,
                   String description,
                   boolean isSuspect,
-                  String relationsipWithVictim,
+                  String relationshipWithVictim,
                   boolean isUseful,
                   String location) {
         this.name = name;
@@ -28,7 +31,7 @@ public class Person {
         this.isSuspect = isSuspect;
         this.conversations = new ArrayList<>();
         this.relationshipWithPlayer = 0;
-        this.relationsipWithVictim = relationsipWithVictim;
+        this.relationshipWithVictim = relationshipWithVictim;
         this.isUseful = isUseful;
         this.currentLocation = location;
     }
