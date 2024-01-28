@@ -2,6 +2,9 @@ package People;
 
 import java.util.ArrayList;
 
+/*
+    After creating  "Clue" class, add ArrayList of clues
+*/
 public class Person {
     private String name;  // Holds the name of the person
     private String role;  // Role or occupation of the person
@@ -10,7 +13,15 @@ public class Person {
     private ArrayList<String> conversations;  // List to store conversations with the person
     private int relationshipWithPlayer;  // Numerical value representing the relationship with the player
     private String relationsipWithVictim; // Wife, children, colleagues;
-    public Person(String name, String role, String description, boolean isSuspect, String relationsipWithVictim) {
+    private boolean isUseful;
+    private String currentLocation;
+    public Person(String name,
+                  String role,
+                  String description,
+                  boolean isSuspect,
+                  String relationsipWithVictim,
+                  boolean isUseful,
+                  String location) {
         this.name = name;
         this.role = role;
         this.description = description;
@@ -18,10 +29,11 @@ public class Person {
         this.conversations = new ArrayList<>();
         this.relationshipWithPlayer = 0;
         this.relationsipWithVictim = relationsipWithVictim;
+        this.isUseful = isUseful;
+        this.currentLocation = location;
     }
 
     public void addConversation(String conversation) {
-
         /*
             Add a converstion in order to keep record of interactions
             Player might want to come back to the story
@@ -45,9 +57,6 @@ public class Person {
     }
 
     public void setName(String newName) {
-        /*
-            Change the name
-         */
         this.name = newName;
     }
 
@@ -57,6 +66,14 @@ public class Person {
 
     public boolean isSuspect() {
         return this.isSuspect;
+    }
+
+    public String getDescription() { return this.description; }
+
+    public String getCurrentLocation() { return this.currentLocation; }
+
+    public void setCurrentLocation(String location) {
+        this.currentLocation = location;
     }
 }
 
