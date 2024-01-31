@@ -16,11 +16,11 @@ public class Location {
 		this.people = new ArrayList<>();
 	}
 	
-	public describeLocation() {
+	public String describeLocation() {
 		return this.description;
 	}
 	
-	public updateAccessibility() {
+	public boolean updateAccessibility() {
 		return this.accessibility;
 	}
 	
