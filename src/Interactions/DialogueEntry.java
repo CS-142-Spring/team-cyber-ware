@@ -1,4 +1,5 @@
 package Interactions;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class DiologueEntry {
     private String speaker;
@@ -9,6 +10,7 @@ public class DiologueEntry {
         this.line = line;
     }
 
+    @JsonProperty("speaker")
     public String getSpeaker() {
         return this.speaker;
     }
