@@ -1,5 +1,5 @@
 package People;
-
+import Location.*;
 import Weapons.*;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class Person {
     private int relationshipWithPlayer;  // Numerical value representing the relationship with the player
     private String relationshipWithVictim; // Wife, children, colleagues;
     private boolean isUseful;
-    private String currentLocation;
+    private Location currentLocation;
     protected Weapon currWeapon = null;
     public Person(String name,
                   String role,
@@ -24,7 +24,7 @@ public class Person {
                   boolean isSuspect,
                   String relationshipWithVictim,
                   boolean isUseful,
-                  String location) {
+                  Location location) {
         this.name = name;
         this.role = role;
         this.description = description;
@@ -73,10 +73,11 @@ public class Person {
 
     public String getDescription() { return this.description; }
 
-    public String getCurrentLocation() { return this.currentLocation; }
+    public String getCurrentLocation() { return this.currentLocation.getName(); }
 
-    public void setCurrentLocation(String location) {
+    public void setCurrentLocation(Location location) {
         this.currentLocation = location;
+        this.currentLocation.setAccessibility(true);
     }
 }
 

@@ -11,11 +11,18 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import Location.*;
+import java.lang.StringBuilder;
+import People.*;
 public class Dialogues {
     // Under Testing. Don't touch!!
     public static void main(String[] args) {
+        Location office = new Location("Office","despription of office",true);
+        Hero User = new Hero("jack","player","Add description",false,"none",false,office);
         ArrayList<DialogueEntry> dialogueHistory = new ArrayList<>();
+        ArrayList<Location> totalPlaces = new ArrayList<Location>();
+        //add all the locations in this arraylist
+        //didn't do it right now because we dont have location subclasses yet
 
         Scanner console = new Scanner(System.in);
         String line = "";
@@ -25,12 +32,51 @@ public class Dialogues {
             DialogueEntry userEntry = new DialogueEntry("Jack", line);
             writeHistory(userEntry);
             dialogueHistory.add(userEntry);
-            if (!line.equals("/exit")) {
+
+            if (!line.equals("/exit") && !line.equals("/travel")) {
                 String response = chatGPT(line);
                 System.out.println("Bot: " + response);
                 DialogueEntry botEntry = new DialogueEntry("Bot", response);
                 writeHistory(botEntry);
                 dialogueHistory.add(botEntry);
+            }
+            if(line.equals("/travel")){
+                String destination = console.next();
+                int count = 0;
+                ArrayList<Location> unlocked = new ArrayList<Location>();
+                StringBuilder sb = new StringBuilder();
+                sb.append("Total Rooms unlocked : ");
+                for(Location l : totalPlaces){
+                    if (l.getAccessibility()){
+                        sb.append(count +" " + l.getName()+ "\n");
+                        unlocked.add(l);
+                        count++;
+                    }
+                }
+                if(unlocked.size() == 1){
+                    // here i have written 1 because 1 default room will always be unlocked
+                    sb.append("0");
+                    DialogueEntry bot = new DialogueEntry("Bot",sb.toString());
+                    writeHistory(bot);
+                    dialogueHistory.add(bot);
+                }
+                else{
+                    sb.append("Enter the serial number of Room you want to go:");
+                    DialogueEntry bot = new DialogueEntry("Bot",sb.toString());
+                    writeHistory(bot);
+                    dialogueHistory.add(bot);
+                    int choice = console.nextInt();
+                    User.setCurrentLocation(unlocked.get(choice-1));
+                    unlocked.get(choice-1).setAccessibility(true);
+                    String str = Integer.toString(choice);
+                    DialogueEntry user = new DialogueEntry("user",str);
+                    writeHistory(user);
+                    dialogueHistory.add(user);
+                    String response = chatGPT("Location changed to"+ User.getCurrentLocation());
+                    DialogueEntry botEntry = new DialogueEntry("Bot", response);
+                    writeHistory(botEntry);
+                    dialogueHistory.add(botEntry);
+                }
             }
 
         }

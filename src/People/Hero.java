@@ -1,5 +1,6 @@
 package People;
 import Weapons.*;
+import Location.*;
 import Inventory.*;
 
 public class Hero extends Person {
@@ -11,7 +12,7 @@ public class Hero extends Person {
                 boolean isSuspect,
                 String relationshipWithVictim,
                 boolean isUseful,
-                String location){
+                Location location){
         super(name, role,description,isSuspect,relationshipWithVictim,isUseful,location);
         Knife knife= new Knife();
         this.currWeapon = knife;

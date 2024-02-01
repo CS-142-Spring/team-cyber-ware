@@ -20,8 +20,14 @@ public class Location {
 		return this.description;
 	}
 	
-	public boolean updateAccessibility() {
+	public boolean getAccessibility() {
 		return this.accessibility;
+	}
+	public void setAccessibility(boolean choice){
+		this.accessibility = choice;
+	}
+	public String getName(){
+		return this.name;
 	}
 	
 
