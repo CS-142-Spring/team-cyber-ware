@@ -1,142 +1,50 @@
 package Interactions;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.FileWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
+
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
-import Location.*;
-import java.lang.StringBuilder;
 import People.*;
+import Location.*;
+import ChatGPT.ChatGPT;
+
 public class Dialogues {
-    // Under Testing. Don't touch!!
-    public static void main(String[] args) {
-        Location office = new Location("Office","despription of office",true);
-        Hero User = new Hero("jack","player","Add description",false,"none",false,office);
-        ArrayList<DialogueEntry> dialogueHistory = new ArrayList<>();
-        ArrayList<Location> totalPlaces = new ArrayList<Location>();
-        //add all the locations in this arraylist
-        //didn't do it right now because we dont have location subclasses yet
-
-        Scanner console = new Scanner(System.in);
-        String line = "";
-        while (!line.equals("/exit")) {
-            System.out.print("Jack: ");
-            line = console.nextLine();
-            DialogueEntry userEntry = new DialogueEntry("Jack", line);
-            writeHistory(userEntry);
-            dialogueHistory.add(userEntry);
-
-            if (!line.equals("/exit") && !line.equals("/travel")) {
-                String response = chatGPT(line);
-                System.out.println("Bot: " + response);
-                DialogueEntry botEntry = new DialogueEntry("Bot", response);
-                writeHistory(botEntry);
-                dialogueHistory.add(botEntry);
-            }
-            if(line.equals("/travel")){
-                String destination = console.next();
-                int count = 0;
-                ArrayList<Location> unlocked = new ArrayList<Location>();
-                StringBuilder sb = new StringBuilder();
-                sb.append("Total Rooms unlocked : ");
-                for(Location l : totalPlaces){
-                    if (l.getAccessibility()){
-                        sb.append(count +" " + l.getName()+ "\n");
-                        unlocked.add(l);
-                        count++;
-                    }
-                }
-                if(unlocked.size() == 1){
-                    // here i have written 1 because 1 default room will always be unlocked
-                    sb.append("0");
-                    DialogueEntry bot = new DialogueEntry("Bot",sb.toString());
-                    writeHistory(bot);
-                    dialogueHistory.add(bot);
-                }
-                else{
-                    sb.append("Enter the serial number of Room you want to go:");
-                    DialogueEntry bot = new DialogueEntry("Bot",sb.toString());
-                    writeHistory(bot);
-                    dialogueHistory.add(bot);
-                    int choice = console.nextInt();
-                    User.setCurrentLocation(unlocked.get(choice-1));
-                    unlocked.get(choice-1).setAccessibility(true);
-                    String str = Integer.toString(choice);
-                    DialogueEntry user = new DialogueEntry("user",str);
-                    writeHistory(user);
-                    dialogueHistory.add(user);
-                    String response = chatGPT("Location changed to"+ User.getCurrentLocation());
-                    DialogueEntry botEntry = new DialogueEntry("Bot", response);
-                    writeHistory(botEntry);
-                    dialogueHistory.add(botEntry);
-                }
-            }
-
-        }
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            String jsonString = mapper.writeValueAsString(dialogueHistory);
-            System.out.println(jsonString);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+    private Location location;
+    private Hero mainHero;
+    private Person character;
+    private ArrayList<DialogueEntry> dialogueHistory;
+    private ChatGPT gpt;
+    public Dialogues(Hero mainHero, Person character, Location location) {
+        this.mainHero = mainHero;
+        this.character = character;
+        this.location = location;
+        mainHero.setCurrentLocation(location);
+        this.dialogueHistory = new ArrayList<>();
+        this.gpt = new ChatGPT();
     }
 
-    public static String chatGPT(String message) {
-        String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = ""; // API key goes here
-        String model = "gpt-4-0125-preview"; // current model of chatgpt api
+    // this method just process the conversation
+    public String processPlayerInput(String input) {
+        DialogueEntry userEntry = new DialogueEntry(mainHero.getName(), input);
+        updateDialogueHistory(userEntry);
+        String prompt = generateChatGPTPrompt(input);
 
-        try {
-            // Create the HTTP POST request
-            URL obj = new URL(url);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-            con.setRequestMethod("POST");
-            con.setRequestProperty("Authorization", "Bearer " + apiKey);
-            con.setRequestProperty("Content-Type", "application/json");
-
-            // Build the request body
-            String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message + "\"}]}";
-            con.setDoOutput(true);
-            OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream());
-            writer.write(body);
-            writer.flush();
-            writer.close();
-
-            // Get the response
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            in.close();
-
-            // returns the extracted contents of the response.
-            return extractContentFromResponse(response.toString());
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        String response = gpt.chatGPT(prompt);
+        DialogueEntry botEntry = new DialogueEntry(character.getName(), response);
+        updateDialogueHistory(botEntry);
+        return response;
     }
 
-    // This method extracts the response expected from chatgpt and returns it.
-    public static String extractContentFromResponse(String response) {
-        System.out.println(response);
-        int startMarker = response.indexOf("content") + 11; // Marker for where the content starts.
-        int endMarker = response.indexOf("\"", startMarker); // Marker for where the content ends.
-        return response.substring(startMarker, endMarker); // Returns the substring containing only the response.
+    // the method for adding dialogue entry to the chat history
+    private void updateDialogueHistory(DialogueEntry entry) {
+        this.dialogueHistory.add(entry);
+        writeHistory(entry);
     }
+
+
     //This method will write the chats to the json file
     //we will use this json file to print chats to the console
-    public static void writeHistory(DialogueEntry history) {
+    private static void writeHistory(DialogueEntry history) {
         try (FileWriter fw = new FileWriter("src/resources/ChatHistory.json", true)) {
             ObjectMapper mapper = new ObjectMapper();
             mapper.writerWithDefaultPrettyPrinter().writeValue(fw, history);
@@ -145,4 +53,44 @@ public class Dialogues {
             e.printStackTrace();
         }
     }
+
+    private String generateChatGPTPrompt(String userInput) {
+        StringBuilder promptBuilder = new StringBuilder();
+
+        promptBuilder.append("Act as ").append(character.getName()).append(", a ").append(character.getRole())
+                .append(" in a text adventure game. You are described as ").append(character.getDescription())
+                .append(". Currently, you are ").append(character.isSuspect() ? "a suspect in a mysterious case" : "not a suspect")
+                .append(". Your relationship with the player is ").append(interpretRelationshipWithPlayer())
+                .append(", and with the victim, you are ").append(character.getRelationshipWithVictim())
+                .append(". You are ").append(character.isUseful() ? "a useful and informative" : "an uncooperative")
+                .append(" character. You are currently at ").append(location.getName())
+                .append(". Your key traits include ").append(String.join(", ", character.getTraits()))
+                .append(". Respond in character to the player's questions and actions, maintaining the personality and knowledge consistent with your background and current situation.");
+
+        // Adding recent chat history
+        promptBuilder.append(" Recent conversation history: ");
+        int historySize = dialogueHistory.size();
+        int contextLimit = 2; // Limit to the last 5 exchanges
+
+        for (int i = Math.max(0, historySize - contextLimit); i < historySize; i++) {
+            DialogueEntry entry = dialogueHistory.get(i);
+            promptBuilder.append(entry.getSpeaker()).append(": ")
+                    .append(entry.getLine()).append(" ");
+        }
+        return promptBuilder.toString();
+    }
+
+    private String interpretRelationshipWithPlayer() {
+        // Implement logic to interpret the relationshipWithPlayer numerical value
+        // For example:
+        if (character.getRelationshipWithPlayer() > 10) {
+            return "positive";
+        } else if (character.getRelationshipWithPlayer() < -10) {
+            return "negative";
+        } else {
+            return "neutral";
+        }
+    }
+
+
 }
