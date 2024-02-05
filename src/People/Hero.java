@@ -9,11 +9,10 @@ public class Hero extends Person {
     public Hero(String name,
                 String role,
                 String description,
-                boolean isSuspect,
                 String relationshipWithVictim,
-                boolean isUseful,
-                Location location){
-        super(name, role,description,isSuspect,relationshipWithVictim,isUseful,location);
+                Location location,
+                double age){
+        super(name, role,description,relationshipWithVictim,location,age);
         Knife knife= new Knife();
         this.currWeapon = knife;
         notebook = new Notebook();

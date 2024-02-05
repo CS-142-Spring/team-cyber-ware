@@ -1,4 +1,5 @@
 package People;
+import Inventory.Clue;
 import Location.*;
 import Weapons.*;
 import java.util.ArrayList;
@@ -10,31 +11,65 @@ public class Person {
     private String name;  // Holds the name of the person
     private String role;  // Role or occupation of the person
     private String description;  // A brief description of the person
-    private boolean isSuspect;  // Flag to indicate if the person is a suspect
+    private String suspectReason;
     private ArrayList<Dialogues> conversations;  // List to store conversations with the person
     private int relationshipWithPlayer;  // Numerical value representing the relationship with the player
     private String relationshipWithVictim; // Wife, children, colleagues;
-    private boolean isUseful;
+    private String usefulness;
     private Location currentLocation;
     private ArrayList<String> traits;
+    private ArrayList<Clue> clues;
     private double age;
     public Person(String name,
                   String role,
                   String description,
-                  boolean isSuspect,
+                  String suspectReason,
                   String relationshipWithVictim,
-                  boolean isUseful,
-                  Location location) {
+                  String usefulness,
+                  Location location,
+                  double age) {
         this.name = name;
         this.role = role;
+        this.age = age;
         this.description = description;
-        this.isSuspect = isSuspect;
+        this.suspectReason = suspectReason;
         this.conversations = new ArrayList<>();
         this.relationshipWithPlayer = 0;
         this.relationshipWithVictim = relationshipWithVictim;
-        this.isUseful = isUseful;
+        this.usefulness = usefulness;
         this.currentLocation = location;
         this.traits = new ArrayList<>();
+    }
+
+    // if there is no suspect reason and usefullness
+    public Person(String name,
+                  String role,
+                  String description,
+                  String relationshipWithVictim,
+                  Location location,
+                  double age) {
+        this.name = name;
+        this.role = role;
+        this.age = age;
+        this.description = description;
+        this.conversations = new ArrayList<>();
+        this.relationshipWithPlayer = 0;
+        this.relationshipWithVictim = relationshipWithVictim;
+        this.currentLocation = location;
+        this.traits = new ArrayList<>();
+    }
+
+    public double getAge() {
+        return this.age;
+    }
+
+    //Give clues to the character
+    public void setClues(Clue clue) {
+        this.clues.add(clue);
+    }
+
+    public ArrayList<Clue> getClues() {
+        return this.clues;
     }
 
     // Change the traits of a person
@@ -51,9 +86,22 @@ public class Person {
         return traits;
     }
 
-    public boolean isUseful() {
-        return this.isUseful;
+    public String getUsefulness() {
+        return this.usefulness;
     }
+
+    public boolean isUseful() {
+        return this.getUsefulness().isEmpty();
+    }
+
+    public String getSuspectReason() {
+        return this.suspectReason;
+    }
+
+    public boolean isSuspect() {
+        return this.getSuspectReason().isEmpty();
+    }
+
 
     public ArrayList<Dialogues> getConversations() {
         return this.conversations;
@@ -81,21 +129,8 @@ public class Person {
         return this.relationshipWithPlayer > 0;
     }
 
-    @Override
-    public String toString() {
-        return name + ", " + role + ": " + description;
-    }
-
-    public void setName(String newName) {
-        this.name = newName;
-    }
-
     public String getName() {
         return this.name;
-    }
-
-    public boolean isSuspect() {
-        return this.isSuspect;
     }
 
     public String getDescription() { return this.description; }
