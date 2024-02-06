@@ -44,7 +44,7 @@ public class Dialogues {
     private static void writeHistory(DialogueEntry history) {
         //This method will write the chats to the json file
         //we will use this json file to print chats to the console
-        try (FileWriter fw = new FileWriter("src/resources/ChatHistory.json", true)) {
+        try (FileWriter fw = new FileWriter("src/Resources/ChatHistory.json", true)) {
             ObjectMapper mapper = new ObjectMapper();
             mapper.writerWithDefaultPrettyPrinter().writeValue(fw, history);
             fw.write(System.lineSeparator());
@@ -66,11 +66,10 @@ public class Dialogues {
                 .append(". Currently, your suspect reason is").append(character.isSuspect() ? "none" : character.getSuspectReason())
                 .append(". Your relationship with the player is ").append(interpretRelationshipWithPlayer())
                 .append(", and with the victim, you are ").append(character.getRelationshipWithVictim())
-                .append(". Your usefulness is ").append(character.isUseful() ? character.getUsefulness() : "an uncooperative")
+                .append(". Your usefulness is ").append(character.getUsefulness())
                 .append(" character. You are currently at ").append(location.getName())
                 .append(". Your key traits include ").append(String.join(", ", character.getTraits()))
-                .append(". Respond in character to the player's questions and actions, maintaining the personality and knowledge consistent with your background and current emotions.")
-                .append(". Responses should be 2 sentence long.");
+                .append(". Respond in character to the player's questions and actions, maintaining the personality and knowledge consistent with your background and current emotions.");
 
         // Adding recent chat history
         promptBuilder.append(" Recent conversation history: ");

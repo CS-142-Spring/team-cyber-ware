@@ -1,9 +1,12 @@
 package People;
 import Inventory.Clue;
 import Location.*;
-import Weapons.*;
 import java.util.ArrayList;
+import java.util.List;
+
 import Interactions.Dialogues;
+
+
 /*
     After creating  "Clue" class, add ArrayList of clues
 */
@@ -12,14 +15,41 @@ public class Person {
     private String role;  // Role or occupation of the person
     private String description;  // A brief description of the person
     private String suspectReason;
-    private ArrayList<Dialogues> conversations;  // List to store conversations with the person
+    private List<Dialogues> conversations;  // List to store conversations with the person
     private int relationshipWithPlayer;  // Numerical value representing the relationship with the player
     private String relationshipWithVictim; // Wife, children, colleagues;
     private String usefulness;
     private Location currentLocation;
-    private ArrayList<String> traits;
-    private ArrayList<Clue> clues;
+    private List<String> traits;
+    private List<Clue> clues;
     private double age;
+
+    public Person() {}
+
+    public Person(String name,
+                  String role,
+                  String description,
+                  String suspectReason,
+                  List<Dialogues> conversations,
+                  String relationshipWithVictim,
+                  String usefulness,
+                  Location location,
+                  List<String> traits,
+                  List<Clue> clues,
+                  double age) {
+        this.name = name;
+        this.role = role;
+        this.age = age;
+        this.description = description;
+        this.suspectReason = suspectReason;
+        this.conversations = conversations;
+        this.relationshipWithPlayer = 0;
+        this.relationshipWithVictim = relationshipWithVictim;
+        this.usefulness = usefulness;
+        this.currentLocation = location;
+        this.traits = traits;
+        this.clues = clues;
+    }
     public Person(String name,
                   String role,
                   String description,
@@ -38,7 +68,6 @@ public class Person {
         this.relationshipWithVictim = relationshipWithVictim;
         this.usefulness = usefulness;
         this.currentLocation = location;
-        this.traits = new ArrayList<>();
     }
 
     // if there is no suspect reason and usefullness
@@ -56,33 +85,22 @@ public class Person {
         this.relationshipWithPlayer = 0;
         this.relationshipWithVictim = relationshipWithVictim;
         this.currentLocation = location;
-        this.traits = new ArrayList<>();
     }
 
     public double getAge() {
         return this.age;
     }
 
-    //Give clues to the character
-    public void setClues(Clue clue) {
-        this.clues.add(clue);
-    }
-
-    public ArrayList<Clue> getClues() {
+    public List<Clue> getClues() {
         return this.clues;
     }
 
     // Change the traits of a person
-    public void setTraits(ArrayList<String> traits) {
+    public void setTraits(List<String> traits) {
         this.traits = traits;
     }
 
-    // Add a trait to the list
-    public void setTraits(String trait) {
-        this.traits.add(trait);
-    }
-
-    public ArrayList<String> getTraits() {
+    public List<String> getTraits() {
         return traits;
     }
 
@@ -103,7 +121,7 @@ public class Person {
     }
 
 
-    public ArrayList<Dialogues> getConversations() {
+    public List<Dialogues> getConversations() {
         return this.conversations;
     }
 
