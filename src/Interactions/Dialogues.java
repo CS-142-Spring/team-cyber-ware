@@ -71,7 +71,7 @@ public class Dialogues {
                 .append(". Your key traits include ").append(String.join(", ", character.getTraits()))
                 .append(". Respond in character to the player's questions and actions, maintaining the personality and knowledge consistent with your background and current emotions.");
 
-        // Adding recent chat history
+                 // Adding recent chat history
         promptBuilder.append(" Recent conversation history: ");
         int historySize = dialogueHistory.size();
         int contextLimit = 4;

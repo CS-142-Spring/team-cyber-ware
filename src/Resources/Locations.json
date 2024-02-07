@@ -1,0 +1,84 @@
+[
+  {
+    "name": "Coach's Office",
+    "description": "A series of offices belonging to the coaching staff, filled with strategy boards, trophies, and personal mementos.",
+    "items": [
+      {"name": "Torn Playbook Page", "type": "useful", "description": "A piece of a playbook with a crucial play missing. Could hint at potential motives or suspects."},
+      {"name": "Old Coffee Cup", "type": "useless", "description": "An old coffee cup with the logo of a rival team, probably left by a visitor."},
+      {"name": "Personal Notes", "type": "useful", "description": "Personal notes that reveal the coach's concerns about professional relationships and potential motives."}
+    ],
+    "people": ["Linda Morris", "Evelyn Harrington", "Sarah Harrington"],
+    "accessibility": true
+  },
+  {
+    "name": "Locker Room",
+    "description": "The team's sanctuary, equipped with lockers, showers, and motivational posters, where players prepare for battle.",
+    "items": [
+      {"name": "Mismatched Cleat", "type": "useless", "description": "A single cleat, size too small for any team member."},
+      {"name": "Secret Note", "type": "useful", "description": "A cryptic note found in a locker, hinting at internal team conflicts and overheard conversations."},
+      {"name": "Overheard Conversation", "type": "useful", "description": "A recording of a conversation that hints at unusual activities or conflicts within the team."}
+    ],
+    "people": ["Jake Turner", "Jordan Ellis"],
+    "accessibility": true
+  },
+  {
+    "name": "Stadium",
+    "description": "The heart of Gridiron City, a massive structure with thousands of seats, where dreams are made and broken.",
+    "items": [
+      {"name": "Lost Earring", "type": "useless", "description": "An earring found under the bleachers, likely lost during a previous game."},
+      {"name": "Security Footage", "type": "useful", "description": "A USB drive containing security footage from the night of the disappearance, showing areas like the coach's bench, the stands, and the parking lot."}
+    ],
+    "people": ["Sarah Jensen", "Morgan Taylor"],
+    "accessibility": true
+  },
+  {
+    "name": "Team Meeting Room",
+    "description": "A focused space with a large strategy table and high-tech equipment for reviewing game footage and discussing tactics.",
+    "items": [
+      {"name": "Broken Projector", "type": "useless", "description": "An old projector, no longer in use and irrelevant to the case."},
+      {"name": "Strategic Memo", "type": "useful", "description": "A memo outlining the team's strategy for the championship game, with annotations hinting at the coach's state of mind or tensions within the team."}
+    ],
+    "people": [],
+    "accessibility": true
+  },
+  {
+    "name": "Equipment Room",
+    "description": "Packed with gear, uniforms, and maintenance tools, this room is essential for keeping the team ready for action.",
+    "items": [
+      {"name": "Worn-out Gloves", "type": "useless", "description": "A pair of gloves worn beyond recognition, belonging to a former player."},
+      {"name": "Tampered Lock", "type": "useful", "description": "A locker lock showing signs of tampering, suggesting unauthorized access. Might hide evidence related to the coach's disappearance."},
+      {"name": "Coach's Personal Belongings", "type": "useful", "description": "Personal belongings of the coach that shouldn't be there, potentially overlooked."}
+    ],
+    "people": [],
+    "accessibility": true
+  },
+  {
+    "name": "Training Facility",
+    "description": "A state-of-the-art facility featuring weights, cardio equipment, and practice fields to keep the team in peak condition.",
+    "items": [
+      {"name": "Expired Protein Shake", "type": "useless", "description": "An expired protein shake left behind in the fridge."},
+    ],
+    "people": ["Tommy Reed", "Chris Paterson"],
+    "accessibility": true
+  },
+  {
+    "name": "Security Office",
+    "description": "The hub for the stadium's security team, equipped with monitors, radios, and incident logs to ensure safety.",
+    "items": [
+      {"name": "Outdated Security Protocol", "type": "useless", "description": "An outdated set of security protocols, no longer in effect."},
+      {"name": "Visitor Log", "type": "useful", "description": "The log of all visitors on the day of the disappearance, with suspicious entries. Access to surveillance footage, visitor logs, and incident reports could be crucial."}
+    ],
+    "people": [],
+    "accessibility": true
+  },
+  {
+    "name": "Rival Team’s Facilities",
+    "description": "The mysterious and well-guarded complex of the city's rival team, rumored to be as high-tech and competitive as any.",
+    "items": [
+      {"name": "Rival Team Mascot Bobblehead", "type": "useless", "description": "A bobblehead of the rival team's mascot, purely decorative."},
+      {"name": "Intercepted Message", "type": "useful", "description": "A message intercepted from the rival team, hinting at espionage or a rivalry gone too far. Could uncover a clue left behind during a confrontation."}
+    ],
+    "people": ["Alex Rivera", "Rory the Rhino"],
+    "accessibility": false
+  }
+]
