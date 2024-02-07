@@ -1,28 +1,29 @@
 package Location;
 import Inventory.Clue;
 import People.Person;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Location {
-	String name;
-	String description;
-	List<Clue> items;
-	List<Person> people;
-	boolean accessibility;
+	private String name;
+	private String description;
+	private List<Clue> items;
+	private List<Person> people;
+	private boolean accessibility;
 
 	public Location() {}
 
 	public Location(String name) {
 		this.name = name;
-		this.description = "Unknown";
 	}
 
 	public Location(String name,
 					String description,
-					boolean accessibility,
-					ArrayList<Clue> items,
-					ArrayList<Person> people) {
+					List<Clue> items,
+					List<Person> people,
+					boolean accessibility) {
 		this.name = name;
 		this.description  = description;
 		this.accessibility = accessibility;
@@ -36,6 +37,10 @@ public class Location {
 
 	public List<Clue> getItems() {
 		return this.items;
+	}
+
+	public String getDescription() {
+		return this.description;
 	}
 
 	public List<Person> getPeople() {

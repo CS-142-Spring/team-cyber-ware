@@ -1,6 +1,7 @@
 package Inventory;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Clue {
     private String name;
@@ -10,8 +11,13 @@ public class Clue {
     private String timestamp; // When the clue was found or believed to have been created/left
     private String clueType; // The type of clue (e.g., physical, testimonial, circumstantial).
     private boolean isExamined;
-    private ArrayList<Clue> connectedClues; // Array of Clue objects that are connected to this clue
+    private List<Clue> connectedClues; // Array of Clue objects that are connected to this clue
     private int evidenceStrength; // from 0 to 10
+
+    public Clue() {}
+    public Clue(String name) {
+        this.name = name;
+    }
 
     public Clue(String name, String description, String location, String relevance,
                 String timestamp, String clueType, int evidenceStrength) {
@@ -48,11 +54,11 @@ public class Clue {
         return this.clueType;
     }
 
-    public boolean isExamined() {
+    public boolean getIsExamined() {
         return this.isExamined;
     }
 
-    public ArrayList<Clue> getConnectedClues() {
+    public List<Clue> getConnectedClues() {
         return this.connectedClues;
     }
 

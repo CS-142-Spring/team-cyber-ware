@@ -6,10 +6,6 @@ import java.util.List;
 
 import Interactions.Dialogues;
 
-
-/*
-    After creating  "Clue" class, add ArrayList of clues
-*/
 public class Person {
     private String name;  // Holds the name of the person
     private String role;  // Role or occupation of the person
@@ -25,6 +21,10 @@ public class Person {
     private double age;
 
     public Person() {}
+
+    public Person(String name) {
+        this.name = name;
+    }
 
     public Person(String name,
                   String role,
@@ -49,25 +49,6 @@ public class Person {
         this.currentLocation = location;
         this.traits = traits;
         this.clues = clues;
-    }
-    public Person(String name,
-                  String role,
-                  String description,
-                  String suspectReason,
-                  String relationshipWithVictim,
-                  String usefulness,
-                  Location location,
-                  double age) {
-        this.name = name;
-        this.role = role;
-        this.age = age;
-        this.description = description;
-        this.suspectReason = suspectReason;
-        this.conversations = new ArrayList<>();
-        this.relationshipWithPlayer = 0;
-        this.relationshipWithVictim = relationshipWithVictim;
-        this.usefulness = usefulness;
-        this.currentLocation = location;
     }
 
     // if there is no suspect reason and usefullness
