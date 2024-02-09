@@ -7,13 +7,26 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class NewGame extends JPanel {
+public class Introduction extends JPanel {
 
-    private JPanel Story;
-    private JTextArea openingScene;
-    private JButton continueButton;
+    private JPanel IntroPanel;
+    private JTextArea openingText;
+    private JButton continueBtn;
+    private JPanel Opening;
+    private JPanel textPanel;
+    private JPanel buttonPanel;
 
-    public NewGame(JFrame frame) {
+    public Introduction(JFrame frame) {
+        setOpeningScene(frame);
+        continueBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
+
+    private void setOpeningScene(JFrame frame) {
         //Extract opening scene from the resources folder
         String filePath = "C:\\Users\\Hp\\IdeaProjects\\team-cyber-ware\\src\\Resources\\OpeningScene";
         StringBuilder contentBuilder = new StringBuilder();
@@ -27,28 +40,21 @@ public class NewGame extends JPanel {
             return;
         }
 
-
-
         // Add the content into text area
         String content = contentBuilder.toString();
-        openingScene.append(content);
-        openingScene.setEditable(false);
+        openingText.append(content);
+        openingText.setEditable(false);
 
 
         frame.getContentPane().removeAll();
-        frame.setContentPane(Story);
+        frame.setContentPane(Opening);
         frame.setTitle("Opening Scene");
         frame.revalidate();
         frame.repaint();
+
         setVisible(true);
 
 
-        continueButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                
-            }
-        });
-    }
 
+    }
 }

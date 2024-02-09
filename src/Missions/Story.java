@@ -1,65 +1,16 @@
 package Missions; // I would like to make it so story parts have a being typed out effect.
-import java.util.Scanner;
-public class Story { // Holds the 5 parts of the story that help clue the player into what's happening. 
-	
-	static MissionDetails mssn = new MissionDetails(); // Found in Missions class.
-	static PlayTest pt = new PlayTest();
-	static Scanner scanner = new Scanner(System.in);
-	
-	public static void introStory() { // pushes out the introduction of the game.
-		System.out.println("\nGridiron City. " + "A light rain taps rhythmically against the window of a gritty downtown office." 
-	+ "\n" + "Upon further inspection, this is the office of Detective Jack 'The Shadow' Malone. Malone," + "\n" + "is a seasoned investigator " 
-				+ "known for solving complex cases. Although, Malone doesn't actually work \nfor the GPD anymore, they refuse to fire him officially, "
-				+ "leaving his office intact, and he never "
-				+ "\nofficially quit. So he's a detective forever in limbo.");
-		System.out.println("\n" + "While sitting at his desk, surrounded by scattered files, and a flickering lamp. The phone" + "\n" + 
-				"on his desk, suddenly begins to ring." + "\n");
-							// Italicize Richard Miles from Gridiron Sports Commission.
-		System.out.println("Upon picking up the phone, Richard Miles speaks in a panic.\n");
-		System.out.println("Richard: Hello, is this Detective " + "Jack Malone?"
-				+ " This is Richard Miles from" + "\nGridiron Sports Commission. Listen, we need your help it's dire. " + "We've looked all over" + 
-				"\nand still can't find Coach Marlowe!");
-		System.out.println("\nJack remains silent for a moment.");
-		System.out.println("\nJack: You sure Marlowe isn't staying out of the publics eye to calm his nerves?");
-		System.out.println("\nRichard: I'm sure of it! He's 30 years in the making and is sure to go down as the greatest" + "\nCoach of all time "
-				+ "after this upcoming game!" + " For him to "
-				+ "have nerves now is silly.");
-		System.out.println("\nRichard: Now look, after talking with his wife Evelyn and Vice Coach Brown we found somethings\nbut it aint much. Evelyn "
-				+ "said that he never came home yesterday. " + "Which is odd according to \nEvelyn, she said he's a man of routine, never changes or deviates "
-				+ "for anything. Vice Coach Brown \nsaid he last saw him during the late-night meeting. " + "After the meeting, Coach Marlowe told Brown "
-				+ "\nhe was going to his office to grab something before heading home. That being the last time Brown \nsaw him.");
-		System.out.println("\nRichard: So what do you say Detective Malone? Will you help Marlowes family, his team, the \ncommission and the entire league by finding "
-				+ "him?");
-		System.out.println("\nJack: Let me think about it.");
-		System.out.println("\nThe phone *clicks*");
-				// The below text needs to be italicized.
-		System.out.println("Vincent 'Victory' Marlowe missing three days before the biggest game of the century. If that doesn't "
-				+ "\nseem off I don't what does. His team, " + "the GridIron Gladiators whose current record is 19-0. The talk "
-						+ "\nof the town is they're about to play against Trumbledale Titans, who are also 19-0 in their respective \n"
-						+ "divisions.");
-		System.out.println("\nLooks like I've just been handed a full plate, it's time to get to work.");
-		 		// The text above are Jacks thoughts, they need to be italicized to convey that it's his thoughts.
-		// Needs to be able to hit enter to continue
-		System.out.print("To continue enter Y: ");
-		String answer = scanner.nextLine();
-			if (answer.equalsIgnoreCase("y")) {
-				storyHelp();
-			} else {
-				System.out.println("That is an invalid input");
-				
-			}
-	}
-	
-	public static void storyHelp() {
-		System.out.println("\nHello! Before you begin on finding Coach Marlowe. How about learning how to navigate through the game.");
-		System.out.println("Your movement and interactions comprise of mostly keywords. Here they are:");
-		mssn.keyWordsHelp();
+public class Story { // Holds the 5 parts of the story that help clue the player into what's happening.
+	public void storyHelp() {
+		StringBuilder str = new StringBuilder();
+		str.append("Hello! Before you begin on finding Coach Marlowe. How about learning how to navigate through the game.")
+		.append("Your movement and interactions comprise of mostly keywords. Here they are:");
+
 	}
 	
 	public static void segmentStory() {
 	    System.out.println("\nDetective Malone takes another case. Using the limited information from Richard Miles, he"
 	            + " sets out to \n" + "investigate Coach Marlowe's disappearance. " + "Starting with Coach Marlowes office...");
-	    mssn.mission1();
+	    //mssn.mission1();
 //	    midStory();
 	}
 	

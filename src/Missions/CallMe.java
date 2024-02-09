@@ -8,7 +8,7 @@ public class CallMe {
 		Story stry = new Story();
 		
 		menu.main();
-		stry.introStory();
+		//stry.introStory();
 //		menu.newGame();
 //		mssn1.mission1(); // Calls the method from the missions class. Just for testing purposes. Move somewhere else later.
 	}
