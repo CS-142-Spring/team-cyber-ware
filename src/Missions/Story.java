@@ -1,4 +1,4 @@
-package mission; // I would like to make it so story parts have a being typed out effect.
+package Missions; // I would like to make it so story parts have a being typed out effect.
 import java.util.Scanner;
 public class Story { // Holds the 5 parts of the story that help clue the player into what's happening. 
 	

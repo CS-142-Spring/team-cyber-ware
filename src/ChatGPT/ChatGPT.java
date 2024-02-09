@@ -1,5 +1,8 @@
 package ChatGPT;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,11 +12,10 @@ import java.net.URL;
 
 public class ChatGPT {
 
-    public ChatGPT() {}
 
-    public String chatGPT(String message) {
+    public static String chatGPT(String message) {
         String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = ""; // API key goes here
+        String apiKey = "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"; // API key goes here
         String model = "gpt-4-turbo-preview"; // current model of chatgpt api
 
         try {
@@ -41,7 +43,7 @@ public class ChatGPT {
             in.close();
 
             // returns the extracted contents of the response.
-            return extractContentFromResponse(response.toString());
+            return extractContentFromResponse(String.valueOf(response));
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -50,9 +52,22 @@ public class ChatGPT {
 
     // This method extracts the response expected from chatgpt and returns it.
     private static String extractContentFromResponse(String response) {
-        int startMarker = response.indexOf("content") + 11; // Marker for where the content starts.
-        int endMarker = response.indexOf("\"", startMarker); // Marker for where the content ends.
-        return response.substring(startMarker, endMarker); // Returns the substring containing only the response.
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode jsonObj;
+        try {
+            jsonObj = objectMapper.readTree(response);
+            String str = String.valueOf(jsonObj.get("choices").get(0).get("message").get("content"));
+            // Remove leading and trailing quotes
+            String trimmedString = str.substring(1, str.length() - 1);
+
+            // Unescape internal quotes
+            String unescapedString = trimmedString.replace("\\\"", "\"");
+
+            return unescapedString; // Returns the substring containing only the response.
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

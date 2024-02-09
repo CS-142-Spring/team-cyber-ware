@@ -15,11 +15,13 @@ public class Dialogues {
     private Hero mainHero;
     private Person character;
     private ArrayList<DialogueEntry> dialogueHistory;
+
     public Dialogues(Hero mainHero, Person character, Location location) {
         this.mainHero = mainHero;
         this.character = character;
         this.location = location;
         mainHero.setCurrentLocation(location);
+        character.setCurrentLocation(location);
         this.dialogueHistory = new ArrayList<>();
     }
 
@@ -28,8 +30,7 @@ public class Dialogues {
         DialogueEntry userEntry = new DialogueEntry(mainHero.getName(), input);
         String prompt = generateChatGPTPrompt(input);
         updateDialogueHistory(userEntry);
-
-        String response = ChatGPT.chatGPT(prompt);
+        String response = String.valueOf(ChatGPT.chatGPT(prompt));
         DialogueEntry botEntry = new DialogueEntry(character.getName(), response);
         updateDialogueHistory(botEntry);
         return response;
@@ -63,18 +64,18 @@ public class Dialogues {
         // describing the hero in the prompt
         promptBuilder.append(" Act as ").append(character.getName()).append(", a ").append(character.getRole())
                 .append(" in a text adventure game. You are described as ").append(character.getDescription())
-                .append(". Currently, your suspect reason is").append(character.isSuspect() ? "none" : character.getSuspectReason())
+                .append(". Currently, your suspect reason is ").append(character.isSuspect() ? character.getSuspectReason() : "none")
                 .append(". Your relationship with the player is ").append(interpretRelationshipWithPlayer())
                 .append(", and with the victim, you are ").append(character.getRelationshipWithVictim())
                 .append(". Your usefulness is ").append(character.getUsefulness())
                 .append(" character. You are currently at ").append(location.getName())
                 .append(". Your key traits include ").append(String.join(", ", character.getTraits()))
-                .append(". Respond in character to the player's questions and actions, maintaining the personality and knowledge consistent with your background and current emotions.");
-
-                 // Adding recent chat history
+                .append(". Respond in character to the player's questions and actions and be emotional, maintaining the personality and knowledge consistent with your background and current emotions.")
+                .append(". Your response should be concise.");
+        // Adding recent chat history
         promptBuilder.append(" Recent conversation history: ");
         int historySize = dialogueHistory.size();
-        int contextLimit = 4;
+        int contextLimit = 2;
 
         for (int i = Math.max(0, historySize - contextLimit); i < historySize; i++) {
             DialogueEntry entry = dialogueHistory.get(i);
@@ -89,9 +90,9 @@ public class Dialogues {
     private String interpretRelationshipWithPlayer() {
         // Implement logic to interpret the relationshipWithPlayer numerical value
         // For example:
-        if (character.getRelationshipWithPlayer() > 10) {
+        if (character.getRelationshipWithPlayer() > 0) {
             return "positive";
-        } else if (character.getRelationshipWithPlayer() < -10) {
+        } else if (character.getRelationshipWithPlayer() < 0) {
             return "negative";
         } else {
             return "neutral";

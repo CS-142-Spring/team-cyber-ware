@@ -98,7 +98,7 @@ public class Person {
     }
 
     public boolean isSuspect() {
-        return this.getSuspectReason().isEmpty();
+        return this.getSuspectReason() != null;
     }
 
 

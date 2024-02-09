@@ -1,9 +1,7 @@
 package Location;
 import Inventory.Clue;
 import People.Person;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Location {

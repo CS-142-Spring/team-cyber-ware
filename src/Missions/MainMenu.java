@@ -1,4 +1,4 @@
-package mission;
+package Missions;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
