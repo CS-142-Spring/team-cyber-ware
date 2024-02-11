@@ -4,18 +4,14 @@
     "description": "A piece of a playbook with a crucial play missing. Found in the coach's office.",
     "location": "Coach's Offices",
     "relevance": "Directly related to the missing coach and potential motives.",
-    "timestamp": "2023-09-10T15:00:00Z",
     "clueType": "Physical",
-    "isExamined": false,
     "connectedClues": [
       {
         "name": "Secret Note",
         "description": "A cryptic note found in a locker, hinting at internal team conflicts.",
         "location": "Locker Room",
         "relevance": "Might explain the motive behind the coach's disappearance.",
-        "timestamp": "2023-09-09T17:30:00Z",
         "clueType": "Physical",
-        "isExamined": false,
         "connectedClues": [],
         "evidenceStrength": 5
       }
@@ -27,18 +23,14 @@
     "description": "A USB drive containing security footage from the night of the disappearance.",
     "location": "Stadium",
     "relevance": "Provides a visual account of the coach's last known movements.",
-    "timestamp": "2023-09-12T20:00:00Z",
     "clueType": "Testimonial",
-    "isExamined": false,
     "connectedClues": [
       {
         "name": "Visitor Log",
         "description": "The log of all visitors on the day of the disappearance, with suspicious entries.",
         "location": "Security Office",
         "relevance": "The log entries could corroborate the footage or reveal discrepancies in visitor accounts.",
-        "timestamp": "2023-09-12T22:00:00Z",
         "clueType": "Documentary",
-        "isExamined": false,
         "connectedClues": [],
         "evidenceStrength": 6
       }
@@ -50,9 +42,7 @@
     "description": "A message intercepted from the rival team, hinting at espionage.",
     "location": "Rival Team’s Facilities",
     "relevance": "Suggests a motive tied to competitive rivalry.",
-    "timestamp": "2023-09-11T13:00:00Z",
     "clueType": "Circumstantial",
-    "isExamined": false,
     "connectedClues": [],
     "evidenceStrength": 7
   },
@@ -61,9 +51,7 @@
     "description": "A cryptic note found in a locker, hinting at internal team conflicts.",
     "location": "Locker Room",
     "relevance": "Might explain the motive behind the coach's disappearance.",
-    "timestamp": "2023-09-09T17:30:00Z",
     "clueType": "Physical",
-    "isExamined": false,
     "connectedClues": [],
     "evidenceStrength": 5
   },
@@ -72,9 +60,7 @@
     "description": "The log of all visitors on the day of the disappearance, with suspicious entries.",
     "location": "Security Office",
     "relevance": "The log entries could corroborate the footage or reveal discrepancies in visitor accounts.",
-    "timestamp": "2023-09-12T22:00:00Z",
     "clueType": "Documentary",
-    "isExamined": false,
     "connectedClues": [],
     "evidenceStrength": 6
   },
@@ -84,9 +70,7 @@
     "description": "An expired protein shake left behind in the fridge at the Training Facility. Seems irrelevant at first glance.",
     "location": "Training Facility",
     "relevance": "Low - possibly indicates neglect or haste.",
-    "timestamp": "2023-09-08T09:00:00Z",
     "clueType": "Physical",
-    "isExamined": false,
     "connectedClues": [],
     "evidenceStrength": 1
   },
@@ -95,9 +79,7 @@
     "description": "A binder containing outdated security protocols found in the Security Office, no longer in use.",
     "location": "Security Office",
     "relevance": "Medium - may indicate lapses in security or outdated practices.",
-    "timestamp": "2023-08-15T11:00:00Z",
     "clueType": "Documentary",
-    "isExamined": false,
     "connectedClues": [],
     "evidenceStrength": 3
   },
@@ -106,9 +88,7 @@
     "description": "A bobblehead of the rival team's mascot found in the Coach's Offices. Seems purely decorative.",
     "location": "Coach's Offices",
     "relevance": "Low - likely a souvenir or gift with no direct link to the case.",
-    "timestamp": "2023-09-10T14:00:00Z",
     "clueType": "Physical",
-    "isExamined": false,
     "connectedClues": [],
     "evidenceStrength": 1
   },
@@ -117,18 +97,14 @@
     "description": "A digital message intercepted from the rival team, containing cryptic references to the coach.",
     "location": "Rival Team’s Facilities",
     "relevance": "High - suggests espionage or competitive sabotage.",
-    "timestamp": "2023-09-11T16:30:00Z",
     "clueType": "Digital",
-    "isExamined": false,
     "connectedClues": [
       {
         "name": "Secret Note",
         "description": "A note suggesting internal team conflicts, potentially linked to the intercepted message.",
         "location": "Locker Room",
         "relevance": "Medium - could provide context for the intercepted message.",
-        "timestamp": "2023-09-09T17:30:00Z",
         "clueType": "Physical",
-        "isExamined": false,
         "connectedClues": [],
         "evidenceStrength": 5
       }
@@ -140,9 +116,7 @@
     "description": "A collection of personal items belonging to the coach, found unexpectedly in the Equipment Room.",
     "location": "Equipment Room",
     "relevance": "High - may contain personal clues or evidence of unusual behavior.",
-    "timestamp": "2023-09-12T10:00:00Z",
     "clueType": "Physical",
-    "isExamined": false,
     "connectedClues": [],
     "evidenceStrength": 7
   },
@@ -151,9 +125,7 @@
     "description": "A lock on one of the lockers in the Equipment Room shows signs of tampering.",
     "location": "Equipment Room",
     "relevance": "High - indicates unauthorized access or an attempt to conceal something.",
-    "timestamp": "2023-09-12T08:00:00Z",
     "clueType": "Physical",
-    "isExamined": false,
     "connectedClues": [],
     "evidenceStrength": 7
   },
@@ -162,9 +134,7 @@
     "description": "A pair of gloves, worn beyond recognition, found in the back of the Equipment Room.",
     "location": "Equipment Room",
     "relevance": "Low - unlikely to be directly related to the case.",
-    "timestamp": "2023-09-07T13:00:00Z",
     "clueType": "Physical",
-    "isExamined": false,
     "connectedClues": [],
     "evidenceStrength": 2
   },
@@ -173,9 +143,7 @@
     "description": "A memo outlining the team's strategy for the championship game, found in the Team Meeting Room. Contains personal annotations by the coach.",
     "location": "Team Meeting Room",
     "relevance": "Medium - provides insights into the coach's thoughts and potential pressures.",
-    "timestamp": "2023-09-13T09:30:00Z",
     "clueType": "Documentary",
-    "isExamined": false,
     "connectedClues": [],
     "evidenceStrength": 6
   },
@@ -184,9 +152,7 @@
     "description": "An old projector in the Team Meeting Room, no longer functional and seemingly irrelevant.",
     "location": "Team Meeting Room",
     "relevance": "Low - probably not connected to the case.",
-    "timestamp": "2023-09-05T14:00:00Z",
     "clueType": "Physical",
-    "isExamined": false,
     "connectedClues": [],
     "evidenceStrength": 1
   },
@@ -195,9 +161,7 @@
     "description": "An earring found under the bleachers in the Stadium, likely lost during a previous event.",
     "location": "Stadium",
     "relevance": "Low - personal item with no clear connection to the case.",
-    "timestamp": "2023-09-10T19:00:00Z",
     "clueType": "Physical",
-    "isExamined": false,
     "connectedClues": [],
     "evidenceStrength": 1
   },
@@ -208,7 +172,6 @@
     "relevance": "High - may shed light on interpersonal conflicts affecting the team.",
     "timestamp": "2023-09-11T17:45:00Z",
     "clueType": "Testimonial",
-    "isExamined": false,
     "connectedClues": [
       {
         "name": "Secret Note",
@@ -217,7 +180,6 @@
         "relevance": "Medium - could provide context or corroborate the content of the conversation.",
         "timestamp": "2023-09-09T17:30:00Z",
         "clueType": "Physical",
-        "isExamined": false,
         "connectedClues": [],
         "evidenceStrength": 5
       }
@@ -229,9 +191,7 @@
     "description": "A single cleat, found in the Locker Room, that doesn't match any owned by current team members.",
     "location": "Locker Room",
     "relevance": "Medium - unusual item that may belong to a visitor or former player.",
-    "timestamp": "2023-09-12T12:30:00Z",
     "clueType": "Physical",
-    "isExamined": false,
     "connectedClues": [],
     "evidenceStrength": 4
   },
@@ -240,18 +200,14 @@
     "description": "An old coffee cup with the logo of a rival team, found in the Coach's Offices. Might have been left behind by a visitor.",
     "location": "Coach's Offices",
     "relevance": "Low - possibly a red herring, but could suggest a meeting with someone from the rival team.",
-    "timestamp": "2023-09-10T14:00:00Z",
     "clueType": "Physical",
-    "isExamined": false,
     "connectedClues": [
       {
         "name": "Intercepted Message",
         "description": "A message intercepted from the rival team, containing cryptic references to the coach.",
         "location": "Rival Team’s Facilities",
         "relevance": "High - suggests espionage or competitive sabotage.",
-        "timestamp": "2023-09-11T16:30:00Z",
         "clueType": "Digital",
-        "isExamined": false,
         "connectedClues": [],
         "evidenceStrength": 8
       }
@@ -265,16 +221,13 @@
     "relevance": "High - reveals the coach's state of mind and potential pressures.",
     "timestamp": "2023-09-13T10:00:00Z",
     "clueType": "Documentary",
-    "isExamined": false,
     "connectedClues": [
       {
         "name": "Strategic Memo",
         "description": "A memo outlining the team's strategy for the championship game, with personal annotations by the coach.",
         "location": "Team Meeting Room",
         "relevance": "Medium - provides insights into the coach's professional thoughts and potential pressures.",
-        "timestamp": "2023-09-13T09:30:00Z",
         "clueType": "Documentary",
-        "isExamined": false,
         "connectedClues": [],
         "evidenceStrength": 6
       }

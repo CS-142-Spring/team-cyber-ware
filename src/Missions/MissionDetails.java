@@ -58,28 +58,7 @@ class MissionDetails {
         this.directions = directions;
     }
 
-    public String getLocation() {
 
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public static void keyWordsHelp() {
-        System.out.println("\n1. Investigate" + "\n2. Search" + "\n3. Read" + "\n4. Move" + "\n5. Locations\n");
-        System.out.println("Search - Used for searching rooms, lockers, containers, etc. - used to discover items. This will also \n"
-                + "	 add items  to your inventory.");
-        System.out.println("Investigate - Used to investigate items that were found by using the search keyword.");
-        System.out.println("Read - Used for reading books, sticky notes, notes, etc.- used to find clues. This keyword also\n"
-                + "saves certain things you've learned to your notebook.");
-        System.out.println("Move - Used for switching rooms, you know where you can move based on the available directions at "
-                + "\n       the bottom of the screen.");
-        System.out.println("Locations - Used for moving to other known locations.");
-        System.out.println("\nThat's all for now, good luck Detective Malone");
-        continueMethod();
-    }
 
     public static void continueMethod() {
         System.out.print("Type enter to continue:");
@@ -92,55 +71,6 @@ class MissionDetails {
         }
     }
 
-    public static void keyWords() {
-        System.out.println("Investigate");
-        System.out.println("Search");
-        System.out.println("Read");
-        System.out.println("Move");
-        System.out.println("Locations");
-    }
-
-    public static void mission1() {
-        MissionDetails mission = new MissionDetails();
-        mission.setLocation("Jack Malones Office");
-        mission.setTitle("Mission: " + "Good things come to those who work!");
-        mission.setObjective("\nFollow up on the leads provided by the 'initial caller'.");
-        mission.setDirections("Straight"); // Meant to be at bottom of screen, displayed or titled some how.
-//        mission.setClues(new String[]{"Mysterious footprint", "Broken display case"});
-//        mission.setEvidence(new String[]{"Fingerprint analysis report", "Security camera footage", "Size 14 shoes"});
-        System.out.println("Location: " + mission.getLocation());
-        System.out.println("Mission Title: " + mission.getTitle());
-        System.out.println("Mission Objective: " + mission.getObjective());
-        System.out.println("Clues: " + String.join(", ", mission.getClues()));
-        System.out.println("Evidence: " + String.join(", ", mission.getEvidence()));
-        System.out.println("Directions: " + mission.getDirections());
-        System.out.println("Input an action: ");
-        String choice = scanner.nextLine();
-
-        if (choice == "Search") {
-
-        } else if (choice == "Read") {
-
-        } else if (choice == "Move") {
-
-        } else if (choice == "Locations") {
-
-        }
-    }
-
-    public static void mission2() {
-        MissionDetails mission = new MissionDetails();
-        mission.setTitle("Mission: " + "Good things come to those who work!");
-        mission.setObjective("Follow up on the leads provided by the 'initial caller'.");
-        mission.setDirections("Straight");
-        mission.setClues(new String[]{"Mysterious footprint", "Broken display case"});
-        mission.setEvidence(new String[]{"Fingerprint analysis report", "Security camera footage", "Size 14 shoes"});
-        System.out.println("Mission Title: " + mission.getTitle());
-        System.out.println("Mission Objective: " + mission.getObjective());
-        System.out.println("Clues: " + String.join(", ", mission.getClues()));
-        System.out.println("Evidence: " + String.join(", ", mission.getEvidence()));
-        System.out.println("Directions: " + mission.getDirections());
-    }
 
     public static void mission3() {
 

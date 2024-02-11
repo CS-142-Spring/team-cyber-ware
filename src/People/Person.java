@@ -1,10 +1,15 @@
 package People;
 import Inventory.Clue;
 import Location.*;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import Interactions.Dialogues;
+import Utility.JsonUtil;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 public class Person {
     private String name;  // Holds the name of the person
@@ -115,11 +120,6 @@ public class Person {
         this.conversations.add(conversation);
     }
 
-    public void updateRelationship(int value) {
-        // As the number gets bigger the better the relationship with player is
-        this.relationshipWithPlayer += value;
-    }
-
     public int getRelationshipWithPlayer() {
         return relationshipWithPlayer;
     }
@@ -136,7 +136,20 @@ public class Person {
 
     public String getCurrentLocation() { return this.currentLocation.getName(); }
 
-    public void setCurrentLocation(Location location) {
+    public void setCurrentLocation(Location location) throws IOException {
+
+        // Read the existing people into a list
+        List<Person> people = JsonUtil.getAllPeople();
+
+        // Modify the location of the person
+        for (Person person : people) {
+            if (person.getName().equals(this.name)) { // the condition to find the person
+                person.setCurrentLocation(location); // Update with the new location
+                break; // Exit the loop once the person is found and updated
+            }
+        }
+
+        JsonUtil.update(people);
         this.currentLocation = location;
         this.currentLocation.setAccessibility(true);
     }

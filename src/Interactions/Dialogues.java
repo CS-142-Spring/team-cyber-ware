@@ -16,7 +16,7 @@ public class Dialogues {
     private Person character;
     private ArrayList<DialogueEntry> dialogueHistory;
 
-    public Dialogues(Hero mainHero, Person character, Location location) {
+    public Dialogues(Hero mainHero, Person character, Location location) throws IOException {
         this.mainHero = mainHero;
         this.character = character;
         this.location = location;
