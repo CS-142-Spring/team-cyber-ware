@@ -25,7 +25,7 @@ public class Menu {
         }
 
         // Create a custom panel with a background image
-        JPanel menuPanel = new JPanel(new GridBagLayout()) {
+        JPanel menuPanel =  new JPanel(new GridBagLayout()) {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);

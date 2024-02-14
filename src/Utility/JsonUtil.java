@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class JsonUtil {
-
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     private static <T> T parseJsonFile(String filePath, TypeReference<T> typeReference) throws IOException {
@@ -43,7 +42,6 @@ public class JsonUtil {
     public static void update(List<Person> people) {
         try {
             File jsonFile = new File("src\\Resources\\Characters.json"); // Update with the path to your JSON file
-            ObjectMapper objectMapper = new ObjectMapper();
 
             // Write the updated list back to the file
             objectMapper.writeValue(jsonFile, people);

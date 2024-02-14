@@ -13,9 +13,9 @@ public class Hero extends Person {
                 String role,
                 String description,
                 String relationshipWithVictim,
-                Location location,
+                String currentLocation,
                 double age) {
-        super(name, role, description, relationshipWithVictim, location, age);
+        super(name, role, description, relationshipWithVictim, currentLocation, age);
         Knife knife= new Knife();
         this.currWeapon = knife;
         notebook = new Notebook();

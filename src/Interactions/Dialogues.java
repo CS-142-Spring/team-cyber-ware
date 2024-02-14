@@ -11,17 +11,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Dialogues {
-    private Location location;
+    private String location;
     private Hero mainHero;
     private Person character;
     private ArrayList<DialogueEntry> dialogueHistory;
 
-    public Dialogues(Hero mainHero, Person character, Location location) throws IOException {
+    public Dialogues(Hero mainHero, Person character, String location) throws IOException {
         this.mainHero = mainHero;
         this.character = character;
         this.location = location;
-        mainHero.setCurrentLocation(location);
-        character.setCurrentLocation(location);
+
         this.dialogueHistory = new ArrayList<>();
     }
 
@@ -68,7 +67,7 @@ public class Dialogues {
                 .append(". Your relationship with the player is ").append(interpretRelationshipWithPlayer())
                 .append(", and with the victim, you are ").append(character.getRelationshipWithVictim())
                 .append(". Your usefulness is ").append(character.getUsefulness())
-                .append(" character. You are currently at ").append(location.getName())
+                .append(" character. You are currently at ").append(location)
                 .append(". Your key traits include ").append(String.join(", ", character.getTraits()))
                 .append(". Respond in character to the player's questions and actions and be emotional, maintaining the personality and knowledge consistent with your background and current emotions.")
                 .append(". Your response should be concise.");

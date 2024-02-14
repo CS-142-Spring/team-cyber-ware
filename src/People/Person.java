@@ -1,6 +1,5 @@
 package People;
 import Inventory.Clue;
-import Location.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,8 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Interactions.Dialogues;
-import Utility.JsonUtil;
-import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 
 public class Person {
     private String name;  // Holds the name of the person
@@ -20,7 +20,7 @@ public class Person {
     private int relationshipWithPlayer;  // Numerical value representing the relationship with the player
     private String relationshipWithVictim; // Wife, children, colleagues;
     private String usefulness;
-    private Location currentLocation;
+    private String currentLocation;
     private List<String> traits;
     private List<Clue> clues;
     private double age;
@@ -38,7 +38,7 @@ public class Person {
                   List<Dialogues> conversations,
                   String relationshipWithVictim,
                   String usefulness,
-                  Location location,
+                  String location,
                   List<String> traits,
                   List<Clue> clues,
                   double age) {
@@ -61,7 +61,7 @@ public class Person {
                   String role,
                   String description,
                   String relationshipWithVictim,
-                  Location location,
+                  String location,
                   double age) {
         this.name = name;
         this.role = role;
@@ -134,26 +134,21 @@ public class Person {
 
     public String getDescription() { return this.description; }
 
-    public String getCurrentLocation() { return this.currentLocation.getName(); }
+    public String getCurrentLocation() { return this.currentLocation; }
 
-    public void setCurrentLocation(Location location) throws IOException {
+    public void setCurrentLocation(String newLocation) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
 
-        // Read the existing people into a list
-        List<Person> people = JsonUtil.getAllPeople();
+        // Assuming 'MainHero.json' path is known
+        File heroFile = new File("src\\Resources\\MainHero.json");
+        ObjectNode heroNode = (ObjectNode) objectMapper.readTree(heroFile);
 
-        // Modify the location of the person
-        for (Person person : people) {
-            if (person.getName().equals(this.name)) { // the condition to find the person
-                person.setCurrentLocation(location); // Update with the new location
-                break; // Exit the loop once the person is found and updated
-            }
-        }
-
-        JsonUtil.update(people);
-        this.currentLocation = location;
-        this.currentLocation.setAccessibility(true);
+        // Update the currentLocation field
+        heroNode.put("currentLocation", newLocation);
+        this.currentLocation = newLocation;
+        // Write the updated JSON back to the file
+        objectMapper.writeValue(heroFile, heroNode);
     }
-
     public String getRole() {
         return this.role;
     }
