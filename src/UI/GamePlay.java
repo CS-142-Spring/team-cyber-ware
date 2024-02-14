@@ -67,7 +67,7 @@ public class GamePlay extends JPanel {
                         moveIndex--;
                         Engine.move(moveIndex);
                     } else {
-                        JOptionPane.showMessageDialog(GamePlay.this, "There is no room to go forward", "Warning", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(GamePlay.this, "There is no room to go back", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
 
                 } catch (IOException ex) {
@@ -76,6 +76,4 @@ public class GamePlay extends JPanel {
             }
         });
     }
-
-    // Additional methods to handle button actions, game logic, etc.
 }
