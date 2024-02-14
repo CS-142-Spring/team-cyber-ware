@@ -8,57 +8,74 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Introduction extends JPanel {
-
-    private JPanel IntroPanel;
+    private CardLayout cardLayout;
+    private JPanel cards;
     private JTextArea openingText;
-    private JButton openContinueBtn;
-    private JPanel Opening;
+    private JPanel openingPanel;
     private JTextArea keyWordsText;
-    private JButton keyContinueButton;
+    private JButton continueButton;
     private JPanel keyWordsPanel;
+    private ViewSwitcher viewSwitcher;
 
-    public Introduction(JFrame frame) {
-        CardLayout cardLayout = (CardLayout) IntroPanel.getLayout();
+    public Introduction(ViewSwitcher viewSwitcher) {
+        // Set up the CardLayout
+        cardLayout = new CardLayout();
+        cards = new JPanel(cardLayout);
 
-        setOpeningScene(frame);
-        cardLayout.show(IntroPanel, "Card1");
-        openContinueBtn.addActionListener(new ActionListener() {
-            @Override
+        // Create the opening panel
+        openingPanel = new JPanel(new BorderLayout());
+        openingText = new JTextArea(getOpeningScene());
+        openingText.setWrapStyleWord(true);
+        openingText.setLineWrap(true);
+        openingText.setEditable(false);
+        openingPanel.add(new JScrollPane(openingText), BorderLayout.CENTER);
+
+        continueButton = new JButton("Continue");
+        continueButton.setPreferredSize(new Dimension(100, 40));
+        continueButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                setKeyWordsHelp(cardLayout);
+                cardLayout.show(cards, "KeyWordsPanel");
             }
         });
+        openingPanel.add(continueButton, BorderLayout.SOUTH);
 
+        // Create the keywords panel
+        keyWordsPanel = new JPanel(new BorderLayout());
+        keyWordsText = new JTextArea(getKeyWordsHelp());
+        keyWordsText.setWrapStyleWord(true);
+        keyWordsText.setLineWrap(true);
+        keyWordsText.setEditable(false);
+        keyWordsPanel.add(new JScrollPane(keyWordsText), BorderLayout.CENTER);
+        JButton keyContinueButton = new JButton("Start Game");
+        keyContinueButton.setPreferredSize(new Dimension(150, 40));  // Set the preferred size to 150x40 pixels.
         keyContinueButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
-                new GamePlay(frame);
+                viewSwitcher.switchView("GAMEPLAY");
             }
         });
+        keyWordsPanel.add(keyContinueButton, BorderLayout.SOUTH);
+
+        // Add the panels to the CardLayout
+        cards.add(openingPanel, "OpeningPanel");
+        cards.add(keyWordsPanel, "KeyWordsPanel");
+
+        // Initially show the opening panel
+        cardLayout.show(cards, "OpeningPanel");
+
+        // Add the cards to the Introduction panel
+        this.setLayout(new BorderLayout());
+        this.add(cards, BorderLayout.CENTER);
     }
 
-    private void setOpeningScene(JFrame frame) {
-        //Extract opening scene from the resources folder
+    private static String getOpeningScene() {
         String filePath = "C:\\Users\\Hp\\IdeaProjects\\team-cyber-ware\\src\\Resources\\OpeningScene";
         String content = FileIO.extractContent(filePath);
-
-        openingText.setText(content);
-        openingText.setEditable(false);
-
-        frame.getContentPane().removeAll();
-        frame.setContentPane(IntroPanel);
-        frame.setTitle("Opening Scene");
-        frame.revalidate();
-        frame.repaint();
-
+        return content;
     }
 
-    private void setKeyWordsHelp(CardLayout cardLayout) {
+    private static String getKeyWordsHelp() {
         String filePath = "C:\\Users\\Hp\\IdeaProjects\\team-cyber-ware\\src\\Resources\\KeyWordsHelp";
         String content = FileIO.extractContent(filePath);
-
-        keyWordsText.setText(content);
-        keyWordsText.setEditable(false);
-        cardLayout.show(IntroPanel, "Card2");
+        return content;
     }
 }

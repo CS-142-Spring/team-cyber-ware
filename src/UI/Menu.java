@@ -1,85 +1,50 @@
 package UI;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import java.io.File;
+import java.io.IOException;
 
-public class Menu {
+public class Menu extends JPanel {
     private Image backgroundImage;
+    private ViewSwitcher viewSwitcher;
 
-    public Menu() {
-        JFrame frame = new JFrame("Main Menu");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new BorderLayout());
-
-        // Load the background image
+    public Menu(ViewSwitcher viewSwitcher) {
+        this.viewSwitcher = viewSwitcher;
+        setLayout(new GridBagLayout());
         try {
-            backgroundImage = ImageIO.read(new File("src\\Resources\\background.jpg"));
+            backgroundImage = ImageIO.read(new File("src/Resources/background.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
-            // Handle the error here - perhaps set a default background or exit
         }
 
-        // Create a custom panel with a background image
-        JPanel menuPanel =  new JPanel(new GridBagLayout()) {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                if (backgroundImage != null) {
-                    g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
-                }
-            }
-        };
-
-        // Customize the buttons
         JButton newGameBtn = createStyledButton("New Game");
         JButton resumeBtn = createStyledButton("Resume");
         JButton exitBtn = createStyledButton("Exit");
 
-        // Setup the constraints for the buttons
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         gbc.fill = GridBagConstraints.NONE;
         gbc.insets = new Insets(10, 10, 10, 10);
 
-        // Add buttons to the panel
-        menuPanel.add(newGameBtn, gbc);
-        menuPanel.add(resumeBtn, gbc);
-        menuPanel.add(exitBtn, gbc);
+        add(newGameBtn, gbc);
+        add(resumeBtn, gbc);
+        add(exitBtn, gbc);
 
-        // Add the panel to the frame
-        frame.add(menuPanel, BorderLayout.CENTER);
-        frame.setSize(1000, 2000);
-        frame.setLocationRelativeTo(null); // Center the window
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setUndecorated(true);
-        frame.setVisible(true);
-        // Add action listeners to the buttons
-        newGameBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Action for new game
-                new Introduction(frame);
-            }
-        });
+        // Example of how to handle button action in the context of CardLayout
+        newGameBtn.addActionListener(e -> this.viewSwitcher.switchView("INTRODUCTION"));
+    }
 
-        resumeBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Action for resume game
-            }
-        });
-
-        exitBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0); // Exit the application
-            }
-        });
+    // Override paintComponent to draw the background image
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (backgroundImage != null) {
+            g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+        }
     }
 
     private JButton createStyledButton(String text) {
@@ -107,9 +72,6 @@ public class Menu {
 
         return button;
     }
-
-
-    public static void main(String[] args) {
-        new Menu();
-    }
 }
+
+

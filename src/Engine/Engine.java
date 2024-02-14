@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Engine {
 
-    public static void move(int index, JFrame frame) throws IOException {
+    public static void move(int index) throws IOException {
         Hero hero = JsonUtil.getMainHero().get(0);
         List<Location> locations = JsonUtil.getAllLocations();
         if (index < locations.size() - 1 && index >= 0) {

@@ -1,39 +1,56 @@
 package UI;
 
 import Engine.Engine;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class GamePlay extends JPanel {
-    private JPanel MainPanel;
-    private JPanel controlsPanel;
-    private JButton forwardBtn;
-    private JButton investigateBtn;
-    private JButton searchBtn;
-    private JPanel textPanel;
-    private JPanel buttonPanel;
-    private JTextArea text;
-    private JButton backBtn;
+    private JTextArea textArea;
+    private JButton searchButton, forwardButton, backButton, investigateButton;
+    private JPanel buttonPanel, textPanel;
     private int moveIndex = 0;
-    public GamePlay(JFrame frame) {
-        frame.getContentPane().removeAll();
-        frame.setContentPane(MainPanel);
-        frame.setTitle("Game");
-        frame.revalidate();
-        frame.repaint();
-        text.setEditable(false);
+    public GamePlay() {
+        setLayout(new BorderLayout());
 
-        forwardBtn.addActionListener(new ActionListener() {
+        // Create text area
+        textArea = new JTextArea();
+        textArea.setEditable(false);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        textPanel = new JPanel(new BorderLayout());
+        textPanel.add(scrollPane, BorderLayout.CENTER);
+        add(textPanel, BorderLayout.CENTER);
+
+        // Create buttons
+        searchButton = new JButton("Search");
+        forwardButton = new JButton("Forward");
+        backButton = new JButton("Back");
+        investigateButton = new JButton("Investigate");
+
+        // Add buttons to a panel
+        buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.add(searchButton);
+        buttonPanel.add(forwardButton);
+        buttonPanel.add(backButton);
+        buttonPanel.add(investigateButton);
+
+        // Add button panel to the main panel
+        add(buttonPanel, BorderLayout.SOUTH);
+
+        forwardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (moveIndex < 8) {
                         moveIndex++;
-                        Engine.move(moveIndex, frame);
+                        Engine.move(moveIndex);
                     } else {
-                        JOptionPane.showMessageDialog(frame, "There is no room to go forward", "Warning", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(GamePlay.this, "There is no room to go forward", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
 
                 } catch (IOException ex) {
@@ -42,16 +59,15 @@ public class GamePlay extends JPanel {
             }
         });
 
-
-        backBtn.addActionListener(new ActionListener() {
+        backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (moveIndex > 0) {
                         moveIndex--;
-                        Engine.move(moveIndex, frame);
+                        Engine.move(moveIndex);
                     } else {
-                        JOptionPane.showMessageDialog(frame, "There is no room to go back", "Warning", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(GamePlay.this, "There is no room to go forward", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
 
                 } catch (IOException ex) {
@@ -61,5 +77,5 @@ public class GamePlay extends JPanel {
         });
     }
 
-
+    // Additional methods to handle button actions, game logic, etc.
 }
