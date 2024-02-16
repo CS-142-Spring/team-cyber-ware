@@ -29,14 +29,14 @@ public class GameFrame extends JFrame implements ViewSwitcher {
         setSize(800, 600);
         setVisible(true);
     }
-    @Override
+
     public void switchView(String viewName) {
         cardLayout.show(mainPanel, viewName);
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
-            @Override
+
             public void run() {
                 new GameFrame();
             }
