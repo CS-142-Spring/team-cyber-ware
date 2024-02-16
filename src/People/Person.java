@@ -157,5 +157,10 @@ public class Person {
         return relationshipWithVictim;
     }
 
+    @Override
+    public String toString() {
+        return "Person Name: " + this.name + ", Role: " + this.role; // Assuming name and role fields
+    }
+
 }
 

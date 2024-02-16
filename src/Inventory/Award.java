@@ -7,4 +7,8 @@ public class Award{
         this.name = name;
         this.description = desc;
     }
+    @Override
+    public String toString() {
+        return "Award Name: " + this.name + ", Description: " + this.description;
+    }
 }

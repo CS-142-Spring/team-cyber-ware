@@ -10,8 +10,6 @@ public class Story { // Holds the 5 parts of the story that help clue the player
 	public static void segmentStory() {
 	    System.out.println("\nDetective Malone takes another case. Using the limited information from Richard Miles, he"
 	            + " sets out to \n" + "investigate Coach Marlowe's disappearance. " + "Starting with Coach Marlowes office...");
-	    //mssn.mission1();
-//	    midStory();
 	}
 	
 	public static void midStory() {

@@ -75,6 +75,11 @@ public class Clue {
         // Logic to connect this clue with another clue
         this.connectedClues.add(anotherClue);
     }
+    @Override
+    public String toString() {
+        return "Clue Name: " + this.name + ", Description: " + this.description; // Assuming name and description fields
+    }
+
 }
 
 

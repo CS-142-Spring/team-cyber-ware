@@ -170,7 +170,6 @@
     "description": "A digital recording of a conversation overheard in the Locker Room, hinting at a disagreement between the coach and a key player.",
     "location": "Locker Room",
     "relevance": "High - may shed light on interpersonal conflicts affecting the team.",
-    "timestamp": "2023-09-11T17:45:00Z",
     "clueType": "Testimonial",
     "connectedClues": [
       {
@@ -178,7 +177,6 @@
         "description": "A cryptic note found in a locker, potentially related to the overheard conversation.",
         "location": "Locker Room",
         "relevance": "Medium - could provide context or corroborate the content of the conversation.",
-        "timestamp": "2023-09-09T17:30:00Z",
         "clueType": "Physical",
         "connectedClues": [],
         "evidenceStrength": 5

@@ -2,7 +2,6 @@ package UI;
 import javax.swing.*;
 import java.awt.*;
 
-
 public class GameFrame extends JFrame implements ViewSwitcher {
     private CardLayout cardLayout = new CardLayout();
     private JPanel mainPanel = new JPanel(cardLayout);
@@ -21,13 +20,12 @@ public class GameFrame extends JFrame implements ViewSwitcher {
         mainPanel.add(introductionPanel, "INTRODUCTION");
         mainPanel.add(gamePlayPanel, "GAMEPLAY");
 
-        // Example button in Menu to switch to Introduction
-
         // Add mainPanel to JFrame
         add(mainPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 600);
+        setSize(1000, 2000);
         setVisible(true);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     @Override
     public void switchView(String viewName) {

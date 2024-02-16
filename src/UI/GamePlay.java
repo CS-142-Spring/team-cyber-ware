@@ -10,8 +10,8 @@ import java.io.IOException;
 
 public class GamePlay extends JPanel {
     private JTextArea textArea;
-    private JButton searchButton, forwardButton, backButton, investigateButton;
-    private JPanel buttonPanel, textPanel;
+    private JButton searchButton, forwardButton, backButton, investigateButton, inventoryButton;
+    private JPanel buttonPanel, textPanel, inventoryPanel;
     private int moveIndex = 0;
     public GamePlay() {
         setLayout(new BorderLayout());
@@ -31,6 +31,10 @@ public class GamePlay extends JPanel {
         forwardButton = new JButton("Forward");
         backButton = new JButton("Back");
         investigateButton = new JButton("Investigate");
+        inventoryButton = new JButton("Inventory");
+
+        inventoryPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        inventoryPanel.add(inventoryButton);
 
         // Add buttons to a panel
         buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -41,7 +45,7 @@ public class GamePlay extends JPanel {
 
         // Add button panel to the main panel
         add(buttonPanel, BorderLayout.SOUTH);
-
+        add(inventoryPanel, BorderLayout.NORTH);
         forwardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,6 +77,13 @@ public class GamePlay extends JPanel {
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+        });
+
+        inventoryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }

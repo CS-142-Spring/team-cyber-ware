@@ -23,4 +23,17 @@ public class Notebook {
     public void addPerson(Person person){
         people.add(person);
     }
+
+    public ArrayList<Clue> getClues() {
+        return this.clues;
+    }
+
+
+    public ArrayList<Award> getAwards() {
+        return this.awards;
+    }
+
+    public ArrayList<Person> getPeople() {
+        return this.people;
+    }
 }
