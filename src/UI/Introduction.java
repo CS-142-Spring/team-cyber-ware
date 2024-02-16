@@ -68,13 +68,13 @@ public class Introduction extends JPanel {
     }
 
     private static String getOpeningScene() {
-        String filePath = "C:\\Users\\Hp\\IdeaProjects\\team-cyber-ware\\src\\Resources\\OpeningScene";
+        String filePath = "src\\Resources\\OpeningScene";
         String content = FileIO.extractContent(filePath);
         return content;
     }
 
     private static String getKeyWordsHelp() {
-        String filePath = "C:\\Users\\Hp\\IdeaProjects\\team-cyber-ware\\src\\Resources\\KeyWordsHelp";
+        String filePath = "src\\Resources\\KeyWordsHelp";
         String content = FileIO.extractContent(filePath);
         return content;
     }

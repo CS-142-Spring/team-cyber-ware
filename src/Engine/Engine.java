@@ -1,8 +1,7 @@
 package Engine;
 
 import Location.Location;
-import People.Hero;
-import People.Person;
+import People.*;
 import Utility.JsonUtil;
 
 import javax.swing.*;
@@ -19,4 +18,10 @@ public class Engine {
             System.out.println(hero.getCurrentLocation());
         }
     }
+        public static String currLocation() throws IOException {
+            Hero hero = JsonUtil.getMainHero().get(0);
+            return (hero.getCurrentLocation());
+
+    }
 }
+
