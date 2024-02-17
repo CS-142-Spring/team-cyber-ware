@@ -1,5 +1,6 @@
 package UI;
 
+import Inventory.Notebook;
 import Utility.FileIO;
 
 import javax.swing.*;
@@ -35,6 +36,7 @@ public class Introduction extends JPanel {
         continueButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cards, "KeyWordsPanel");
+                Notebook notebook = new Notebook();
             }
         });
         openingPanel.add(continueButton, BorderLayout.SOUTH);

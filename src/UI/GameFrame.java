@@ -10,7 +10,6 @@ public class GameFrame extends JFrame implements ViewSwitcher {
     private GamePlay gamePlayPanel;
 
     public GameFrame() {
-        // Initialize your panels here
         menuPanel = new Menu(this);
         introductionPanel = new Introduction(this);
         gamePlayPanel = new GamePlay();
@@ -34,7 +33,6 @@ public class GameFrame extends JFrame implements ViewSwitcher {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
-
             public void run() {
                 new GameFrame();
             }

@@ -139,11 +139,9 @@ public class Person {
     public void setCurrentLocation(String newLocation) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        // Assuming 'MainHero.json' path is known
         File heroFile = new File("src\\Resources\\MainHero.json");
         ObjectNode heroNode = (ObjectNode) objectMapper.readTree(heroFile);
 
-        // Update the currentLocation field
         heroNode.put("currentLocation", newLocation);
         this.currentLocation = newLocation;
         // Write the updated JSON back to the file
@@ -159,7 +157,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person Name: " + this.name + ", Role: " + this.role; // Assuming name and role fields
+        return "Person Name: " + this.name + ", Role: " + this.role;
     }
 
 }

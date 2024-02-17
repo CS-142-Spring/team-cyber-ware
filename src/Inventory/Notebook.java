@@ -1,18 +1,35 @@
 package Inventory;
 import People.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 //keeps the record of awards,people and clues collected so far
 
 public class Notebook {
-    private ArrayList<Clue> clues;
-    private ArrayList<Award> awards;
-    private ArrayList<Person> people;
+    private List<Clue> clues;
+    private List<Award> awards;
+    private List<Person> people;
 
     public Notebook(){
         clues = new ArrayList<Clue>();
         awards = new ArrayList<Award>();
         people = new ArrayList<Person>();
+        createJson();
+    }
+
+    private void createJson() {
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            // Serialize this Notebook instance to JSON
+            mapper.writeValue(new File("src\\Resources\\Notebook.json"), this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public void addClue(Clue clue){
         clues.add(clue);
@@ -24,16 +41,15 @@ public class Notebook {
         people.add(person);
     }
 
-    public ArrayList<Clue> getClues() {
+    public List<Clue> getClues() {
         return this.clues;
     }
 
-
-    public ArrayList<Award> getAwards() {
+    public List<Award> getAwards() {
         return this.awards;
     }
 
-    public ArrayList<Person> getPeople() {
+    public List<Person> getPeople() {
         return this.people;
     }
 }

@@ -6,6 +6,7 @@ import Inventory.Award;
 import People.Person;
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class InventoryFrame extends JFrame {
     private Notebook notebook;
@@ -43,7 +44,7 @@ public class InventoryFrame extends JFrame {
         add(tabbedPane);
     }
 
-    private void populateTextArea(JTextArea textArea, ArrayList<?> items) {
+    private void populateTextArea(JTextArea textArea, List<?> items) {
         StringBuilder sb = new StringBuilder();
         for (Object item : items) {
             sb.append(item.toString()).append("\n");

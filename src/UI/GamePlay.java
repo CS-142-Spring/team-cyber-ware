@@ -1,19 +1,19 @@
 package UI;
 
 import Engine.Engine;
+import Inventory.Clue;
 import Utility.JsonUtil;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
+import Location.*;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.util.List;
+
+import static Engine.Engine.currLocation;
 
 public class GamePlay extends JPanel {
     private JTextArea textArea;
@@ -50,7 +50,6 @@ public class GamePlay extends JPanel {
         add(buttonPanel, BorderLayout.SOUTH);
 
         forwardButton.addActionListener(new ActionListener() {
-
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (moveIndex < 8) {
@@ -59,7 +58,6 @@ public class GamePlay extends JPanel {
                     } else {
                         JOptionPane.showMessageDialog(GamePlay.this, "There is no room to go forward", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
-
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -81,69 +79,37 @@ public class GamePlay extends JPanel {
                 }
             }
         });
-        investigateButton.addActionListener(new ActionListener() {
+        searchButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
-                    // Specify the path to your JSON file
-                    ObjectMapper objectMapper = new ObjectMapper();
-                    ArrayList<String> items = new ArrayList<>();
-                    File file = new File("src/Resources/Locations.json");
-                String Location = null;
+                List<Location> locations;
                 try {
-                    Location = Engine.currLocation();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-                JsonNode jsonNode = null;
-                try {
-                    jsonNode = objectMapper.readTree(file);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-                Iterator<JsonNode> locations = jsonNode.iterator();
-                JsonNode location =locations.next();
-                    while(locations.hasNext()){
-                        if (location.get("accessibility").asBoolean() && location.get("name").asText().equals(Location)) {
-                            System.out.println(location.get("name").asText());
+                    locations = JsonUtil.getAllLocations();
+                    List<Clue> items = new ArrayList<>();
+                    for (Location location : locations) {
+                        if (location.getName().equals(currLocation())) {
+                            items = location.getItems();
                             break;
                         }
-                        location = locations.next();
                     }
-                JsonNode itemsNode = location.get("items");
-                int count = 0;
-                for (JsonNode item : itemsNode) {
-                    count++;
-                    items.add(count+". "+ item.asText());
+
+                    int count = 1;
+                    textArea.append("You discovered: \n");
+                    for(Clue clue : items){
+                        textArea.append("   " + count + ". " + clue.getName() + "\n");
+                        count++;
+                    }
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
                 }
-                System.out.println(items);
-                StringBuilder yp = new StringBuilder();
-                for(String i:items){
-                    yp.append(i+"\n");
-                }
-                //Code for a new window
-                final String l = Location;
-                SwingUtilities.invokeLater(() -> {
-                    JDialog newDialog = new JDialog();
-                    newDialog.setTitle("Items in " + l);
-                    newDialog.setSize(300, 200);
-                    newDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                    newDialog.setModal(true);
-
-                    JTextArea textArea = new JTextArea();
-                    Font largerFont = new Font("Times New Roman", Font.PLAIN, 25);
-                    textArea.setFont(largerFont);
-                    textArea.setEditable(false);
-                    items.forEach(item -> textArea.append(item + "\n"));
-
-                    JScrollPane scrollPane = new JScrollPane(textArea);
-                    newDialog.getContentPane().add(scrollPane);
-
-                    newDialog.setVisible(true);
-
-
-                });
             }
-            });
+        });
+
+        investigateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
 
     }
 }

@@ -15,13 +15,11 @@ public class Engine {
         List<Location> locations = JsonUtil.getAllLocations();
         if (index < locations.size() - 1 && index >= 0) {
             hero.setCurrentLocation(locations.get(index).getName());
-            System.out.println(hero.getCurrentLocation());
         }
     }
-        public static String currLocation() throws IOException {
-            Hero hero = JsonUtil.getMainHero().get(0);
-            return (hero.getCurrentLocation());
-
+    public static String currLocation() throws IOException {
+        Hero hero = JsonUtil.getMainHero().get(0);
+        return (hero.getCurrentLocation());
     }
 }
 
