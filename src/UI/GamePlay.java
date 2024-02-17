@@ -17,7 +17,7 @@ import static Engine.Engine.currLocation;
 
 public class GamePlay extends JPanel {
     private JTextArea textArea;
-    private JButton searchButton, forwardButton, backButton, investigateButton;
+    private JButton searchButton, forwardButton, backButton, interactButton;
     private JPanel buttonPanel, textPanel;
     private int moveIndex = 0;
     public GamePlay() {
@@ -37,14 +37,14 @@ public class GamePlay extends JPanel {
         searchButton = new JButton("Search");
         forwardButton = new JButton("Forward");
         backButton = new JButton("Back");
-        investigateButton = new JButton("Investigate");
+        interactButton = new JButton("Interact");
 
         // Add buttons to a panel
         buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.add(searchButton);
         buttonPanel.add(forwardButton);
         buttonPanel.add(backButton);
-        buttonPanel.add(investigateButton);
+        buttonPanel.add(interactButton);
 
         // Add button panel to the main panel
         add(buttonPanel, BorderLayout.SOUTH);
@@ -104,7 +104,7 @@ public class GamePlay extends JPanel {
             }
         });
 
-        investigateButton.addActionListener(new ActionListener() {
+        interactButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
