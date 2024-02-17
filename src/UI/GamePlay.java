@@ -17,8 +17,8 @@ import static Engine.Engine.currLocation;
 
 public class GamePlay extends JPanel {
     private JTextArea textArea;
-    private JButton searchButton, forwardButton, backButton, interactButton;
-    private JPanel buttonPanel, textPanel;
+    private JButton searchButton, forwardButton, backButton, interactButton, inventoryButton;
+    private JPanel buttonPanel, textPanel, inventoryPanel;
     private int moveIndex = 0;
     public GamePlay() {
         setLayout(new BorderLayout());
@@ -38,23 +38,24 @@ public class GamePlay extends JPanel {
         forwardButton = new JButton("Forward");
         backButton = new JButton("Back");
         interactButton = new JButton("Interact");
-
+        inventoryButton = new JButton("Inventory");
         // Add buttons to a panel
         buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.add(searchButton);
         buttonPanel.add(forwardButton);
         buttonPanel.add(backButton);
         buttonPanel.add(interactButton);
-
+        inventoryPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        inventoryPanel.add(inventoryButton);
         // Add button panel to the main panel
         add(buttonPanel, BorderLayout.SOUTH);
-
+        add(inventoryPanel, BorderLayout.NORTH);
         forwardButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (moveIndex < 8) {
                         moveIndex++;
-                        Engine.move(moveIndex);
+                        Engine.move(moveIndex, textArea);
                     } else {
                         JOptionPane.showMessageDialog(GamePlay.this, "There is no room to go forward", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
@@ -69,7 +70,7 @@ public class GamePlay extends JPanel {
                 try {
                     if (moveIndex > 0) {
                         moveIndex--;
-                        Engine.move(moveIndex);
+                        Engine.move(moveIndex, textArea);
                     } else {
                         JOptionPane.showMessageDialog(GamePlay.this, "There is no room to go back", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
@@ -93,7 +94,7 @@ public class GamePlay extends JPanel {
                     }
 
                     int count = 1;
-                    textArea.append("You discovered: \n");
+                    textArea.append("\nYou discovered: \n");
                     for(Clue clue : items){
                         textArea.append("   " + count + ". " + clue.getName() + "\n");
                         count++;
