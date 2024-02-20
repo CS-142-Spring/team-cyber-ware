@@ -32,11 +32,12 @@ public class Introduction extends JPanel {
         openingPanel.add(new JScrollPane(openingText), BorderLayout.CENTER);
 
         continueButton = new JButton("Continue");
-        continueButton.setPreferredSize(new Dimension(100, 40));
+
+        // continue button's action listener
+        // when button is clicked change the card to panel with key words
         continueButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cards, "KeyWordsPanel");
-                Notebook notebook = new Notebook();
             }
         });
         openingPanel.add(continueButton, BorderLayout.SOUTH);
@@ -70,12 +71,14 @@ public class Introduction extends JPanel {
     }
 
     private static String getOpeningScene() {
+        // read the opening scene from the txt email
         String filePath = "src\\Resources\\OpeningScene";
         String content = FileIO.extractContent(filePath);
         return content;
     }
 
     private static String getKeyWordsHelp() {
+        // read the key words tutorial from the txt email
         String filePath = "src\\Resources\\KeyWordsHelp";
         String content = FileIO.extractContent(filePath);
         return content;

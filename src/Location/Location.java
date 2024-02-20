@@ -4,6 +4,8 @@ import People.Person;
 
 import java.util.List;
 
+
+// the class for location object
 public class Location {
 	private String name;
 	private String description;

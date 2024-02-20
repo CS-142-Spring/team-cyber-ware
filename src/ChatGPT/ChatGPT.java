@@ -11,8 +11,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ChatGPT {
-
-
     public static String chatGPT(String message) {
         String url = "https://api.openai.com/v1/chat/completions";
         String apiKey = ""; // API key goes here

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+// the dialogue class for interacting with npc
 public class Dialogues {
     private String location;
     private Hero mainHero;

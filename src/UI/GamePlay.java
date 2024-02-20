@@ -2,6 +2,7 @@ package UI;
 
 import Engine.Engine;
 import Inventory.Clue;
+import Inventory.Notebook;
 import Utility.JsonUtil;
 
 import Location.*;
@@ -39,6 +40,7 @@ public class GamePlay extends JPanel {
         backButton = new JButton("Back");
         interactButton = new JButton("Interact");
         inventoryButton = new JButton("Inventory");
+
         // Add buttons to a panel
         buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.add(searchButton);
@@ -47,9 +49,12 @@ public class GamePlay extends JPanel {
         buttonPanel.add(interactButton);
         inventoryPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         inventoryPanel.add(inventoryButton);
+
         // Add button panel to the main panel
         add(buttonPanel, BorderLayout.SOUTH);
         add(inventoryPanel, BorderLayout.NORTH);
+
+        //Forward button's action listener
         forwardButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -65,6 +70,7 @@ public class GamePlay extends JPanel {
             }
         });
 
+        //Back button's action listener
         backButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -80,6 +86,8 @@ public class GamePlay extends JPanel {
                 }
             }
         });
+
+        //Search button's action listener
         searchButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 List<Location> locations;
@@ -95,7 +103,7 @@ public class GamePlay extends JPanel {
 
                     int count = 1;
                     textArea.append("\nYou discovered: \n");
-                    for(Clue clue : items){
+                    for (Clue clue : items){
                         textArea.append("   " + count + ". " + clue.getName() + "\n");
                         count++;
                     }
@@ -105,6 +113,7 @@ public class GamePlay extends JPanel {
             }
         });
 
+        //Interact button's action listener
         interactButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -112,5 +121,13 @@ public class GamePlay extends JPanel {
             }
         });
 
+        //Invetory button's action listener
+        inventoryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Notebook notebook = new Notebook();
+                new InventoryFrame(notebook);
+            }
+        });
     }
 }

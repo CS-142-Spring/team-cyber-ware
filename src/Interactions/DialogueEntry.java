@@ -1,6 +1,7 @@
 package Interactions;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+// the class is java representation from json
 public class DialogueEntry {
     private String speaker;
     private String line;
