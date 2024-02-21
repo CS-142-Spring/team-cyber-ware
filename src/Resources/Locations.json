@@ -7,7 +7,6 @@
     "location" : "Detective's Office",
     "relevance" : "High",
     "clueType" : "Physical",
-    "connectedClues" : null,
     "evidenceStrength" : 8
   }, {
     "name" : "Notebook",
@@ -15,7 +14,6 @@
     "location" : "Detective's Office",
     "relevance" : "High",
     "clueType" : "Testimonial",
-    "connectedClues" : null,
     "evidenceStrength" : 8
   }, {
     "name" : "Trench Coat",
@@ -23,12 +21,11 @@
     "location" : "Detective's Office",
     "relevance" : "High",
     "clueType" : "Physical",
-    "connectedClues" : null,
     "evidenceStrength" : 9
   } ],
   "people" : [ ],
   "accessibility" : true,
-  "examined" : false
+  "isExamined" : true
 }, {
   "name" : "Coach Marlowe’s Office",
   "description" : "Office of the esteemed Coach Marlowe, known for his dedication to the team's success.",
@@ -38,7 +35,6 @@
     "location" : "Coach Marlowe’s Office",
     "relevance" : "High",
     "clueType" : "Testimonial",
-    "connectedClues" : null,
     "evidenceStrength" : 8
   }, {
     "name" : "Ink Box",
@@ -46,12 +42,11 @@
     "location" : "Janitor's Closet",
     "relevance" : "Medium",
     "clueType" : "Circumstantial",
-    "connectedClues" : null,
     "evidenceStrength" : 7
   } ],
   "people" : [ ],
   "accessibility" : true,
-  "examined" : false
+  "isExamined" : false
 }, {
   "name" : "Mega Stadium Hallway",
   "description" : "A bustling corridor in the stadium, echoing with the sounds of excited fans.",
@@ -61,27 +56,15 @@
     "role" : "Janitor",
     "description" : "Caretaker of the premises with access to all areas, including the janitor's closet.",
     "suspectReason" : "Has unrestricted access to all rooms, raising suspicion.",
-    "relationshipWithPlayer" : 0,
     "relationshipWithVictim" : "Occasional interactions, mostly professional.",
     "usefulness" : "Has a key ",
-    "currentLocation" : null,
+    "location" : "Mega Stadium Hallway",
     "traits" : [ "Observant", "Meticulous" ],
-    "clues" : [ {
-      "name" : "Key",
-      "description" : null,
-      "location" : null,
-      "relevance" : null,
-      "clueType" : null,
-      "connectedClues" : null,
-      "evidenceStrength" : 0
-    } ],
-    "age" : 58.0,
-    "trustworthy" : false,
-    "useful" : false,
-    "suspect" : true
+    "clues" : [ "Key" ],
+    "age" : 58.0
   } ],
   "accessibility" : true,
-  "examined" : false
+  "isExamined" : true
 }, {
   "name" : "Janitor's Closet",
   "description" : "A small, cramped space filled with cleaning supplies and the occasional clue.",
@@ -91,18 +74,9 @@
     "location" : "Mega Stadium Hallway",
     "relevance" : "High",
     "clueType" : "Testimonial",
-    "connectedClues" : null,
     "evidenceStrength" : 10
-  }, {
-    "name" : "Ink Box",
-    "description" : null,
-    "location" : null,
-    "relevance" : null,
-    "clueType" : null,
-    "connectedClues" : null,
-    "evidenceStrength" : 0
   } ],
   "people" : [ ],
   "accessibility" : false,
-  "examined" : false
+  "isExamined" : true
 } ]
