@@ -126,7 +126,7 @@ public class Person {
         heroNode.put("currentLocation", newLocation);
         this.currentLocation = newLocation;
         // Write the updated JSON back to the file
-        objectMapper.writeValue(heroFile, heroNode);
+        objectMapper.writerWithDefaultPrettyPrinter().writeValue(heroFile, heroNode);
     }
     public String getRole() {
         return this.role;

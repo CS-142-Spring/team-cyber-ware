@@ -58,10 +58,12 @@ public class GamePlay extends JPanel {
         // Add button panel to the main panel
         add(buttonPanel, BorderLayout.SOUTH);
         add(inventoryPanel, BorderLayout.NORTH);
+
+
         forwardButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if (moveIndex < 8) {
+                    if (moveIndex < 3) {
                         moveIndex++;
                         Engine.move(moveIndex, textArea);
                     } else {
@@ -94,9 +96,11 @@ public class GamePlay extends JPanel {
                 try {
                     locations = JsonUtil.getAllLocations();
                     List<Clue> items = new ArrayList<>();
+
                     for (Location location : locations) {
                         if (location.getName().equals(currLocation())) {
                             items = location.getItems();
+                            location.setIsExamined(true);
                             break;
                         }
                     }
@@ -143,17 +147,23 @@ public class GamePlay extends JPanel {
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
-                Iterator<JsonNode> locations = jsonNode.iterator();
-                JsonNode location =locations.next();
+                JsonNode foundLocation = null;
+                if (jsonNode.isArray()) {
+                    for (JsonNode location : jsonNode) {
+                        if (location.get("isExamined").asBoolean() && location.get("name").asText().equals(Location)) {
+                            System.out.println(location.get("name").asText());
+                            foundLocation = location;
+                            break;
+                        } else if (!location.get("isExamined").asBoolean() && location.get("name").asText().equals(Location)) {
+                            JOptionPane.showMessageDialog(GamePlay.this, "You need to search the room first", "Warning", JOptionPane.WARNING_MESSAGE);
+                            return;
+                        }
 
-                while(locations.hasNext()){
-                    if (location.get("accessibility").asBoolean() && location.get("name").asText().equals(Location)) {
-                        break;
                     }
-                    location = locations.next();
                 }
 
-                JsonNode itemsNode = location.get("items");
+
+                JsonNode itemsNode = foundLocation.get("items");
                 for (JsonNode item : itemsNode) {
                     items.add(item.asText());
                 }

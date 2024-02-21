@@ -15,7 +15,8 @@ public class Engine {
         // changes the location of the main hero
         Hero hero = JsonUtil.getMainHero().get(0);
         List<Location> locations = JsonUtil.getAllLocations();
-        if (index < locations.size() - 1 && index >= 0) {
+        if (index < locations.size() && index >= 0) {
+            System.out.println(index);
             hero.setCurrentLocation(locations.get(index).getName());
             textArea.setText("You are in " + locations.get(index).getName());
         }
