@@ -4,25 +4,28 @@ import Inventory.Notebook;
 import Inventory.Clue;
 import Inventory.Award;
 import People.Person;
+import Utility.JsonUtil;
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.core.type.TypeReference;
+
 import javax.swing.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static Utility.JsonUtil.parseJsonFile;
+
 public class InventoryFrame extends JFrame {
-    private Notebook notebook;
 
-    public InventoryFrame(Notebook notebook) {
-        this.notebook = notebook;
-        initializeUI();
-    }
-
-    private void initializeUI() {
+    public static void initializeUI() throws IOException {
+        Notebook notebook = parseJsonFile("src\\Resources\\Notebook.json", new TypeReference<Notebook>() {
+        });
+        JFrame frame = new JFrame();
         // set window characteristics
-        setTitle("Inventory");
-        setSize(600, 400);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+        frame.setTitle("Inventory");
+        frame.setSize(600, 400);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
 
         // initialize JObjects
         JTabbedPane tabbedPane = new JTabbedPane();
@@ -43,10 +46,9 @@ public class InventoryFrame extends JFrame {
         tabbedPane.addTab("Awards", new JScrollPane(awardsArea));
         tabbedPane.addTab("People", new JScrollPane(peopleArea));
 
-        add(tabbedPane);
+        frame.add(tabbedPane);
     }
-
-    private void populateTextArea(JTextArea textArea, List<?> items) {
+    private static void populateTextArea(JTextArea textArea, List<?> items) {
         // Creates the structure of a text area
         StringBuilder sb = new StringBuilder();
         for (Object item : items) {

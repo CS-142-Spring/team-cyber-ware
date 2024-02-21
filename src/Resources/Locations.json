@@ -1,58 +1,34 @@
 [
   {
-    "name": "Coach's Office",
-    "description": "A series of offices belonging to the coaching staff, filled with strategy boards, trophies, and personal mementos.",
-    "items": ["Torn Playbook Page", "Old Coffee Cup", "Personal Notes"],
-    "people": ["Linda Morris", "Evelyn Harrington", "Sarah Harrington"],
-    "accessibility": true
-  },
-  {
-    "name": "Locker Room",
-    "description": "The team's sanctuary, equipped with lockers, showers, and motivational posters, where players prepare for battle.",
-    "items": ["Mismatched Cleat", "Secret Note", "Overheard Conversation"],
-    "people": ["Jake Turner", "Jordan Ellis"],
-    "accessibility": true
-  },
-  {
-    "name": "Stadium",
-    "description": "The heart of Gridiron City, a massive structure with thousands of seats, where dreams are made and broken.",
-    "items": ["Lost Earring", "Security Footage"],
-    "people": ["Sarah Jensen", "Morgan Taylor"],
-    "accessibility": true
-  },
-  {
-    "name": "Team Meeting Room",
-    "description": "A focused space with a large strategy table and high-tech equipment for reviewing game footage and discussing tactics.",
-    "items": ["Broken Projector", "Strategic Memo"],
+    "name": "Detective's Office",
+    "description": "The central hub for investigation, filled with clues and tools for solving mysteries.",
+    "items": ["Magnifying glass", "Notebook", "Trench coat"],
     "people": [],
-    "accessibility": true
+    "accessibility": true,
+    "isExamined": false
   },
   {
-    "name": "Equipment Room",
-    "description": "Packed with gear, uniforms, and maintenance tools, this room is essential for keeping the team ready for action.",
-    "items": ["Worn-out Gloves", "Tampered Lock", "Coach's Personal Belongings"],
+    "name": "Coach Marlowe’s Office",
+    "description": "Office of the esteemed Coach Marlowe, known for his dedication to the team's success.",
+    "items": ["Football yearbook", "Ink box"],
     "people": [],
-    "accessibility": true
+    "accessibility": true,
+    "isExamined": false
   },
   {
-    "name": "Training Facility",
-    "description": "A state-of-the-art facility featuring weights, cardio equipment, and practice fields to keep the team in peak condition.",
-    "items": ["Expired Protein Shake"],
-    "people": ["Tommy Reed", "Chris Paterson"],
-    "accessibility": true
+    "name": "Mega Stadium Hallway",
+    "description": "A bustling corridor in the stadium, echoing with the sounds of excited fans.",
+    "items": [],
+    "people": ["Janitor Joe"],
+    "accessibility": true,
+    "isExamined": false
   },
   {
-    "name": "Security Office",
-    "description": "The hub for the stadium's security team, equipped with monitors, radios, and incident logs to ensure safety.",
-    "items": ["Outdated Security Protocol",  "Visitor Log"],
+    "name": "Janitor's Closet",
+    "description": "A small, cramped space filled with cleaning supplies and the occasional clue.",
+    "items": ["Sticky note"],
     "people": [],
-    "accessibility": true
-  },
-  {
-    "name": "Rival Team’s Facilities",
-    "description": "The mysterious and well-guarded complex of the city's rival team, rumored to be as high-tech and competitive as any.",
-    "items": ["Rival Team Mascot Bobblehead", "Intercepted Message"],
-    "people": ["Alex Rivera", "Rory the Rhino"],
-    "accessibility": false
+    "accessibility": false,
+    "isExamined": false
   }
 ]

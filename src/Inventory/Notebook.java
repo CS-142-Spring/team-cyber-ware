@@ -18,19 +18,9 @@ public class Notebook {
         clues = new ArrayList<Clue>();
         awards = new ArrayList<Award>();
         people = new ArrayList<Person>();
-        createJson();
     }
 
-    private void createJson() {
-        ObjectMapper mapper = new ObjectMapper();
 
-        try {
-            // Serialize this Notebook instance to JSON
-            mapper.writeValue(new File("src\\Resources\\Notebook.json"), this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     public void addClue(Clue clue){
         clues.add(clue);
     }

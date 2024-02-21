@@ -1,6 +1,7 @@
 package Utility;
 
 import Inventory.Clue;
+import Inventory.Notebook;
 import Location.Location;
 import People.Hero;
 import People.Person;
@@ -14,7 +15,7 @@ import java.util.List;
 public class JsonUtil {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    private static <T> T parseJsonFile(String filePath, TypeReference<T> typeReference) throws IOException {
+    public static <T> T parseJsonFile(String filePath, TypeReference<T> typeReference) throws IOException {
         objectMapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
         return objectMapper.readValue(new File(filePath), typeReference);
     }
@@ -36,6 +37,11 @@ public class JsonUtil {
 
     public static List<Clue> getAllClues() throws IOException {
         return parseJsonFile("src\\Resources\\Clue.json", new TypeReference<List<Clue>>() {
+        });
+    }
+
+    public static Notebook getNotebook() throws IOException {
+        return parseJsonFile("src\\Resources\\Notebook.json", new TypeReference<Notebook>() {
         });
     }
 

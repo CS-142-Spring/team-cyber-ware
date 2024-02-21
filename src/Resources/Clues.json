@@ -1,235 +1,58 @@
 [
   {
-    "name": "Torn Playbook Page",
-    "description": "A piece of a playbook with a crucial play missing. Found in the coach's office.",
-    "location": "Coach's Offices",
-    "relevance": "Directly related to the missing coach and potential motives.",
+    "name": "Key",
+    "description": "A small, metallic key that seems to unlock Janitor's Closet.",
+    "location": "Detective's Office",
+    "relevance": "High",
     "clueType": "Physical",
-    "connectedClues": [
-      {
-        "name": "Secret Note",
-        "description": "A cryptic note found in a locker, hinting at internal team conflicts.",
-        "location": "Locker Room",
-        "relevance": "Might explain the motive behind the coach's disappearance.",
-        "clueType": "Physical",
-        "connectedClues": [],
-        "evidenceStrength": 5
-      }
-    ],
+    "evidenceStrength": 10,
+  },
+  {
+    "name": "Magnifying Glass",
+    "description": "An essential tool for any detective looking to uncover the finer details of a case.",
+    "location": "Detective's Office",
+    "relevance": "High",
+    "clueType": "Physical",
     "evidenceStrength": 8
   },
   {
-    "name": "Security Footage",
-    "description": "A USB drive containing security footage from the night of the disappearance.",
-    "location": "Stadium",
-    "relevance": "Provides a visual account of the coach's last known movements.",
+    "name": "Notebook",
+    "description": "An essential tool for you to write down everything that you encounter.",
+    "location": "Detective's Office",
+    "relevance": "High",
     "clueType": "Testimonial",
-    "connectedClues": [
-      {
-        "name": "Visitor Log",
-        "description": "The log of all visitors on the day of the disappearance, with suspicious entries.",
-        "location": "Security Office",
-        "relevance": "The log entries could corroborate the footage or reveal discrepancies in visitor accounts.",
-        "clueType": "Documentary",
-        "connectedClues": [],
-        "evidenceStrength": 6
-      }
-    ],
+    "evidenceStrength": 8
+  },
+  {
+    "name": "Trench Coat",
+    "description": "A classic detective's trench coat with hidden pockets.",
+    "location": "Detective's Office",
+    "relevance": "High",
+    "clueType": "Physical",
     "evidenceStrength": 9
   },
   {
-    "name": "Intercepted Message",
-    "description": "A message intercepted from the rival team, hinting at espionage.",
-    "location": "Rival Team’s Facilities",
-    "relevance": "Suggests a motive tied to competitive rivalry.",
-    "clueType": "Circumstantial",
-    "connectedClues": [],
-    "evidenceStrength": 7
-  },
-  {
-    "name": "Secret Note",
-    "description": "A cryptic note found in a locker, hinting at internal team conflicts.",
-    "location": "Locker Room",
-    "relevance": "Might explain the motive behind the coach's disappearance.",
-    "clueType": "Physical",
-    "connectedClues": [],
-    "evidenceStrength": 5
-  },
-  {
-    "name": "Visitor Log",
-    "description": "The log of all visitors on the day of the disappearance, with suspicious entries.",
-    "location": "Security Office",
-    "relevance": "The log entries could corroborate the footage or reveal discrepancies in visitor accounts.",
-    "clueType": "Documentary",
-    "connectedClues": [],
-    "evidenceStrength": 6
-  },
-
-  {
-    "name": "Expired Protein Shake",
-    "description": "An expired protein shake left behind in the fridge at the Training Facility. Seems irrelevant at first glance.",
-    "location": "Training Facility",
-    "relevance": "Low - possibly indicates neglect or haste.",
-    "clueType": "Physical",
-    "connectedClues": [],
-    "evidenceStrength": 1
-  },
-  {
-    "name": "Outdated Security Protocol",
-    "description": "A binder containing outdated security protocols found in the Security Office, no longer in use.",
-    "location": "Security Office",
-    "relevance": "Medium - may indicate lapses in security or outdated practices.",
-    "clueType": "Documentary",
-    "connectedClues": [],
-    "evidenceStrength": 3
-  },
-  {
-    "name": "Rival Team Mascot Bobblehead",
-    "description": "A bobblehead of the rival team's mascot found in the Coach's Offices. Seems purely decorative.",
-    "location": "Coach's Offices",
-    "relevance": "Low - likely a souvenir or gift with no direct link to the case.",
-    "clueType": "Physical",
-    "connectedClues": [],
-    "evidenceStrength": 1
-  },
-  {
-    "name": "Intercepted Message",
-    "description": "A digital message intercepted from the rival team, containing cryptic references to the coach.",
-    "location": "Rival Team’s Facilities",
-    "relevance": "High - suggests espionage or competitive sabotage.",
-    "clueType": "Digital",
-    "connectedClues": [
-      {
-        "name": "Secret Note",
-        "description": "A note suggesting internal team conflicts, potentially linked to the intercepted message.",
-        "location": "Locker Room",
-        "relevance": "Medium - could provide context for the intercepted message.",
-        "clueType": "Physical",
-        "connectedClues": [],
-        "evidenceStrength": 5
-      }
-    ],
-    "evidenceStrength": 8
-  },
-  {
-    "name": "Coach's Personal Belongings",
-    "description": "A collection of personal items belonging to the coach, found unexpectedly in the Equipment Room.",
-    "location": "Equipment Room",
-    "relevance": "High - may contain personal clues or evidence of unusual behavior.",
-    "clueType": "Physical",
-    "connectedClues": [],
-    "evidenceStrength": 7
-  },
-  {
-    "name": "Tampered Lock",
-    "description": "A lock on one of the lockers in the Equipment Room shows signs of tampering.",
-    "location": "Equipment Room",
-    "relevance": "High - indicates unauthorized access or an attempt to conceal something.",
-    "clueType": "Physical",
-    "connectedClues": [],
-    "evidenceStrength": 7
-  },
-  {
-    "name": "Worn-out Gloves",
-    "description": "A pair of gloves, worn beyond recognition, found in the back of the Equipment Room.",
-    "location": "Equipment Room",
-    "relevance": "Low - unlikely to be directly related to the case.",
-    "clueType": "Physical",
-    "connectedClues": [],
-    "evidenceStrength": 2
-  },
-  {
-    "name": "Strategic Memo",
-    "description": "A memo outlining the team's strategy for the championship game, found in the Team Meeting Room. Contains personal annotations by the coach.",
-    "location": "Team Meeting Room",
-    "relevance": "Medium - provides insights into the coach's thoughts and potential pressures.",
-    "clueType": "Documentary",
-    "connectedClues": [],
-    "evidenceStrength": 6
-  },
-  {
-    "name": "Broken Projector",
-    "description": "An old projector in the Team Meeting Room, no longer functional and seemingly irrelevant.",
-    "location": "Team Meeting Room",
-    "relevance": "Low - probably not connected to the case.",
-    "clueType": "Physical",
-    "connectedClues": [],
-    "evidenceStrength": 1
-  },
-  {
-    "name": "Lost Earring",
-    "description": "An earring found under the bleachers in the Stadium, likely lost during a previous event.",
-    "location": "Stadium",
-    "relevance": "Low - personal item with no clear connection to the case.",
-    "clueType": "Physical",
-    "connectedClues": [],
-    "evidenceStrength": 1
-  },
-  {
-    "name": "Overheard Conversation",
-    "description": "A digital recording of a conversation overheard in the Locker Room, hinting at a disagreement between the coach and a key player.",
-    "location": "Locker Room",
-    "relevance": "High - may shed light on interpersonal conflicts affecting the team.",
+    "name": "Football Yearbook",
+    "description": "A yearbook filled with details about the football team, including some suspicious annotations.",
+    "location": "Coach Marlowe’s Office",
+    "relevance": "High",
     "clueType": "Testimonial",
-    "connectedClues": [
-      {
-        "name": "Secret Note",
-        "description": "A cryptic note found in a locker, potentially related to the overheard conversation.",
-        "location": "Locker Room",
-        "relevance": "Medium - could provide context or corroborate the content of the conversation.",
-        "clueType": "Physical",
-        "connectedClues": [],
-        "evidenceStrength": 5
-      }
-    ],
     "evidenceStrength": 8
   },
   {
-    "name": "Mismatched Cleat",
-    "description": "A single cleat, found in the Locker Room, that doesn't match any owned by current team members.",
-    "location": "Locker Room",
-    "relevance": "Medium - unusual item that may belong to a visitor or former player.",
-    "clueType": "Physical",
-    "connectedClues": [],
-    "evidenceStrength": 4
-  },
-  {
-    "name": "Old Coffee Cup",
-    "description": "An old coffee cup with the logo of a rival team, found in the Coach's Offices. Might have been left behind by a visitor.",
-    "location": "Coach's Offices",
-    "relevance": "Low - possibly a red herring, but could suggest a meeting with someone from the rival team.",
-    "clueType": "Physical",
-    "connectedClues": [
-      {
-        "name": "Intercepted Message",
-        "description": "A message intercepted from the rival team, containing cryptic references to the coach.",
-        "location": "Rival Team’s Facilities",
-        "relevance": "High - suggests espionage or competitive sabotage.",
-        "clueType": "Digital",
-        "connectedClues": [],
-        "evidenceStrength": 8
-      }
-    ],
-    "evidenceStrength": 2
-  },
-  {
-    "name": "Personal Notes",
-    "description": "A collection of personal notes from the coach, found in his office, detailing worries about team dynamics and personal challenges.",
-    "location": "Coach's Offices",
-    "relevance": "High - reveals the coach's state of mind and potential pressures.",
-    "timestamp": "2023-09-13T10:00:00Z",
-    "clueType": "Documentary",
-    "connectedClues": [
-      {
-        "name": "Strategic Memo",
-        "description": "A memo outlining the team's strategy for the championship game, with personal annotations by the coach.",
-        "location": "Team Meeting Room",
-        "relevance": "Medium - provides insights into the coach's professional thoughts and potential pressures.",
-        "clueType": "Documentary",
-        "connectedClues": [],
-        "evidenceStrength": 6
-      }
-    ],
+    "name": "Ink Box",
+    "description": "Knocked over ink box.",
+    "location": "Janitor's Closet",
+    "relevance": "Medium",
+    "clueType": "Circumstantial",
     "evidenceStrength": 7
+  },
+  {
+    "name": "Sticky Note",
+    "description": "A sticky note with a cryptic message that could lead to a breakthrough in the case.",
+    "location": "Mega Stadium Hallway",
+    "relevance": "High",
+    "clueType": "Testimonial",
+    "evidenceStrength": 10
   }
 ]

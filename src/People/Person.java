@@ -16,7 +16,6 @@ public class Person {
     private String role;  // Role or occupation of the person
     private String description;  // A brief description of the person
     private String suspectReason;
-    private List<Dialogues> conversations;  // List to store conversations with the person
     private int relationshipWithPlayer;  // Numerical value representing the relationship with the player
     private String relationshipWithVictim; // Wife, children, colleagues;
     private String usefulness;
@@ -24,7 +23,6 @@ public class Person {
     private List<String> traits;
     private List<Clue> clues;
     private double age;
-
     public Person() {}
 
     public Person(String name) {
@@ -35,7 +33,6 @@ public class Person {
                   String role,
                   String description,
                   String suspectReason,
-                  List<Dialogues> conversations,
                   String relationshipWithVictim,
                   String usefulness,
                   String location,
@@ -47,7 +44,6 @@ public class Person {
         this.age = age;
         this.description = description;
         this.suspectReason = suspectReason;
-        this.conversations = conversations;
         this.relationshipWithPlayer = 0;
         this.relationshipWithVictim = relationshipWithVictim;
         this.usefulness = usefulness;
@@ -67,7 +63,6 @@ public class Person {
         this.role = role;
         this.age = age;
         this.description = description;
-        this.conversations = new ArrayList<>();
         this.relationshipWithPlayer = 0;
         this.relationshipWithVictim = relationshipWithVictim;
         this.currentLocation = location;
@@ -104,20 +99,6 @@ public class Person {
 
     public boolean isSuspect() {
         return this.getSuspectReason() != null;
-    }
-
-
-    public List<Dialogues> getConversations() {
-        return this.conversations;
-    }
-
-    public void addConversation(Dialogues conversation) {
-        /*
-            Add a converstion in order to keep record of interactions
-            Player might want to come back to the story
-            This is where we could show details of a character
-         */
-        this.conversations.add(conversation);
     }
 
     public int getRelationshipWithPlayer() {
