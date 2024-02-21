@@ -85,7 +85,7 @@ public class MissionsBackBone {
     public static void missionThree() {
         boolean stageThree = false;
         while (!stageThree) {
-            boolean[] conditions = {};
+            boolean[] conditions = {puzzle1};
             boolean allTrue = true;
             for (boolean condition : conditions) {
                 if (!condition) {
