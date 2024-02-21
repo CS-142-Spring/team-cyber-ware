@@ -53,7 +53,7 @@ public class Location {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 
-			File file = new File("src\\Resources\\Locations.json");
+			File file = new File("src/Resources/Locations.json");
 
 			ArrayNode locations = (ArrayNode) mapper.readTree(file);
 
@@ -80,7 +80,14 @@ public class Location {
 	public List<Clue> getItems() {
 		return this.items;
 	}
-
+	public boolean hasItem(Clue clue) {
+		for (Clue existingClue : this.items) {
+			if (existingClue.getName().toLowerCase().equals(clue.getName().toLowerCase())) {
+				return true; // Clue is already present
+			}
+		}
+		return false; // Clue is not present
+	}
 	public void setItems(List<Clue> items) {
 		this.items = items;
 	}
@@ -90,24 +97,22 @@ public class Location {
 			this.items = new ArrayList<>();
 		}
 
-		// Add the new item to the list
-		this.items.add(newItem);
+		this.items.add(new Clue(newItem.getName())); // add a new item to the list of items
 
 		try {
 			ObjectMapper mapper = new ObjectMapper();
-			File file = new File("src/Resources/Locations.json");
-			TypeReference<List<Location>> typeRef = new TypeReference<List<Location>>() {};
-			List<Location> locations = mapper.readValue(file, typeRef);
+			List<Location> locations = JsonUtil.getAllLocations();
 
 			// Find this location in the list and update its items
 			for (Location location : locations) {
 				if (location.getName().equals(this.name)) {
-					location.items = this.items; // Assign the updated list
-					break; // Assuming unique location names
+					location.setItems(this.items); // Assign the updated list
+					break;
 				}
 			}
-
+			File file = new File("src/Resources/Locations.json");
 			// Serialize the updated list back to JSON and write it to the file
+			System.out.println(locations.getFirst().isExamined);
 			mapper.writerWithDefaultPrettyPrinter().writeValue(file, locations);
 		} catch (IOException e) {
 			e.printStackTrace();

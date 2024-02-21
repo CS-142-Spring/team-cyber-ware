@@ -15,21 +15,9 @@ import java.util.List;
 public class Game {
     public static void resetGameState() {
         try {
-            List<Location> locations = JsonUtil.getAllLocations();
-            for (Location location : locations) {
-                location.setIsExamined(false);
-            }
-            Hero hero = JsonUtil.getMainHero().get(0);
-            hero.setCurrentLocation("Detective's Office");
-            System.out.println(hero);
-            List<Clue> clues = JsonUtil.getAllClues();
-            for (Clue clue : clues) {
-                for (Location location : locations) {
-                    if (clue.getLocation().equals(location.getName())) {
-                        location.setItem(clue);
-                    }
-                }
-            }
+            JsonUtil.resetLocations();
+            JsonUtil.resetMainHeroLocation();
+
             ObjectMapper mapper = new ObjectMapper();
 
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("src\\Resources\\Notebook.json"), new Notebook());

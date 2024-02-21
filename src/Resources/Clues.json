@@ -2,7 +2,7 @@
   {
     "name": "Key",
     "description": "A small, metallic key that seems to unlock Janitor's Closet.",
-    "location": "Detective's Office",
+    "location": "Janitor Joe",
     "relevance": "High",
     "clueType": "Physical",
     "evidenceStrength": 10

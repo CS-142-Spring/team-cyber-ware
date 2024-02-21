@@ -165,7 +165,7 @@ public class GamePlay extends JPanel {
 
                 JsonNode itemsNode = foundLocation.get("items");
                 for (JsonNode item : itemsNode) {
-                    items.add(item.asText());
+                    items.add(item.get("name").asText());
                 }
 
                 StringBuilder yp = new StringBuilder();

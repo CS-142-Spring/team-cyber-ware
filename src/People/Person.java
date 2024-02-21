@@ -9,8 +9,10 @@ import java.util.List;
 import Interactions.Dialogues;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Person {
     private String name;  // Holds the name of the person
     private String role;  // Role or occupation of the person
@@ -120,7 +122,7 @@ public class Person {
     public void setCurrentLocation(String newLocation) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        File heroFile = new File("src\\Resources\\MainHero.json");
+        File heroFile = new File("src/Resources/MainHero.json");
         ObjectNode heroNode = (ObjectNode) objectMapper.readTree(heroFile);
 
         heroNode.put("currentLocation", newLocation);
