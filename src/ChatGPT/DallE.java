@@ -10,8 +10,7 @@ import java.net.http.HttpResponse;
 public class DallE {
     public static String getImage(String textualDescription) throws Exception {
         String apiKey = "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";
-        String apiUrl = "https://api.openai.com/v1/images/generations";  // Replace with the correct DALL·E model ID
-
+        String apiUrl = "https://api.openai.com/v1/images/generations";
         //String textualDescription = "astronaut flying on mars";
 
         HttpClient httpClient = HttpClient.newHttpClient();
@@ -42,19 +41,32 @@ public class DallE {
         JsonNode jsonNode = objectMapper.readTree(jsonResponse);
 
         // Check if the top-level node is not null
-        if (jsonNode != null) {
-            // Replace "image_url" with the actual field name in the API response
-            JsonNode imageUrlNode = jsonNode.get("image_url");
+        if (jsonNode != null && jsonNode.has("data")) {
+            // Navigate into the "data" array
+            JsonNode dataArray = jsonNode.get("data");
 
-            // Check if the field is not null and is a text node
-            if (imageUrlNode != null && imageUrlNode.isTextual()) {
-                return imageUrlNode.asText();
+            // Check if the "data" array is not null and not empty
+            if (dataArray != null && dataArray.isArray() && dataArray.size() > 0) {
+                // Get the first element of the "data" array
+                JsonNode firstDataElement = dataArray.get(0);
+
+                // Replace "url" with the actual field name in the API response
+                JsonNode imageUrlNode = firstDataElement.get("url");
+
+                // Check if the field is not null and is a text node
+                if (imageUrlNode != null && imageUrlNode.isTextual()) {
+                    return imageUrlNode.asText();
+                } else {
+                    throw new RuntimeException("Image URL not found or not a valid text node in the API response");
+                }
             } else {
-                throw new RuntimeException("Image URL not found or not a valid text node in the API response");
+                throw new RuntimeException("No data or empty data array in the API response");
             }
         } else {
-            throw new RuntimeException("Invalid JSON response: Top-level node is null");
+            throw new RuntimeException("Invalid JSON response: Top-level node is null or missing 'data'");
         }
     }
+
+
 
 }
