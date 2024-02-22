@@ -25,7 +25,7 @@
   } ],
   "people" : [ ],
   "accessibility" : true,
-  "isExamined" : true
+  "isExamined" : false
 }, {
   "name" : "Coach Marlowe’s Office",
   "description" : "Office of the esteemed Coach Marlowe, known for his dedication to the team's success.",
@@ -64,7 +64,7 @@
     "age" : 58.0
   } ],
   "accessibility" : true,
-  "isExamined" : true
+  "isExamined" : false
 }, {
   "name" : "Janitor's Closet",
   "description" : "A small, cramped space filled with cleaning supplies and the occasional clue.",
@@ -78,5 +78,5 @@
   } ],
   "people" : [ ],
   "accessibility" : false,
-  "isExamined" : true
+  "isExamined" : false
 } ]
