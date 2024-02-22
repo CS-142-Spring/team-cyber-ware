@@ -2,6 +2,8 @@ package Location;
 import Inventory.Clue;
 import People.Person;
 import Utility.JsonUtil;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.exc.StreamWriteException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DatabindException;
@@ -60,13 +62,14 @@ public class Location {
 			// Iterate over the locations to find the correct one
 			locations.forEach(location -> {
 				if (location.get("name").asText().equals(this.name)) {
+					System.out.println("is examined");
 					// Update the isExamined property
 					((ObjectNode) location).put("isExamined", bool);
 				}
 			});
 			this.isExamined = bool;
 			// Write the updated JSON back to the file
-			mapper.writerWithDefaultPrettyPrinter().writeValue(file, locations);
+			mapper.writeValue(file, locations);
 		} catch (IOException e) {
             throw new RuntimeException(e);
         }
