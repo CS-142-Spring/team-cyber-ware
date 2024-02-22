@@ -39,20 +39,29 @@ public class InventoryFrame extends JFrame {
 
         // Write the items into teaxt areas
         populateTextArea(cluesArea, notebook.getClues());
-        populateTextArea(awardsArea, notebook.getAwards());
-        populateTextArea(peopleArea, notebook.getPeople());
+        //populateTextArea(awardsArea, notebook.getAwards());
+        //populateTextArea(peopleArea, notebook.getPeople());
 
-        tabbedPane.addTab("Clues", new JScrollPane(cluesArea));
+        tabbedPane.addTab("Items", new JScrollPane(cluesArea));
         tabbedPane.addTab("Awards", new JScrollPane(awardsArea));
         tabbedPane.addTab("People", new JScrollPane(peopleArea));
 
         frame.add(tabbedPane);
     }
-    private static void populateTextArea(JTextArea textArea, List<?> items) {
+    private static void populateTextArea(JTextArea textArea, List<?> items) throws IOException {
         // Creates the structure of a text area
         StringBuilder sb = new StringBuilder();
+        List<Clue> clues = JsonUtil.getAllClues();
+        int count = 0;
         for (Object item : items) {
-            sb.append(item.toString()).append("\n");
+            count++;
+            for (Clue clue : clues) {
+                if (clue.getName().equals(item.toString())) {
+                    sb.append(count + ". ").append("Clue Name: ").append(clue.getName() + "\n")
+                            .append("    Description: ").append(clue.getDescription() + "\n");
+                }
+
+            }
         }
         textArea.setText(sb.toString());
     }

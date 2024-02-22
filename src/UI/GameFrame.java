@@ -33,7 +33,6 @@ public class GameFrame extends JFrame implements ViewSwitcher {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                // Call the game reset function here
                 try {
                     resetGameState(); // Assuming GameReset is the class containing your reset logic
                     System.out.println("Game reset successfully.");

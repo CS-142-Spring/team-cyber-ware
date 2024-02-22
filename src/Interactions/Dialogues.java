@@ -29,6 +29,7 @@ public class Dialogues {
         // this method just process the conversation
         DialogueEntry userEntry = new DialogueEntry(mainHero.getName(), input);
         String prompt = generateChatGPTPrompt(input);
+        System.out.println(prompt);
         updateDialogueHistory(userEntry);
         String response = String.valueOf(ChatGPT.chatGPT(prompt));
         DialogueEntry botEntry = new DialogueEntry(character.getName(), response);
@@ -40,6 +41,10 @@ public class Dialogues {
     private void updateDialogueHistory(DialogueEntry entry) {
         this.dialogueHistory.add(entry);
         //writeHistory(entry);
+    }
+
+    public Person getCharacter() {
+        return this.character;
     }
 
     private static void writeHistory(DialogueEntry history) {
@@ -57,33 +62,27 @@ public class Dialogues {
     private String generateChatGPTPrompt(String userInput) {
         StringBuilder promptBuilder = new StringBuilder();
 
-        // adding story description to the prompt
-        String story = getStoryDescription();
-        promptBuilder.append("Story: ").append(story);
+        // Story and character introduction
+        String storyDescription = getStoryDescription(); // Assuming this fetches a concise background story
+        promptBuilder.append("Story: ").append(storyDescription).append("\n\n");
 
-        // describing the hero in the prompt
-        promptBuilder.append(" Act as ").append(character.getName()).append(", a ").append(character.getRole())
-                .append(" in a text adventure game. You are described as ").append(character.getDescription())
-                .append(". Currently, your suspect reason is ").append(character.isSuspect() ? character.getSuspectReason() : "none")
-                .append(". Your relationship with the player is ").append(interpretRelationshipWithPlayer())
-                .append(", and with the victim, you are ").append(character.getRelationshipWithVictim())
-                .append(". Your usefulness is ").append(character.getUsefulness())
-                .append(" character. You are currently at ").append(location)
-                .append(". Your key traits include ").append(String.join(", ", character.getTraits()))
-                .append(". Respond in character to the player's questions and actions and be emotional, maintaining the personality and knowledge consistent with your background and current emotions.")
-                .append(". Your response should be concise.");
-        // Adding recent chat history
-        promptBuilder.append(" Recent conversation history: ");
-        int historySize = dialogueHistory.size();
-        int contextLimit = 2;
+        // Character introduction
+        promptBuilder.append(character.getName()).append(", the janitor at Mega Stadium, known for his dedication, offers assistance to Detective Collins in the investigation of Coach Harrington's disappearance. ")
+                .append(character.getName())
+                .append(" emphasizes the importance of vigilance and offers to provide access to less-visible areas of the stadium. He addresses any suspicions about his involvement, asserting his role is to maintain the stadium's cleanliness and security, not to meddle in dark affairs. ")
+                .append(character.getName())
+                .append(" then inquires how he can assist further, specifically asking if access to any locked areas is needed.").append("\n\n");
 
-        for (int i = Math.max(0, historySize - contextLimit); i < historySize; i++) {
+        // Recent conversation history
+        promptBuilder.append("Recent conversation history:\n");
+        for (int i = Math.max(0, dialogueHistory.size() - 2); i < dialogueHistory.size(); i++) {
             DialogueEntry entry = dialogueHistory.get(i);
-            promptBuilder.append(entry.getSpeaker()).append(": ")
-                    .append(entry.getLine()).append(" ");
+            promptBuilder.append(entry.getSpeaker()).append(": ").append(entry.getLine()).append("\n");
         }
 
-        promptBuilder.append("Jack: ").append(userInput);
+        // Player's current input
+        promptBuilder.append("Detective Jack: ").append(userInput);
+
         return promptBuilder.toString();
     }
 

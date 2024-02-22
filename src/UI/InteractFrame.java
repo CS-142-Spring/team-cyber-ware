@@ -1,5 +1,9 @@
 package UI;
 
+import Interactions.Dialogues;
+import People.Hero;
+import People.Person;
+import Utility.JsonUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -13,14 +17,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
+
+import static Engine.Engine.addItems;
+import static Engine.Engine.removeItems;
 
 public class InteractFrame {
     private JButton notebookButton, talkButton;
     private JFrame frame;
     private JTabbedPane tabbedPane;
     private JPanel cluePanel, peoplePanel;
-    private ArrayList<String> itemsToRemove = new ArrayList<>();
     public InteractFrame(ArrayList<String> items, ArrayList<String> peopleNames) {
         frame = new JFrame();
         frame.setTitle("Items available");
@@ -60,12 +65,15 @@ public class InteractFrame {
         // Create a new button
         notebookButton = new JButton("Add to Inventory");
         talkButton = new JButton("Talk");
+        ArrayList<String> itemsToRemove = new ArrayList<>();
+
         // Add an ActionListener to the button
         notebookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println(clueCheckBoxPanel.getComponents());
                 // Iterate over the checkboxes
-                for (Component component : tabbedPane.getComponents()) {
+                for (Component component : clueCheckBoxPanel.getComponents()) {
                     if (component instanceof JCheckBox) {
                         JCheckBox checkBox = (JCheckBox) component;
                         if (checkBox.isSelected()) {
@@ -88,6 +96,24 @@ public class InteractFrame {
             }
         });
 
+        talkButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //closes this frame and opens the new one for having a dialog
+                frame.dispose();
+                try {
+                    Hero mainHero = JsonUtil.getMainHero().getFirst();
+                    Person janitor = JsonUtil.getAllPeople().getFirst();
+                    Dialogues dialogues = new Dialogues(mainHero, janitor, mainHero.getCurrentLocation());
+                    DialogueInterface dialogue = new DialogueInterface(frame, dialogues);
+                    dialogue.setVisible(true);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            }
+        });
+
         JPanel clueButtonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         clueButtonPanel.add(notebookButton); // Add the button to the panel
         cluePanel.add(clueButtonPanel, BorderLayout.SOUTH); // Add the button panel to the bottom
@@ -101,72 +127,5 @@ public class InteractFrame {
         frame.setVisible(true);
     }
 
-    public static void addItems(String item){
-        ObjectMapper mapper = new ObjectMapper();
 
-        try {
-            // Specify the file location
-            File jsonFile = new File("src/Resources/Notebook.json");
-
-            // Parse your JSON file
-            ObjectNode rootNode = (ObjectNode) mapper.readTree(jsonFile);
-
-            // Get the "clues" array
-            ArrayNode cluesNode = (ArrayNode) rootNode.get("clues");
-
-            // Add items to the "clues" array
-            cluesNode.add(item);
-
-            // Write the updated rootNode back to the file
-            mapper.writerWithDefaultPrettyPrinter().writeValue(jsonFile, rootNode);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public static void removeItems(String itemToRemove) throws IOException {
-        // Read the JSON file
-        String content = new String(Files.readAllBytes(Paths.get("src/Resources/Locations.json")));
-
-        // Create an ObjectMapper
-        ObjectMapper mapper = new ObjectMapper();
-
-        // Read the JSON content into a JsonNode
-        ArrayNode jsonNode = (ArrayNode) mapper.readTree(content);
-
-        // Iterate over the array
-        for (int j = 0; j < jsonNode.size(); j++) {
-            // Get the "items" array from the object
-            ArrayNode items = (ArrayNode) jsonNode.get(j).get("items");
-
-            int index = -1;
-            // Find the index of the item to remove
-            for (int i = 0; i < items.size(); i++) {
-                String item = items.get(i).asText();
-                if (item.equals(itemToRemove)) {
-                    index = i;
-                    break;
-                }
-            }
-            // Remove the item if it was found
-            if (index != -1) {
-                // This creates a new ArrayNode without the item
-                ArrayNode newArray = mapper.createArrayNode();
-                for (int i = 0; i < items.size(); i++) {
-                    if (i != index) {
-                        newArray.add(items.get(i));
-
-                    }
-                }
-
-                // Replace the old array with the new one
-                ((ObjectNode) jsonNode.get(j)).set("items", newArray);
-            }
-        }
-
-        // Convert the JsonNode back to a string
-        String updatedContent = mapper.writeValueAsString(jsonNode);
-
-        // Write the updated JSON string back to the file
-        Files.write(Paths.get("src/Resources/Locations.json"), updatedContent.getBytes());
-    }
 }

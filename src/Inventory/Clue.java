@@ -77,7 +77,7 @@ public class Clue {
     }
     @Override
     public String toString() {
-        return "Clue Name: " + this.name + ", Description: " + this.description; // Assuming name and description fields
+        return this.name; // Assuming name and description fields
     }
 
 }

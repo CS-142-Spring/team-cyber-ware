@@ -2,6 +2,7 @@ package UI;
 
 import Engine.Engine;
 import Inventory.Clue;
+import People.Person;
 import Utility.JsonUtil;
 
 import Location.*;
@@ -18,6 +19,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import jdk.jfr.Percentage;
 
 import java.io.File;
 import java.util.Iterator;
@@ -32,7 +34,7 @@ public class GamePlay extends JPanel {
         setLayout(new BorderLayout());
 
         // Create text area
-        textArea = new JTextArea();
+        textArea = new JTextArea("You are in Detective's Office");
         textArea.setEditable(false);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
@@ -49,10 +51,12 @@ public class GamePlay extends JPanel {
         inventoryButton = new JButton("Inventory");
         // Add buttons to a panel
         buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
         buttonPanel.add(searchButton);
         buttonPanel.add(forwardButton);
         buttonPanel.add(backButton);
         buttonPanel.add(interactButton);
+
         inventoryPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         inventoryPanel.add(inventoryButton);
         // Add button panel to the main panel
@@ -96,19 +100,38 @@ public class GamePlay extends JPanel {
                 try {
                     locations = JsonUtil.getAllLocations();
                     List<Clue> items = new ArrayList<>();
-
+                    List<Person> people = new ArrayList<>();
                     for (Location location : locations) {
                         if (location.getName().equals(currLocation())) {
                             items = location.getItems();
+                            people = location.getPeople();
                             location.setIsExamined(true);
                             break;
                         }
                     }
 
                     int count = 1;
-                    textArea.append("\nYou discovered: \n");
-                    for(Clue clue : items){
-                        textArea.append("   " + count + ". " + clue.getName() + "\n");
+                    if (items.isEmpty() && people.isEmpty()) {
+                        textArea.append("\nThe locations is empty. \n");
+                        return;
+                    }
+                    if (!items.isEmpty()) {
+                        textArea.append("\nYou discovered: \n");
+                        textArea.append("  Items: \n");
+                        for(Clue clue : items){
+                            textArea.append("     " + count + ". " + clue.getName() + "\n");
+                            count++;
+                        }
+                    }
+
+                    count = 1;
+                    if (people.isEmpty()) {
+                        return;
+                    }
+
+                    textArea.append("\n   People: \n");
+                    for (Person person : people) {
+                        textArea.append("     " + count + ". " + person.getName() + "\n");
                         count++;
                     }
                 } catch (IOException ex) {
