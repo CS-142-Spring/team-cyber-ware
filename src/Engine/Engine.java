@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Engine {
-
     public static void move(int index, JTextArea textArea) throws IOException {
         // changes the location of the main hero
         Hero hero = JsonUtil.getMainHero().get(0);

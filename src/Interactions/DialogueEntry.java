@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DialogueEntry {
     private String speaker;
     private String line;
-
     public DialogueEntry(String speaker, String line) {
         this.speaker = speaker;
         this.line = line;

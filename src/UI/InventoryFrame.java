@@ -39,8 +39,6 @@ public class InventoryFrame extends JFrame {
 
         // Write the items into teaxt areas
         populateTextArea(cluesArea, notebook.getClues());
-        //populateTextArea(awardsArea, notebook.getAwards());
-        //populateTextArea(peopleArea, notebook.getPeople());
 
         tabbedPane.addTab("Items", new JScrollPane(cluesArea));
         tabbedPane.addTab("Awards", new JScrollPane(awardsArea));

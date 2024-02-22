@@ -95,7 +95,6 @@ public class InteractFrame {
                 frame.dispose();
             }
         });
-
         talkButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

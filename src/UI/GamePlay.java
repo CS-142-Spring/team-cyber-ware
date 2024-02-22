@@ -33,7 +33,7 @@ public class GamePlay extends JPanel {
     public GamePlay() {
         setLayout(new BorderLayout());
 
-        // Create text area
+        //Create text area
         textArea = new JTextArea("You are in Detective's Office");
         textArea.setEditable(false);
         textArea.setLineWrap(true);
