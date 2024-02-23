@@ -124,7 +124,7 @@ public class GamePlay extends JPanel {
                     for (Location location : locations) {
                         if (location.getName().equals(currLocation())) {
                             items = location.getItems();
-//                            people = location.getPeople();
+                            people = location.getPeople();
 //                            hero = JsonUtil.getMainHero().get(0);
                             location.setIsExamined(true);
                             break;
