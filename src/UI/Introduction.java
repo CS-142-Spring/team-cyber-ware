@@ -64,9 +64,6 @@ public class Introduction extends JPanel {
         add(buttonPanel, BorderLayout.SOUTH);
         keyWordsPanel.add(buttonPanel, BorderLayout.SOUTH);
 
-
-
-     //   keyContinueButton.setPreferredSize(new Dimension(50, 40));  // Set the preferred size to 150x40 pixels.
         keyContinueButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 viewSwitcher.switchView("GAMEPLAY");
@@ -97,17 +94,16 @@ public class Introduction extends JPanel {
 
     private static String getOpeningScene() {
         // read the opening scene from the txt email
-        String filePath = "src\\Resources\\OpeningScene";
+        String filePath = "src/Resources/OpeningScene";
         String content = FileIO.extractContent(filePath);
         return content;
     }
 
     private static String getKeyWordsHelp() {
         // read the key words tutorial from the txt email
-        String filePath = "src\\Resources\\KeyWordsHelp";
+        String filePath = "src/Resources/KeyWordsHelp";
         String content = FileIO.extractContent(filePath);
         return content;
     }
 }
-
 

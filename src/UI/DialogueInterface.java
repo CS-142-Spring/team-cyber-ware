@@ -1,10 +1,8 @@
 package UI;
 
-import Engine.Engine;
 import Interactions.DialogueChoice;
 import Interactions.Dialogues;
 
-import Inventory.Notebook;
 import People.Person;
 import Utility.JsonUtil;
 import Location.Location;
@@ -14,8 +12,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.List;
+import Engine.Engine;
 
 import static Engine.Engine.addItems;
+import static Missions.MissionsBackBone.setJcKeyTrue;
 
 public class DialogueInterface extends JDialog {
     private JTextArea dialogueTextArea;
@@ -25,7 +25,7 @@ public class DialogueInterface extends JDialog {
 
     private Dialogues dialogues;
 
-    public DialogueInterface(JFrame parentFrame, Dialogues dialogues) {
+    public DialogueInterface(JFrame parentFrame) {
         super(parentFrame, "Dialogue", true);
         this.dialogues = dialogues;
 
@@ -86,6 +86,9 @@ public class DialogueInterface extends JDialog {
         for (DialogueChoice choice : choices) {
             JButton choiceButton = new JButton(choice.getPrompt());
             choiceButton.addActionListener((ActionEvent e) -> {
+                setJcKeyTrue("Key");
+
+
                 choice.select();
                 optionsPanel.removeAll();
                 this.revalidate();
@@ -121,7 +124,7 @@ public class DialogueInterface extends JDialog {
 
         DialogueChoice choice2 = new DialogueChoice("Demand the keys forcefully", () -> {
             // Logic to handle this choice
-            appendToDialogue("You: Hand over the keys now, it's important.\n");
+            appendToDialogue("\n\nYou: Hand over the keys now, it's important.\n");
             // Assume processInput simulates processing and displaying the janitor's response
             try {
                 processInput("Alright, alright, no need to be pushy. Here you go.");
@@ -134,4 +137,3 @@ public class DialogueInterface extends JDialog {
     }
 
 }
-

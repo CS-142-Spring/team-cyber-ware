@@ -1,3 +1,4 @@
+
 package Interactions;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,7 +41,6 @@ public class Dialogues {
     // the method for adding dialogue entry to the chat history
     private void updateDialogueHistory(DialogueEntry entry) {
         this.dialogueHistory.add(entry);
-        //writeHistory(entry);
     }
 
     public Person getCharacter() {

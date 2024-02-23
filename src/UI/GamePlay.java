@@ -2,28 +2,25 @@ package UI;
 
 import Engine.Engine;
 import Inventory.Clue;
+import Missions.MissionDetails;
+import Missions.MissionsBackBone;
 import People.Person;
 import Utility.JsonUtil;
 
 import Location.*;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
 import java.util.ArrayList;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import jdk.jfr.Percentage;
 
-import java.io.File;
-import java.util.Iterator;
+
+
 import static Engine.Engine.currLocation;
+import static Missions.MissionDetails.mission1;
 
 public class GamePlay extends JPanel {
     private JTextArea textArea;
@@ -44,6 +41,8 @@ public class GamePlay extends JPanel {
         textPanel.add(scrollPane, BorderLayout.CENTER);
         add(textPanel, BorderLayout.CENTER);
 
+        // Add the mission one detail
+        mission1(textArea);
         // Create buttons
         searchButton = new JButton("Search");
         forwardButton = new JButton("Forward");
@@ -83,6 +82,11 @@ public class GamePlay extends JPanel {
                     } else {
                         JOptionPane.showMessageDialog(GamePlay.this, "There is no room to go forward", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
+                    if (moveIndex == 1 && MissionsBackBone.missionOneCompleted()) {
+                        MissionDetails.mission2(textArea);
+                    } else if (moveIndex == 2 && MissionsBackBone.missionSecondCompleted()) {
+                        MissionDetails.mission3(textArea);
+                    }
 
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
@@ -100,7 +104,9 @@ public class GamePlay extends JPanel {
                     } else {
                         JOptionPane.showMessageDialog(GamePlay.this, "There is no room to go back", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
-
+                    if (moveIndex == 2 && MissionsBackBone.missionSecondCompleted()) {
+                        MissionDetails.mission3(textArea);
+                    }
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -124,7 +130,7 @@ public class GamePlay extends JPanel {
 
                     int count = 1;
                     if (items.isEmpty() && people.isEmpty()) {
-                        textArea.append("\nThe locations is empty. \n");
+                        textArea.append("\nThe location is empty. \n");
                         return;
                     }
                     if (!items.isEmpty()) {
@@ -192,8 +198,6 @@ public class GamePlay extends JPanel {
 
     }
 }
-
-
 
 
 

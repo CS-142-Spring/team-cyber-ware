@@ -64,3 +64,4 @@ public class InventoryFrame extends JFrame {
         textArea.setText(sb.toString());
     }
 }
+

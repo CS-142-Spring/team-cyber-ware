@@ -1,3 +1,4 @@
+
 package Inventory;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class Clue {
     }
 
     public Clue(String name, String description, String location, String relevance,
-                String timestamp, String clueType, int evidenceStrength) {
+                String clueType, int evidenceStrength) {
         this.name = name;
         this.description = description;
         this.location = location;

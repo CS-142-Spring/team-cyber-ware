@@ -1,5 +1,8 @@
 package Missions;
 
+
+import javax.swing.*;
+
 public class MissionDetails {
     private String title;
     private String Objective;
@@ -45,59 +48,48 @@ public class MissionDetails {
         this.location = location;
     }
 
-    public static void mission1(){ // mission 1 calling its details.
+
+    public static void mission1(JTextArea textArea){ // mission 1 calling its details.
         MissionDetails mission = getMissionDetails1();
-        System.out.println("\nLocation: " + mission.getLocation());
-        System.out.println("Mission Title: " + mission.getTitle());
-        System.out.println("Mission Objective: " + mission.getObjective());
-        System.out.println("Directions: " + mission.getDirections());
+
+        textArea.append("\nMission Title: " + mission.getTitle());
+        textArea.append("\nLocation: " + mission.getLocation());
+        textArea.append("Mission Objective: " + mission.getObjective());
+
     }
 
     public static MissionDetails getMissionDetails1(){ // mission 1 details that are set for it.
         MissionDetails mission = new MissionDetails();
         mission.setLocation("Jack Malone's Office");
         mission.setTitle("Mission: " + "Good things come to those who work!"); // Quote by Greg Dortch
-        mission.setObjective("\nFollow up on the leads provided by the 'initial caller'.");
-        mission.setDirections("Straight");
+        mission.setObjective("\nGrab your stuff before leaving to find coach.");
         return mission;
     }
 
-    public static void mission2() { // mission 1 calling its details.
+    public static void mission2(JTextArea textArea) { // mission 1 calling its details.
         MissionDetails mission = getMissionDetails2();
-        System.out.println("Mission Title: " + mission.getTitle());
-        System.out.println("Mission Objective: " + mission.getObjective());
-        System.out.println("Directions: " + mission.getDirections());
+        textArea.append("\nMission Title: " + mission.getTitle());
+        textArea.append("\nMission Objective: " + mission.getObjective());
     }
 
     private static MissionDetails getMissionDetails2() { // mission 2 details that are set for it.
         MissionDetails mission = new MissionDetails();
-        mission.setTitle("Every day is an opportunity disguised as a challenge"); // Quote by Tiki Barber
-        mission.setObjective(""); // Continue off of the story plot point given here.
-        mission.setDirections("");
+        mission.setTitle(" Every day is an opportunity disguised as a challenge"); // Quote by Tiki Barber
+        mission.setObjective(" Track down coach Marlowe based on the clues around the stadium");
         return mission;
     }
 
-    public static void mission3() { // mission 3 calling its details.
+    public static void mission3(JTextArea textArea) { // mission 3 calling its details.
         MissionDetails mission = getMissionDetails3();
-        System.out.println("Mission Title: " + mission.getTitle());
-        System.out.println("Mission Objective: " + mission.getObjective());
-        System.out.println("Directions: " + mission.getDirections());
+        textArea.append("\nMission Title: " + mission.getTitle());
+        textArea.append("\nMission Objective: " + mission.getObjective());
     }
 
     private static MissionDetails getMissionDetails3() { // mission 3 details that are set for it.
         MissionDetails mission = new MissionDetails();
         mission.setTitle("You cannot make progress with excuses"); // Quote by Cam Newton
-        mission.setObjective(""); // Continue off of the story plot point given here.
-        mission.setDirections("");
+        mission.setObjective("Check out Coach Marlowe's computer"); // Continue off of the story plot point given here.
         return mission;
     }
 
-    public static void main(String[] args) {
-        MissionDetails mission = new MissionDetails();
-        mission.setTitle("The Missing Artifact");
-        mission.setObjective("Investigate the disappearance of a valuable artifact from the museum.");
-        System.out.println("Mission Title: " + mission.getTitle());
-        System.out.println("Mission Objective: " + mission.getObjective());
-        System.out.println("Directions: " + mission.getDirections());
-    }
 }

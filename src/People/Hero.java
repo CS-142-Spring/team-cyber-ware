@@ -1,7 +1,7 @@
 package People;
-import Weapons.*;
-import Location.*;
 import Inventory.*;
+import Weapons.Knife;
+import Weapons.Weapon;
 
 // class that represents main hero
 public class Hero extends Person {

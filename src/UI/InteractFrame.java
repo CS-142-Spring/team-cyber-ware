@@ -3,8 +3,10 @@ package UI;
 import Interactions.Dialogues;
 import Inventory.Clue;
 import Inventory.Notebook;
+import Missions.MissionsBackBone;
 import People.Hero;
 import People.Person;
+import UI.DialogueInterface;
 import Utility.JsonUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -22,12 +24,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static Engine.Engine.addItems;
+import static Engine.Engine.currLocation;
+import static Missions.MissionsBackBone.*;
 
 public class InteractFrame {
-    private JButton notebookButton, talkButton;
+    private JButton notebookButton, talkButton, accessComputerButton;
     private JFrame frame;
     private JTabbedPane tabbedPane;
-    private JPanel cluePanel, peoplePanel;
+    private JPanel cluePanel, peoplePanel, computerButtonPanel, computerPanel;
     public InteractFrame(ArrayList<String> items, ArrayList<String> peopleNames) throws IOException {
         frame = new JFrame();
         frame.setTitle("Items available");
@@ -45,23 +49,23 @@ public class InteractFrame {
 
         JPanel peopleCheckBoxPanel = new JPanel(); // Create a panel to hold checkboxes
         peopleCheckBoxPanel.setLayout(new BoxLayout(peopleCheckBoxPanel, BoxLayout.Y_AXIS)); // Align checkboxes vertically
+        List<Clue> notebookClues = JsonUtil.getNotebook().getClues();
 
         // Add checkboxes to the checkBoxPanel, not directly to cluePanel
         for (String i : items) {
-            List<Clue> notebookClues = JsonUtil.getNotebook().getClues();
-            if (notebookClues.isEmpty()) {
-                JCheckBox checkBox = new JCheckBox(i, false);
-                clueCheckBoxPanel.add(checkBox);
-            } else {
+            boolean itemExists = false;
+            if (!notebookClues.isEmpty()) {
                 for (Clue clue : notebookClues) {
-                    if (!clue.getName().equalsIgnoreCase(i)) {
-                        JCheckBox checkBox = new JCheckBox(i, false);
-                        clueCheckBoxPanel.add(checkBox);
+                    if (clue.getName().equalsIgnoreCase(i)) {
+                        itemExists = true;
+                        break;
                     }
                 }
             }
-
-
+            if (!itemExists) {
+                JCheckBox checkBox = new JCheckBox(i, false);
+                clueCheckBoxPanel.add(checkBox);
+            }
         }
 
         JScrollPane clueScrollPane = new JScrollPane(clueCheckBoxPanel); // Add checkBoxPanel to a scrollPane
@@ -93,6 +97,7 @@ public class InteractFrame {
                             // If the checkbox is selected, get its label and adds it to the arrayList
                             String item = checkBox.getText();
                             itemsToRemove.add(item);
+                            setTrue(item);
                         }
                     }
                 }
@@ -108,15 +113,9 @@ public class InteractFrame {
             public void actionPerformed(ActionEvent e) {
                 //closes this frame and opens the new one for having a dialog
                 frame.dispose();
-                try {
-                    Hero mainHero = JsonUtil.getMainHero().getFirst();
-                    Person janitor = JsonUtil.getAllPeople().getFirst();
-                    Dialogues dialogues = new Dialogues(mainHero, janitor, mainHero.getCurrentLocation());
-                    DialogueInterface dialogue = new DialogueInterface(frame, dialogues);
+
+                    DialogueInterface dialogue = new DialogueInterface(frame);
                     dialogue.setVisible(true);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
 
             }
         });
@@ -132,7 +131,49 @@ public class InteractFrame {
         tabbedPane.addTab("People", peoplePanel);
         frame.getContentPane().add(tabbedPane);
         frame.setVisible(true);
+        if (currLocation().equalsIgnoreCase("Coach Marlowe’s Office")) {
+            computerPanel = new JPanel();
+            computerButtonPanel = new JPanel();
+            accessComputerButton = new JButton("Access Computer");
+            computerButtonPanel.add(accessComputerButton);
+            computerPanel.add(computerButtonPanel, BorderLayout.SOUTH);
+            tabbedPane.addTab("Computer", computerPanel);
+            // Add ActionListener logic for the accessComputerButton
+            // Updated logic with handling incorrect password
+            accessComputerButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String pass = "Matt Lockwood";
+                    String answer = "";
+                    boolean passwordCorrect = false;
+                    frame.dispose();
+                    while (!passwordCorrect) {
+                        answer = JOptionPane.showInputDialog("Enter password:");
+                        if (answer == null) {
+                            break; // User canceled input
+                        } else if (answer.equals(pass)) {
+                            JOptionPane.showMessageDialog(null, "    Hello Coach Marlowe!");
+                            MissionsBackBone.setPuzzleTrue();
+
+                            passwordCorrect = true;
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Incorrect password. Must be a bench warmer! Please try again.");
+                        }
+                    }
+                }
+            });
+        }
     }
 
-
+    // sets true to item booleans if added to inventory
+    public void setTrue(String item) {
+        setMagGlassTrue(item);
+        setNoteBookTrue(item);
+        setTrenchCoatTrue(item);
+        setYearBookTrue(item);
+        setStickyNoteTrue(item);
+        setHallwayFootPrint(item);
+        setOfficeFootPrint(item);
+        setInkBox(item);
+    }
 }

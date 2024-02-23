@@ -1,3 +1,4 @@
+
 package Interactions;
 
 public class DialogueChoice {
@@ -17,4 +18,3 @@ public class DialogueChoice {
         action.run();
     }
 }
-
