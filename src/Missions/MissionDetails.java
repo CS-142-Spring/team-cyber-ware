@@ -54,7 +54,7 @@ public class MissionDetails {
 
         textArea.append("\nMission Title: " + mission.getTitle());
         textArea.append("\nLocation: " + mission.getLocation());
-        textArea.append("Mission Objective: " + mission.getObjective());
+        textArea.append("\nMission Objective: " + mission.getObjective());
 
     }
 
@@ -62,7 +62,7 @@ public class MissionDetails {
         MissionDetails mission = new MissionDetails();
         mission.setLocation("Jack Malone's Office");
         mission.setTitle("Mission: " + "Good things come to those who work!"); // Quote by Greg Dortch
-        mission.setObjective("\nGrab your stuff before leaving to find coach.");
+        mission.setObjective("Grab your stuff before leaving to find coach.");
         return mission;
     }
 
