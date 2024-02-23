@@ -4,6 +4,7 @@ import Engine.Engine;
 import Inventory.Clue;
 import Missions.MissionDetails;
 import Missions.MissionsBackBone;
+import People.Hero;
 import People.Person;
 import Utility.JsonUtil;
 
@@ -119,17 +120,19 @@ public class GamePlay extends JPanel {
                     locations = JsonUtil.getAllLocations();
                     List<Clue> items = new ArrayList<>();
                     List<Person> people = new ArrayList<>();
+
                     for (Location location : locations) {
                         if (location.getName().equals(currLocation())) {
                             items = location.getItems();
-                            people = location.getPeople();
+//                            people = location.getPeople();
+//                            hero = JsonUtil.getMainHero().get(0);
                             location.setIsExamined(true);
                             break;
                         }
                     }
 
                     int count = 1;
-                    if (items.isEmpty() && people.isEmpty()) {
+                    if (items.isEmpty()) {
                         textArea.append("\nThe location is empty. \n");
                         return;
                     }

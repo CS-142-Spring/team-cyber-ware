@@ -53,19 +53,18 @@ public class InteractFrame {
 
         // Add checkboxes to the checkBoxPanel, not directly to cluePanel
         for (String i : items) {
+
             boolean itemExists = false;
-            if (!notebookClues.isEmpty()) {
-                for (Clue clue : notebookClues) {
-                    if (clue.getName().equalsIgnoreCase(i)) {
-                        itemExists = true;
-                        break;
-                    }
+            for (Clue clue : notebookClues) {
+                if (clue.getName().equalsIgnoreCase(i)) {
+                    itemExists = true;
                 }
             }
             if (!itemExists) {
                 JCheckBox checkBox = new JCheckBox(i, false);
                 clueCheckBoxPanel.add(checkBox);
             }
+
         }
 
         JScrollPane clueScrollPane = new JScrollPane(clueCheckBoxPanel); // Add checkBoxPanel to a scrollPane

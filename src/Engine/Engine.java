@@ -37,10 +37,8 @@ public class Engine {
         List<Location> locations = JsonUtil.getAllLocations();
 
         if (index < locations.size() && index >= 0) {
-            System.out.println("move");
             Hero hero = JsonUtil.getMainHero().get(0);
-            String Location = hero.getCurrentLocation();
-            hero.setCurrentLocation(Location);
+            hero.setCurrentLocation((locations.get(index).getName()));
             textArea.setText("You are in " + locations.get(index).getName());
         }
     }
@@ -58,8 +56,7 @@ public class Engine {
         ObjectMapper objectMapper = new ObjectMapper();
         ArrayList<String> items = new ArrayList<>();
         File file = new File("src/Resources/Locations.json");
-        Hero hero = JsonUtil.getMainHero().get(0);
-        String Location = hero.getCurrentLocation();
+        String Location = currLocation();
         JsonNode jsonNode = null;
         try {
             jsonNode = objectMapper.readTree(file);
@@ -69,8 +66,6 @@ public class Engine {
         JsonNode foundLocation = null;
         if (jsonNode.isArray()) {
             for (JsonNode location : jsonNode) {
-                System.out.println(location.get("name").asText());
-                System.out.println(Location);
                 if (location.get("isExamined").asBoolean() && location.get("name").asText().equals(Location)) {
                     foundLocation = location;
                     break;
