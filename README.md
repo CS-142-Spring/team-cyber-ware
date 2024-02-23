@@ -2,3 +2,4 @@
 
 MJ: ChatGPT, Engine, UI, Utility, Location, Dialogues, Person
 Yash: Person, Hero, DallE, GameFrame, Weapons, Worked on Notebook.json and Locations.json
+Eshmael: MissionsDetails, MissionsBackBone
