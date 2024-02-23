@@ -1,16 +1,10 @@
 package Missions;
 
-import java.util.Scanner;
-
-class MissionDetails {
+public class MissionDetails {
     private String title;
     private String Objective;
-    private String[] clues;
-    private String[] evidence;
     private String directions;
     private String location;
-    static Scanner scanner = new Scanner(System.in);
-    static Story story = new Story();
 
     // Getter and setter for title
 
@@ -32,24 +26,7 @@ class MissionDetails {
         this.Objective = Objective;
     }
 
-    // Getter and setter for clues
-    public String[] getClues() {
-        return clues;
-    }
-
-    public void setClues(String[] clues) {
-        this.clues = clues;
-    }
-
-    // Getter and setter for evidence
-    public String[] getEvidence() {
-        return evidence;
-    }
-
-    public void setEvidence(String[] evidence) {
-        this.evidence = evidence;
-    }
-
+    // Getter and setter for directions
     public String getDirections() {
         return directions;
     }
@@ -58,90 +35,63 @@ class MissionDetails {
         this.directions = directions;
     }
 
+    // Getter and setter for location
+    public String getLocation() {
 
-
-    public static void continueMethod() {
-        System.out.print("Type enter to continue:");
-        String answer = scanner.nextLine(); // Instead this should be a button.
-        if (answer.equalsIgnoreCase("'Enter'")) {
-            story.segmentStory();
-        } else {
-            System.out.println("That is not a valid input");
-            continueMethod();
-        }
+        return location;
     }
 
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
-    public static void mission3() {
+    public static void mission1(){ // mission 1 calling its details.
+        MissionDetails mission = getMissionDetails1();
+        System.out.println("\nLocation: " + mission.getLocation());
+        System.out.println("Mission Title: " + mission.getTitle());
+        System.out.println("Mission Objective: " + mission.getObjective());
+    }
 
+    public static MissionDetails getMissionDetails1(){ // mission 1 details that are set for it.
+        MissionDetails mission = new MissionDetails();
+        mission.setLocation("Jack Malone's Office");
+        mission.setTitle("Good things come to those who work!"); // Quote by Greg Dortch.
+        mission.setObjective("\nFollow up on the leads provided by the 'initial caller'.");
+        return mission;
+    }
+
+    public static void mission2() { // mission 1 calling its details.
+        MissionDetails mission = getMissionDetails2();
+        System.out.println("Mission Title: " + mission.getTitle());
+        System.out.println("Mission Objective: " + mission.getObjective());
+    }
+
+    private static MissionDetails getMissionDetails2() { // mission 2 details that are set for it.
         MissionDetails mission = new MissionDetails();
         mission.setTitle("Every day is an opportunity disguised as a challenge"); // Quote by Tiki Barber
-        mission.setObjective(""); // Continue off of the story plot point given here.
-        mission.setDirections("");
-        mission.setClues(new String[]{"Mysterious footprint", "Broken display case"}); // clues in this phase to be discovered.
-        mission.setEvidence(new String[]{"Fingerprint analysis report", "Security camera footage"}); // Evidence to be discovered.
-        System.out.println("Mission Title: " + mission.getTitle());
-        System.out.println("Mission Objective: " + mission.getObjective());
-        System.out.println("Clues: " + String.join(", ", mission.getClues()));
-        System.out.println("Evidence: " + String.join(", ", mission.getEvidence()));
-        System.out.println("Directions: " + mission.getDirections());
+        mission.setObjective("Track down coach Marlowe based on the clues in his office");
+        // Continue off of the story plot point given here.
+        return mission;
     }
 
-    public static void mission4() {
+    public static void mission3() { // mission 3 calling its details.
+        MissionDetails mission = getMissionDetails3();
+        System.out.println("Mission Title: " + mission.getTitle());
+        System.out.println("Mission Objective: " + mission.getObjective());
+    }
 
+    private static MissionDetails getMissionDetails3() { // mission 3 details that are set for it.
         MissionDetails mission = new MissionDetails();
         mission.setTitle("You cannot make progress with excuses"); // Quote by Cam Newton
-        mission.setObjective(""); // Continue off of the story plot point given here.
-        mission.setDirections("");
-        mission.setClues(new String[]{"Mysterious footprint", "Broken display case"}); // clues in this phase to be discovered.
-        mission.setEvidence(new String[]{"Fingerprint analysis report", "Security camera footage"}); // Evidence to be discovered.
-        System.out.println("Mission Title: " + mission.getTitle());
-        System.out.println("Mission Objective: " + mission.getObjective());
-        System.out.println("Clues: " + String.join(", ", mission.getClues()));
-        System.out.println("Evidence: " + String.join(", ", mission.getEvidence()));
-        System.out.println("Directions: " + mission.getDirections());
-    }
-
-    public static void mission5() {
-
-        MissionDetails mission = new MissionDetails();
-        mission.setTitle("No one ever drowned in sweat"); // Quote by Lou Holtz
-        mission.setObjective(""); // Continue off of the story plot point given here.
-        mission.setDirections("");
-        mission.setClues(new String[]{"Mysterious footprint", "Broken display case"}); // clues in this phase to be discovered.
-        mission.setEvidence(new String[]{"Fingerprint analysis report", "Security camera footage"}); // Evidence to be discovered.
-        System.out.println("Mission Title: " + mission.getTitle());
-        System.out.println("Mission Objective: " + mission.getObjective());
-        System.out.println("Clues: " + String.join(", ", mission.getClues()));
-        System.out.println("Evidence: " + String.join(", ", mission.getEvidence()));
-        System.out.println("Directions: " + mission.getDirections());
-    }
-
-    public static void mission6() {
-
-        MissionDetails mission = new MissionDetails();
-        mission.setTitle("When you don’t give up, you cannot fail"); // Quote by Adrian Peterson
-        mission.setObjective("Follow up on the leads provided by"); // the leads given by whoever initially called.
-        mission.setDirections("");
-        mission.setClues(new String[]{"Mysterious footprint", "Broken display case"}); // whatever clues that can be found at the starting locations
-        mission.setEvidence(new String[]{"Fingerprint analysis report", "Security camera footage"});
-        System.out.println("Mission Title: " + mission.getTitle());
-        System.out.println("Mission Objective: " + mission.getObjective());
-        System.out.println("Clues: " + String.join(", ", mission.getClues()));
-        System.out.println("Evidence: " + String.join(", ", mission.getEvidence()));
-        System.out.println("Directions: " + mission.getDirections());
+        mission.setObjective("Check out Coach Marlowe's computer"); // Continue off of the story plot point given here.
+        return mission;
     }
 
     public static void main(String[] args) {
         MissionDetails mission = new MissionDetails();
         mission.setTitle("The Missing Artifact");
         mission.setObjective("Investigate the disappearance of a valuable artifact from the museum.");
-        mission.setClues(new String[]{"Mysterious footprint", "Broken display case"});
-        mission.setEvidence(new String[]{"Fingerprint analysis report", "Security camera footage"});
         System.out.println("Mission Title: " + mission.getTitle());
         System.out.println("Mission Objective: " + mission.getObjective());
-        System.out.println("Clues: " + String.join(", ", mission.getClues()));
-        System.out.println("Evidence: " + String.join(", ", mission.getEvidence()));
-        System.out.println("Directions: " + mission.getDirections());
     }
 }

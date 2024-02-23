@@ -3,6 +3,7 @@ import Weapons.*;
 import Location.*;
 import Inventory.*;
 
+// class that represents main hero
 public class Hero extends Person {
     Weapon currWeapon;
     Notebook notebook;
