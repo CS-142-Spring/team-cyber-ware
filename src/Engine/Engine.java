@@ -34,11 +34,13 @@ public class Engine {
     // the method for moving
     public static void move(int index, JTextArea textArea) throws IOException {
         // changes the location of the main hero
-        Hero hero = JsonUtil.getMainHero().get(0);
         List<Location> locations = JsonUtil.getAllLocations();
 
         if (index < locations.size() && index >= 0) {
-            hero.setCurrentLocation(getLocation(index).getName());
+            System.out.println("move");
+            Hero hero = JsonUtil.getMainHero().get(0);
+            String Location = hero.getCurrentLocation();
+            hero.setCurrentLocation(Location);
             textArea.setText("You are in " + locations.get(index).getName());
         }
     }
@@ -51,17 +53,13 @@ public class Engine {
     }
 
     // The method reads the file from json of locations and puts it into interactions
-    public static ArrayList<String> interact(JPanel gamePlayPanel) {
+    public static ArrayList<String> interact(JPanel gamePlayPanel) throws IOException {
         // Specify the path to your JSON file
         ObjectMapper objectMapper = new ObjectMapper();
         ArrayList<String> items = new ArrayList<>();
         File file = new File("src/Resources/Locations.json");
-        String Location = null;
-        try {
-            Location = Engine.currLocation();
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
+        Hero hero = JsonUtil.getMainHero().get(0);
+        String Location = hero.getCurrentLocation();
         JsonNode jsonNode = null;
         try {
             jsonNode = objectMapper.readTree(file);
@@ -71,6 +69,8 @@ public class Engine {
         JsonNode foundLocation = null;
         if (jsonNode.isArray()) {
             for (JsonNode location : jsonNode) {
+                System.out.println(location.get("name").asText());
+                System.out.println(Location);
                 if (location.get("isExamined").asBoolean() && location.get("name").asText().equals(Location)) {
                     foundLocation = location;
                     break;

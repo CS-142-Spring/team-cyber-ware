@@ -7,7 +7,6 @@
     "location" : "Detective's Office",
     "relevance" : "High",
     "clueType" : "Physical",
-    "connectedClues" : null,
     "evidenceStrength" : 8
   }, {
     "name" : "Notebook",
@@ -15,7 +14,6 @@
     "location" : "Detective's Office",
     "relevance" : "High",
     "clueType" : "Testimonial",
-    "connectedClues" : null,
     "evidenceStrength" : 8
   }, {
     "name" : "Trench Coat",
@@ -23,7 +21,6 @@
     "location" : "Detective's Office",
     "relevance" : "High",
     "clueType" : "Physical",
-    "connectedClues" : null,
     "evidenceStrength" : 9
   } ],
   "people" : [ ],
@@ -38,7 +35,6 @@
     "location" : "Coach Marlowe’s Office",
     "relevance" : "High",
     "clueType" : "Testimonial",
-    "connectedClues" : null,
     "evidenceStrength" : 8
   }, {
     "name" : "Ink Box",
@@ -46,7 +42,6 @@
     "location" : "Janitor's Closet",
     "relevance" : "Medium",
     "clueType" : "Circumstantial",
-    "connectedClues" : null,
     "evidenceStrength" : 7
   }, {
     "name" : "Ink Footprints in the Office",
@@ -54,7 +49,6 @@
     "location" : "Coach Marlowe's Office",
     "relevance" : "High",
     "clueType" : "Physical",
-    "connectedClues" : null,
     "evidenceStrength" : 4
   } ],
   "people" : [ ],
@@ -69,7 +63,6 @@
     "location" : "Mega Stadium Hallway",
     "relevance" : "Medium",
     "clueType" : "Physical",
-    "connectedClues" : null,
     "evidenceStrength" : 5
   } ],
   "people" : [ {
@@ -77,24 +70,12 @@
     "role" : "Janitor",
     "description" : "Caretaker of the premises with access to all areas, including the janitor's closet.",
     "suspectReason" : "Has unrestricted access to all rooms, raising suspicion.",
-    "relationshipWithPlayer" : 0,
     "relationshipWithVictim" : "Occasional interactions, mostly professional.",
     "usefulness" : "Has a key ",
-    "currentLocation" : null,
+    "location" : "Mega Stadium Hallway",
     "traits" : [ "Observant", "Meticulous" ],
-    "clues" : [ {
-      "name" : "Key",
-      "description" : null,
-      "location" : null,
-      "relevance" : null,
-      "clueType" : null,
-      "connectedClues" : null,
-      "evidenceStrength" : 0
-    } ],
-    "age" : 58.0,
-    "trustworthy" : false,
-    "suspect" : true,
-    "useful" : false
+    "clues" : [ "Key" ],
+    "age" : 58.0
   } ],
   "accessibility" : true,
   "isExamined" : false
@@ -107,16 +88,7 @@
     "location" : "Mega Stadium Hallway",
     "relevance" : "High",
     "clueType" : "Testimonial",
-    "connectedClues" : null,
     "evidenceStrength" : 10
-  }, {
-    "name" : "Ink Box",
-    "description" : null,
-    "location" : null,
-    "relevance" : null,
-    "clueType" : null,
-    "connectedClues" : null,
-    "evidenceStrength" : 0
   } ],
   "people" : [ ],
   "accessibility" : false,
