@@ -1,6 +1,8 @@
 package UI;
 
 import Interactions.Dialogues;
+import Inventory.Clue;
+import Inventory.Notebook;
 import People.Hero;
 import People.Person;
 import Utility.JsonUtil;
@@ -17,16 +19,16 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 import static Engine.Engine.addItems;
-import static Engine.Engine.removeItems;
 
 public class InteractFrame {
     private JButton notebookButton, talkButton;
     private JFrame frame;
     private JTabbedPane tabbedPane;
     private JPanel cluePanel, peoplePanel;
-    public InteractFrame(ArrayList<String> items, ArrayList<String> peopleNames) {
+    public InteractFrame(ArrayList<String> items, ArrayList<String> peopleNames) throws IOException {
         frame = new JFrame();
         frame.setTitle("Items available");
         frame.setSize(300, 200);
@@ -46,8 +48,20 @@ public class InteractFrame {
 
         // Add checkboxes to the checkBoxPanel, not directly to cluePanel
         for (String i : items) {
-            JCheckBox checkBox = new JCheckBox(i, false);
-            clueCheckBoxPanel.add(checkBox);
+            List<Clue> notebookClues = JsonUtil.getNotebook().getClues();
+            if (notebookClues.isEmpty()) {
+                JCheckBox checkBox = new JCheckBox(i, false);
+                clueCheckBoxPanel.add(checkBox);
+            } else {
+                for (Clue clue : notebookClues) {
+                    if (!clue.getName().equalsIgnoreCase(i)) {
+                        JCheckBox checkBox = new JCheckBox(i, false);
+                        clueCheckBoxPanel.add(checkBox);
+                    }
+                }
+            }
+
+
         }
 
         JScrollPane clueScrollPane = new JScrollPane(clueCheckBoxPanel); // Add checkBoxPanel to a scrollPane
@@ -71,7 +85,6 @@ public class InteractFrame {
         notebookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(clueCheckBoxPanel.getComponents());
                 // Iterate over the checkboxes
                 for (Component component : clueCheckBoxPanel.getComponents()) {
                     if (component instanceof JCheckBox) {
@@ -85,12 +98,7 @@ public class InteractFrame {
                 }
 
                 for(String i : itemsToRemove){
-                    try {
-                        removeItems(i);
-                        addItems(i);
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
+                    addItems(i);
                 }
                 frame.dispose();
             }

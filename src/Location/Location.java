@@ -62,14 +62,13 @@ public class Location {
 			// Iterate over the locations to find the correct one
 			locations.forEach(location -> {
 				if (location.get("name").asText().equals(this.name)) {
-					System.out.println("is examined");
 					// Update the isExamined property
 					((ObjectNode) location).put("isExamined", bool);
 				}
 			});
 			this.isExamined = bool;
 			// Write the updated JSON back to the file
-			mapper.writeValue(file, locations);
+			mapper.writerWithDefaultPrettyPrinter().writeValue(file, locations);
 		} catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -115,14 +114,11 @@ public class Location {
 			}
 			File file = new File("src/Resources/Locations.json");
 			// Serialize the updated list back to JSON and write it to the file
-			System.out.println(locations.getFirst().isExamined);
 			mapper.writerWithDefaultPrettyPrinter().writeValue(file, locations);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
-
 
 	public String getDescription() {
 		return this.description;
@@ -135,8 +131,27 @@ public class Location {
 	public boolean getAccessibility() {
 		return this.accessibility;
 	}
+
 	public void setAccessibility(boolean choice){
-		this.accessibility = choice;
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+
+			File file = new File("src/Resources/Locations.json");
+
+			ArrayNode locations = (ArrayNode) mapper.readTree(file);
+
+			// Iterate over the locations to find the correct one
+			locations.forEach(location -> {
+				if (location.get("name").asText().equals(this.name)) {
+					((ObjectNode) location).put("accessibility", choice);
+				}
+			});
+			this.accessibility = choice;
+			// Write the updated JSON back to the file
+			mapper.writerWithDefaultPrettyPrinter().writeValue(file, locations);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 	public String getName(){
 		return this.name;

@@ -1,11 +1,14 @@
 package UI;
 
+import Engine.Engine;
 import Interactions.DialogueChoice;
 import Interactions.Dialogues;
 
+import Inventory.Notebook;
 import People.Person;
 import Utility.JsonUtil;
-
+import Location.Location;
+import Inventory.Clue;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -51,7 +54,7 @@ public class DialogueInterface extends JDialog {
     }
     private void processInput(String response) throws IOException {
         if (!response.trim().isEmpty()) {
-            dialogueTextArea.append("Janitor Jor: " + response + "\n");
+            dialogueTextArea.append("Janitor Joe: " + response + "\n");
             userInputField.setText("");
             addToNotebook();
         }
@@ -60,10 +63,14 @@ public class DialogueInterface extends JDialog {
     // Adds the key to the inventory/notebook
     private void addToNotebook() throws IOException {
         List<Person> people = JsonUtil.getAllPeople();
+        Location location = Engine.getLocation(3);
 
+
+        location.setAccessibility(true);
         for (Person person : people) {
             if (!person.getClues().isEmpty()) {
                 addItems(person.getClues().getFirst().getName());
+
             }
         }
     }
@@ -75,7 +82,7 @@ public class DialogueInterface extends JDialog {
 
     public void presentChoices(DialogueChoice... choices) {
         optionsPanel.removeAll();
-
+        dialogueTextArea.append("Janitor Joe: Hey, Detective! How can I help you?" );
         for (DialogueChoice choice : choices) {
             JButton choiceButton = new JButton(choice.getPrompt());
             choiceButton.addActionListener((ActionEvent e) -> {
@@ -94,9 +101,18 @@ public class DialogueInterface extends JDialog {
     private void showChoices() {
         DialogueChoice choice1 = new DialogueChoice("Ask for the keys politely", () -> {
             // Logic to handle this choice
-            appendToDialogue("You: Could you please give me the keys?\n");
+            appendToDialogue("\n\nYou: Could you please give me the keys?\n");
             // Assume processInput simulates processing and displaying the janitor's response
             try {
+                List<Clue> notebookItems = JsonUtil.getAllClues();
+
+
+                for (Clue item : notebookItems) {
+                    if (item.getName().equalsIgnoreCase("Key")) {
+                        processInput("I already handed you the key. What, you went and dropped it?");
+                        return;
+                    }
+                }
                 processInput("Here are the keys. Please be careful.");
             } catch (IOException e) {
                 throw new RuntimeException(e);

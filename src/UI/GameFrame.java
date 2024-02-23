@@ -3,8 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
-import static Game.Game.resetGameState;
+import Engine.*;
 
 public class GameFrame extends JFrame implements ViewSwitcher {
     private CardLayout cardLayout = new CardLayout();
@@ -34,11 +33,9 @@ public class GameFrame extends JFrame implements ViewSwitcher {
             @Override
             public void windowClosing(WindowEvent e) {
                 try {
-                    resetGameState(); // Assuming GameReset is the class containing your reset logic
-                    System.out.println("Game reset successfully.");
+                    Engine.resetGameState();
                 } catch (Exception ex) {
                     ex.printStackTrace();
-                    System.out.println("Failed to reset the game.");
                 } finally {
                     // Close the frame and exit the application after resetting
                     GameFrame.this.dispose(); // Dispose the current frame
@@ -51,15 +48,6 @@ public class GameFrame extends JFrame implements ViewSwitcher {
     public void switchView(String viewName) {
         cardLayout.show(mainPanel, viewName);
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new GameFrame();
-            }
-        });
-    }
-
 
 }
 

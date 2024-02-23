@@ -52,15 +52,13 @@ public class GamePlay extends JPanel {
         inventoryButton = new JButton("Inventory");
         previousButton = new JButton("Previous");
 
-
         // Add buttons to a panel
         buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
-        buttonPanel.add(searchButton);
-        buttonPanel.add(forwardButton);
-        buttonPanel.add(backButton);
         buttonPanel.add(previousButton);
-
+        buttonPanel.add(forwardButton);
+        buttonPanel.add(searchButton);
+        buttonPanel.add(backButton);
         buttonPanel.add(interactButton);
 
         inventoryPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -75,8 +73,13 @@ public class GamePlay extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (moveIndex < 3) {
-                        moveIndex++;
-                        Engine.move(moveIndex, textArea);
+                        if (Engine.getLocation(moveIndex + 1).getAccessibility()) {
+                            moveIndex++;
+                            Engine.move(moveIndex, textArea);
+                        } else {
+                            JOptionPane.showMessageDialog(GamePlay.this, "You need a key for this room", "No Access", JOptionPane.OK_OPTION);
+                        }
+
                     } else {
                         JOptionPane.showMessageDialog(GamePlay.this, "There is no room to go forward", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
@@ -171,7 +174,7 @@ public class GamePlay extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try {
                     ArrayList<String> items = Engine.interact(GamePlay.this);
-                    ArrayList<String> peopleNames = Engine.getPeople();
+                    ArrayList<String> peopleNames = Engine.getPeopleNames();
                     if (items != null) {
                         new InteractFrame(items, peopleNames);
                     }

@@ -51,16 +51,10 @@ public class JsonUtil {
             List<Location> locations = getAllLocations();
             for (Location location : locations) {
                 location.setIsExamined(false);
-            }
-            List<Clue> clues = JsonUtil.getAllClues();
-            for (Clue clue : clues) {
-                for (Location location : locations) {
-                    if (clue.getLocation().equals(location.getName())) {
-                        if (!location.hasItem(clue)) {
-                            location.setItem(clue);
-                        }
-                    }
+                if (location.getName().equalsIgnoreCase("Janitor's Closet")) {
+                    location.setAccessibility(false);
                 }
+
             }
         } catch (IOException e) {
             e.printStackTrace();

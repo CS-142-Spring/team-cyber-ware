@@ -36,6 +36,7 @@ public class Menu extends JPanel {
 
         // Example of how to handle button action in the context of CardLayout
         newGameBtn.addActionListener(e -> this.viewSwitcher.switchView("INTRODUCTION"));
+        exitBtn.addActionListener(e -> System.exit(0));
     }
 
     // Override paintComponent to draw the background image
