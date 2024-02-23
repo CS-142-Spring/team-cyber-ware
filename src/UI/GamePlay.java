@@ -27,10 +27,8 @@ import static Engine.Engine.currLocation;
 
 public class GamePlay extends JPanel {
     private JTextArea textArea;
-    private JButton searchButton, forwardButton, backButton, previousButton;
-    private JPanel buttonPanel, textPanel;
-    private JButton searchButton, forwardButton, backButton, interactButton, inventoryButton;
     private JPanel buttonPanel, textPanel, inventoryPanel;
+    private JButton searchButton, forwardButton, backButton, interactButton, inventoryButton, previousButton;
     private int moveIndex = 0;
     private ViewSwitcher viewSwitcher;
     public GamePlay(ViewSwitcher viewSwitcher) {
@@ -95,7 +93,7 @@ public class GamePlay extends JPanel {
                 try {
                     if (moveIndex > 0) {
                         moveIndex--;
-                        Engine.move(moveIndex);
+                        Engine.move(moveIndex, textArea);
                     } else {
                         JOptionPane.showMessageDialog(GamePlay.this, "There is no room to go back", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
@@ -159,14 +157,6 @@ public class GamePlay extends JPanel {
         });
 
 
-
-
-
-
-
-
-    }
-
         inventoryButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -178,7 +168,6 @@ public class GamePlay extends JPanel {
         });
 
         interactButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     ArrayList<String> items = Engine.interact(GamePlay.this);
@@ -193,6 +182,11 @@ public class GamePlay extends JPanel {
 
             }
         });
+
+
+
+
+
     }
 }
 
