@@ -11,9 +11,9 @@ public class Introduction extends JPanel {
     private CardLayout cardLayout;
     private JPanel cards;
     private JTextArea openingText;
-    private JPanel openingPanel;
+    private JPanel openingPanel, buttonPanel;
     private JTextArea keyWordsText;
-    private JButton continueButton;
+    private JButton continueButton, previousButton;
     private JPanel keyWordsPanel;
     private ViewSwitcher viewSwitcher;
 
@@ -46,14 +46,39 @@ public class Introduction extends JPanel {
         keyWordsText.setLineWrap(true);
         keyWordsText.setEditable(false);
         keyWordsPanel.add(new JScrollPane(keyWordsText), BorderLayout.CENTER);
+
+
+        //create buttons
         JButton keyContinueButton = new JButton("Start Game");
-        keyContinueButton.setPreferredSize(new Dimension(150, 40));  // Set the preferred size to 150x40 pixels.
+        JButton previousButton = new JButton("Previous");
+
+        // buttons to panel
+        buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.add(keyContinueButton);
+        buttonPanel.add(previousButton);
+
+
+        add(buttonPanel, BorderLayout.SOUTH);
+        keyWordsPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+
+
+     //   keyContinueButton.setPreferredSize(new Dimension(50, 40));  // Set the preferred size to 150x40 pixels.
         keyContinueButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 viewSwitcher.switchView("GAMEPLAY");
             }
         });
-        keyWordsPanel.add(keyContinueButton, BorderLayout.SOUTH);
+
+
+        previousButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                viewSwitcher.switchView("MENU");
+
+            }
+        });
+
 
         // Add the panels to the CardLayout
         cards.add(openingPanel, "OpeningPanel");
@@ -68,14 +93,16 @@ public class Introduction extends JPanel {
     }
 
     private static String getOpeningScene() {
-        String filePath = "C:\\Users\\Hp\\IdeaProjects\\team-cyber-ware\\src\\Resources\\OpeningScene";
+        String filePath = "src\\Resources\\OpeningScene";
         String content = FileIO.extractContent(filePath);
         return content;
     }
 
     private static String getKeyWordsHelp() {
-        String filePath = "C:\\Users\\Hp\\IdeaProjects\\team-cyber-ware\\src\\Resources\\KeyWordsHelp";
+        String filePath = "src\\Resources\\KeyWordsHelp";
         String content = FileIO.extractContent(filePath);
         return content;
     }
 }
+
+

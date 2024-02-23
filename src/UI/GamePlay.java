@@ -10,12 +10,13 @@ import java.io.IOException;
 
 public class GamePlay extends JPanel {
     private JTextArea textArea;
-    private JButton searchButton, forwardButton, backButton, investigateButton;
+    private JButton searchButton, forwardButton, backButton, investigateButton, previousButton;
     private JPanel buttonPanel, textPanel;
     private int moveIndex = 0;
-    public GamePlay() {
+    private ViewSwitcher viewSwitcher;
+    public GamePlay(ViewSwitcher viewSwitcher) {
         setLayout(new BorderLayout());
-
+        this.viewSwitcher = viewSwitcher;
         // Create text area
         textArea = new JTextArea();
         textArea.setEditable(false);
@@ -31,6 +32,8 @@ public class GamePlay extends JPanel {
         forwardButton = new JButton("Forward");
         backButton = new JButton("Back");
         investigateButton = new JButton("Investigate");
+        previousButton = new JButton("Previous");
+
 
         // Add buttons to a panel
         buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -38,6 +41,8 @@ public class GamePlay extends JPanel {
         buttonPanel.add(forwardButton);
         buttonPanel.add(backButton);
         buttonPanel.add(investigateButton);
+        buttonPanel.add(previousButton);
+
 
         // Add button panel to the main panel
         add(buttonPanel, BorderLayout.SOUTH);
@@ -75,6 +80,21 @@ public class GamePlay extends JPanel {
                 }
             }
         });
+        previousButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    viewSwitcher.switchView("INTRODUCTION");
+
+            }
+        });
+
+
+
+
+
+
+
+
     }
 
     // Additional methods to handle button actions, game logic, etc.

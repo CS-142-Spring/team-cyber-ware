@@ -14,7 +14,7 @@ public class GameFrame extends JFrame implements ViewSwitcher {
         // Initialize your panels here
         menuPanel = new Menu(this);
         introductionPanel = new Introduction(this);
-        gamePlayPanel = new GamePlay();
+        gamePlayPanel = new GamePlay(this);
 
         // Add panels to mainPanel with identifiers
         mainPanel.add(menuPanel, "MENU");
