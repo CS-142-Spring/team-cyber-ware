@@ -1,32 +1,21 @@
 package UI;
 
-import Interactions.Dialogues;
 import Inventory.Clue;
-import Inventory.Notebook;
 import Missions.MissionsBackBone;
-import People.Hero;
-import People.Person;
-import UI.DialogueInterface;
 import Utility.JsonUtil;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 import static Engine.Engine.addItems;
 import static Engine.Engine.currLocation;
 import static Missions.MissionsBackBone.*;
-import static Resources.EndMessage.displayEndMessage1;
+import static UI.EndMessage.displayEndMessage1;
 
 
 public class InteractFrame {
@@ -34,7 +23,7 @@ public class InteractFrame {
     private JFrame frame;
     private JTabbedPane tabbedPane;
     private JPanel cluePanel, peoplePanel, computerButtonPanel, computerPanel;
-    public InteractFrame(ArrayList<String> items, ArrayList<String> peopleNames) throws IOException {
+    public InteractFrame(ArrayList<String> items, ArrayList<String> peopleNames, ViewSwitcher viewSwitcher) throws IOException {
         frame = new JFrame();
         frame.setTitle("Items available");
         frame.setSize(300, 200);
@@ -156,7 +145,7 @@ public class InteractFrame {
                             JOptionPane.showMessageDialog(null, "    Hello Coach Marlowe!");
                             MissionsBackBone.setPuzzleTrue();
                             // Call the displayEndMessage1 method here
-                            displayEndMessage1();
+                            displayEndMessage1(viewSwitcher);
                             passwordCorrect = true;
                         } else {
                             JOptionPane.showMessageDialog(null, "Incorrect password. Must be a bench warmer! Please try again.");

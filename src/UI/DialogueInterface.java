@@ -88,7 +88,6 @@ public class DialogueInterface extends JDialog {
             choiceButton.addActionListener((ActionEvent e) -> {
                 setJcKeyTrue("Key");
 
-
                 choice.select();
                 optionsPanel.removeAll();
                 this.revalidate();
@@ -107,16 +106,13 @@ public class DialogueInterface extends JDialog {
             appendToDialogue("\n\nYou: Could you please give me the keys?\n");
             // Assume processInput simulates processing and displaying the janitor's response
             try {
-                List<Clue> notebookItems = JsonUtil.getAllClues();
 
-
-                for (Clue item : notebookItems) {
-                    if (item.getName().equalsIgnoreCase("Key")) {
-                        processInput("I already handed you the key. What, you went and dropped it?");
-                        return;
-                    }
+                if (hasItem()) {
+                    processInput("I already handed you the key. What, you went and dropped it?");
+                } else {
+                    processInput("Here are the keys. Please be careful.");
                 }
-                processInput("Here are the keys. Please be careful.");
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -127,7 +123,12 @@ public class DialogueInterface extends JDialog {
             appendToDialogue("\n\nYou: Hand over the keys now, it's important.\n");
             // Assume processInput simulates processing and displaying the janitor's response
             try {
-                processInput("Alright, alright, no need to be pushy. Here you go.");
+
+                if (hasItem()) {
+                    processInput("I already handed you the key. What, you went and dropped it?");
+                } else {
+                    processInput("Alright, alright, no need to be pushy. Here you go.");
+                }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -136,4 +137,15 @@ public class DialogueInterface extends JDialog {
         presentChoices(choice1, choice2);
     }
 
+    public static boolean hasItem() throws IOException {
+        List<Clue> notebookItems = JsonUtil.getNotebook().getClues();
+
+        for (Clue item : notebookItems) {
+            System.out.println(notebookItems);
+            if (item.getName().equalsIgnoreCase("Key")) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

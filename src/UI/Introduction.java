@@ -72,7 +72,6 @@ public class Introduction extends JPanel {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Clears the previous painting
                 g.clearRect(0, 0, getWidth(), getHeight()); // Clear the area before repainting
-                g.clearRect(0, 0, getWidth(), getHeight()); // Clear the area if needed
                 g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this); // Draw the image
             }
 

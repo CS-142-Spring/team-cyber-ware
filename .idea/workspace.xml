@@ -1,34 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="YourProject:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b23dff4c-e317-479a-bd50-62a2b9c5485e" name="Changes" comment="Added sounds, Fixed grammatical errors, and Play and stop button.">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Resources/Detective's office.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Resources/closet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Resources/coach.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Resources/hallway.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Missions/MissionsBackBone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Missions/MissionsBackBone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/Clues.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/Clues.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/Sounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/Sounds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/DialogueInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/DialogueInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/GamePlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/GamePlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/InteractFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/InteractFrame.java" afterDir="false" />
-    </list>
+    <list default="true" id="99e323ce-0c66-459b-8269-e75cb1447088" name="Changes" comment="Added the design of an introduction" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../team-cyber-ware\exportToHTML" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -43,70 +36,460 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
+  &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="2cmy8ip7uCMhCIPd1cOUdYvD4nr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2becBFA3eWdVdmPcuvvgrqIFXKL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Dialogue.executor": "Run",
+    "Application.Dialogues.executor": "Run",
+    "Application.Engine.executor": "Run",
+    "Application.GameFrame.executor": "Run",
+    "Application.Interaction.executor": "Run",
+    "Application.InventoryFrame.executor": "Run",
     "Application.Main.executor": "Run",
+    "Application.MainFrame.executor": "Run",
+    "Application.Menu.executor": "Run",
+    "Application.MissionDetails.executor": "Run",
+    "Application.MissionsBackBone.executor": "Run",
+    "Application.NewGame.executor": "Run",
+    "Application.TheEnd.executor": "Run",
+    "Application.UI.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JAR Application.YourProject.jar.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging main",
-    "ignore.preview.features.used": "true",
-    "ignore.virus.scanning.warn.message": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "234",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Redvs/OneDrive/Desktop/team-cyber-ware",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "last_opened_file_path": "C:/Users/Hp/IdeaProjects/team-cyber-ware/src/Resources",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.editor"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Hp\IdeaProjects\team-cyber-ware\src\Resources" />
+      <recent name="C:\Users\Hp\IdeaProjects\team-cyber-ware\src" />
+      <recent name="C:\Users\Hp\IdeaProjects\team-cyber-ware\src\UI" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Hp\IdeaProjects\team-cyber-ware\src\Resources" />
+      <recent name="C:\Users\Hp\IdeaProjects\team-cyber-ware\out\artifacts\YourProject_jar" />
+      <recent name="C:\Users\Hp\IdeaProjects\team-cyber-ware\src\UI" />
+      <recent name="C:\Users\Hp\IdeaProjects\team-cyber-ware" />
+      <recent name="C:\Users\Hp\IdeaProjects\team-cyber-ware\src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="AwapProject-main" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="YourProject" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="AwapProject-main" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b23dff4c-e317-479a-bd50-62a2b9c5485e" name="Changes" comment="" />
-      <created>1708730890461</created>
+      <changelist id="99e323ce-0c66-459b-8269-e75cb1447088" name="Changes" comment="" />
+      <created>1706578847918</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1708730890461</updated>
+      <updated>1706578847918</updated>
     </task>
-    <task id="LOCAL-00001" summary="Added sounds, Fixed grammatical errors, and Play and stop button.">
+    <task id="LOCAL-00001" summary="Added functions for adding items to Notebook">
       <option name="closed" value="true" />
-      <created>1708754475833</created>
+      <created>1706579268435</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1708754475834</updated>
+      <updated>1706579268437</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Deleted unnecessary folder">
+      <option name="closed" value="true" />
+      <created>1706667573119</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1706667573119</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Created Location file">
+      <option name="closed" value="true" />
+      <created>1706667867237</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1706667867237</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added return types functions">
+      <option name="closed" value="true" />
+      <created>1706668000485</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706668000486</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added code for testing chat gpt">
+      <option name="closed" value="true" />
+      <created>1706671821786</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706671821787</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added pom.xml for installing Jackson">
+      <option name="closed" value="true" />
+      <created>1706757660730</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1706757660730</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Created DiologueEntry for it being like JSON, so that Jackson could create JSON from it. Testing JSON chat history in Dialogues">
+      <option name="closed" value="true" />
+      <created>1706757812943</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1706757812943</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added opening scene for main her introduction">
+      <option name="closed" value="true" />
+      <created>1706757862552</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1706757862552</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Changed the Dialogues class to OOP format, and added default prompt for bot acting as a certain character (some additions would be needed). And separated chatgpt to different folder for flexibility.">
+      <option name="closed" value="true" />
+      <created>1706890168847</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1706890168847</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Made usefulness and suspect from boolean to String in Person class. Added background to the prompt in Dialogues.java.">
+      <option name="closed" value="true" />
+      <created>1707152564242</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1707152564243</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added JsonUtil class for parsing json data to java">
+      <option name="closed" value="true" />
+      <created>1707260699153</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1707260699153</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added Locations and clues">
+      <option name="closed" value="true" />
+      <created>1707268503094</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1707268503094</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fixed problems with ignorance of an attribute in Location and Clue">
+      <option name="closed" value="true" />
+      <created>1707272074076</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1707272074077</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added UI with main menu and opening scene">
+      <option name="closed" value="true" />
+      <created>1707441117765</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1707441117766</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added UI with main menu and opening scene">
+      <option name="closed" value="true" />
+      <created>1707441179014</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1707441179014</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Changed the UI structure">
+      <option name="closed" value="true" />
+      <created>1707521781078</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1707521781078</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added the gameplay class">
+      <option name="closed" value="true" />
+      <created>1707695643834</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1707695643835</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added the gameplay class">
+      <option name="closed" value="true" />
+      <created>1707695783071</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1707695783071</updated>
+    </task>
+    <task id="LOCAL-00019" summary="added fileIo for file manipulation">
+      <option name="closed" value="true" />
+      <created>1707698872988</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1707698872989</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added the design of the main menu">
+      <option name="closed" value="true" />
+      <created>1707767884657</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1707767884657</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added Engine class for button and game logic. Added Forward and back buttons instead of single move button. Changed currentLocation to String in person class.">
+      <option name="closed" value="true" />
+      <created>1707870532710</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1707870532712</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Switched from GUI designer to pure code.">
+      <option name="closed" value="true" />
+      <created>1707877427601</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1707877427601</updated>
+    </task>
+    <task id="LOCAL-00023" summary="changed grammatical mistake">
+      <option name="closed" value="true" />
+      <created>1707880676486</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1707880676488</updated>
+    </task>
+    <task id="LOCAL-00024" summary="added inventory button">
+      <option name="closed" value="true" />
+      <created>1708113092540</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1708113092540</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Moved the functionality of search button to investigate button, and also simplified the code a bit">
+      <option name="closed" value="true" />
+      <created>1708139983917</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1708139983918</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Renamed &quot;Investigate&quot; button to &quot;Interact&quot;. Too many people were confusing it with search">
+      <option name="closed" value="true" />
+      <created>1708140133162</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1708140133163</updated>
+    </task>
+    <task id="LOCAL-00027" summary="added inventory button action listener">
+      <option name="closed" value="true" />
+      <created>1708198640317</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1708198640318</updated>
+    </task>
+    <task id="LOCAL-00028" summary="added comments to classes">
+      <option name="closed" value="true" />
+      <created>1708392914148</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1708392914148</updated>
+    </task>
+    <task id="LOCAL-00029" summary="added new locations, which isExamined boolean now, and clues">
+      <option name="closed" value="true" />
+      <created>1708482947497</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1708482947497</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Made a logic for searching room before interacting">
+      <option name="closed" value="true" />
+      <created>1708534788286</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1708534788287</updated>
+    </task>
+    <task id="LOCAL-00031" summary="it will give the location of the main hero back to detective's office after closing the game">
+      <option name="closed" value="true" />
+      <created>1708534857546</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1708534857547</updated>
+    </task>
+    <task id="LOCAL-00032" summary="action listener for closing the game">
+      <option name="closed" value="true" />
+      <created>1708534885641</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1708534885641</updated>
+    </task>
+    <task id="LOCAL-00033" summary="added reset game but it gets an error">
+      <option name="closed" value="true" />
+      <created>1708545254843</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1708545254846</updated>
+    </task>
+    <task id="LOCAL-00034" summary="changed the location json">
+      <option name="closed" value="true" />
+      <created>1708545329434</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1708545329434</updated>
+    </task>
+    <task id="LOCAL-00035" summary="moved the logic of interactButton to Engine and the new window it creats was moved to InteractFrame. And the window of InteractFrame has tabs for clues and people">
+      <option name="closed" value="true" />
+      <created>1708578784492</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1708578784493</updated>
+    </task>
+    <task id="LOCAL-00036" summary="changed Locations.json isExamined field to false (standard)">
+      <option name="closed" value="true" />
+      <created>1708628404068</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1708628404070</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Added the dialogue UI with two choices">
+      <option name="closed" value="true" />
+      <created>1708631207963</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1708631207963</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Added the dialogues ui files">
+      <option name="closed" value="true" />
+      <created>1708644133827</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1708644133828</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Fixed the bug of keys and accessing closed locations">
+      <option name="closed" value="true" />
+      <created>1708672241010</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1708672241012</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Mission are connected to UI. The game is playable">
+      <option name="closed" value="true" />
+      <created>1708707072165</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1708707072166</updated>
+    </task>
+    <task id="LOCAL-00041" summary="updated locations">
+      <option name="closed" value="true" />
+      <created>1708710936916</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1708710936917</updated>
+    </task>
+    <task id="LOCAL-00042" summary="updated text">
+      <option name="closed" value="true" />
+      <created>1708711241194</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1708711241196</updated>
+    </task>
+    <task id="LOCAL-00043" summary="corrected the interact frame">
+      <option name="closed" value="true" />
+      <created>1708713619981</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1708713619982</updated>
+    </task>
+    <task id="LOCAL-00044" summary="uncommented the people for people displaying in the room">
+      <option name="closed" value="true" />
+      <created>1708713970658</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1708713970658</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Added the design of an introduction">
+      <option name="closed" value="true" />
+      <created>1708758304094</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1708758304094</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,7 +504,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added sounds, Fixed grammatical errors, and Play and stop button." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added sounds, Fixed grammatical errors, and Play and stop button." />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Added Engine class for button and game logic. Added Forward and back buttons instead of single move button. Changed currentLocation to String in person class." />
+    <MESSAGE value="Switched from GUI designer to pure code." />
+    <MESSAGE value="changed grammatical mistake" />
+    <MESSAGE value="added inventory button" />
+    <MESSAGE value="Moved the functionality of search button to investigate button, and also simplified the code a bit" />
+    <MESSAGE value="Renamed &quot;Investigate&quot; button to &quot;Interact&quot;. Too many people were confusing it with search" />
+    <MESSAGE value="added inventory button action listener" />
+    <MESSAGE value="added comments to classes" />
+    <MESSAGE value="added new locations, which isExamined boolean now, and clues" />
+    <MESSAGE value="Made a logic for searching room before interacting" />
+    <MESSAGE value="it will give the location of the main hero back to detective's office after closing the game" />
+    <MESSAGE value="action listener for closing the game" />
+    <MESSAGE value="added reset game but it gets an error" />
+    <MESSAGE value="changed the location json" />
+    <MESSAGE value="moved the logic of interactButton to Engine and the new window it creats was moved to InteractFrame. And the window of InteractFrame has tabs for clues and people" />
+    <MESSAGE value="changed Locations.json isExamined field to false (standard)" />
+    <MESSAGE value="Added the dialogue UI with two choices" />
+    <MESSAGE value="Added the dialogues ui files" />
+    <MESSAGE value="Fixed the bug of keys and accessing closed locations" />
+    <MESSAGE value="Mission are connected to UI. The game is playable" />
+    <MESSAGE value="updated locations" />
+    <MESSAGE value="updated text" />
+    <MESSAGE value="corrected the interact frame" />
+    <MESSAGE value="uncommented the people for people displaying in the room" />
+    <MESSAGE value="Added the design of an introduction" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the design of an introduction" />
   </component>
 </project>

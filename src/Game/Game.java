@@ -18,7 +18,11 @@ public class Game {
     public static void run() {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new GameFrame();
+                try {
+                    new GameFrame();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
     }

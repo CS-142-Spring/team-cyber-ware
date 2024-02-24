@@ -13,13 +13,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static Utility.JsonUtil.getNotebook;
 import static Utility.JsonUtil.parseJsonFile;
 
 public class InventoryFrame extends JFrame {
 
     public static void initializeUI() throws IOException {
-        Notebook notebook = parseJsonFile("src/Resources/Notebook.json", new TypeReference<Notebook>() {
-        });
+        Notebook notebook = getNotebook();
         JFrame frame = new JFrame();
         // set window characteristics
         frame.setTitle("Inventory");

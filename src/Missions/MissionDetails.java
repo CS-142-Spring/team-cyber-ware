@@ -2,6 +2,9 @@ package Missions;
 
 
 import javax.swing.*;
+import Engine.Engine;
+
+import java.io.IOException;
 
 public class MissionDetails {
     private String title;
@@ -49,9 +52,8 @@ public class MissionDetails {
     }
 
 
-    public static void mission1(JTextArea textArea){ // mission 1 calling its details.
+    public static void mission1(JTextArea textArea) throws IOException { // mission 1 calling its details.
         MissionDetails mission = getMissionDetails1();
-
         textArea.append("\nMission Title: " + mission.getTitle());
         textArea.append("\nLocation: " + mission.getLocation());
         textArea.append("\nMission Objective: " + mission.getObjective());
