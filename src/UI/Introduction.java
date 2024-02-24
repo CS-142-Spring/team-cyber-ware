@@ -1,16 +1,13 @@
 package UI;
 
-import Inventory.Notebook;
 import Utility.FileIO;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
+
 
 public class Introduction extends JPanel {
     private CardLayout cardLayout;
@@ -31,7 +28,6 @@ public class Introduction extends JPanel {
         // Set up the CardLayout
         cardLayout = new CardLayout();
         cards = new JPanel(cardLayout);
-
         // Create the opening panel
         openingPanel = new JPanel(new BorderLayout()) {
             @Override
@@ -43,6 +39,7 @@ public class Introduction extends JPanel {
             }
 
         };
+
         openingPanel.setOpaque(false);
         openingText = createTextArea(getOpeningScene());
         openingText.setOpaque(false); // Make the text area transparent
