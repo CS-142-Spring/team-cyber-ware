@@ -41,7 +41,11 @@
   },
   {
     "name": "Ink Footprints in the Office",
+<<<<<<< HEAD
     "description": "These footprints head out to the hallway...",
+=======
+    "description": "Footprints leading to the hallway.",
+>>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
     "location": "Coach Marlowe's Office",
     "relevance": "High",
     "clueType": "Physical",
@@ -49,7 +53,11 @@
   },
   {
     "name": "Ink Footprints in the Hallway",
+<<<<<<< HEAD
     "description": "More footprints leading to the Janitor Closet.",
+=======
+    "description": "More footprints leading to Janitor Closet.",
+>>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
     "location": "Mega Stadium Hallway",
     "relevance": "Medium",
     "clueType": "Physical",

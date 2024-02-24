@@ -4,7 +4,10 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import Engine.*;
+<<<<<<< HEAD
 import Resources.Sounds;
+=======
+>>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
 
 public class GameFrame extends JFrame implements ViewSwitcher {
     private CardLayout cardLayout = new CardLayout();
@@ -30,7 +33,10 @@ public class GameFrame extends JFrame implements ViewSwitcher {
         setSize(1000, 2000);
         setVisible(true);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+<<<<<<< HEAD
         Sounds.backgroundMusic();
+=======
+>>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
