@@ -51,7 +51,7 @@ public class Menu extends JPanel {
     private JButton createStyledButton(String text) {
         JButton button = new JButton(text);
         button.setForeground(new Color(220, 220, 220)); // Set the text color with some transparency
-        button.setFont(new Font("Times New Roman", Font.BOLD, 20)); // Set the font
+        button.setFont(new Font("Courier New", Font.BOLD, 18)); // Typewriter-like font
         button.setContentAreaFilled(false); // Transparent button background
         button.setBorderPainted(false); // No border
         button.setFocusPainted(false); // No focus border
