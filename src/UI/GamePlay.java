@@ -25,10 +25,11 @@ import static Missions.MissionDetails.mission1;
 
 public class GamePlay extends JPanel {
     private JTextArea textArea;
-    private JPanel buttonPanel, textPanel, inventoryPanel;
+    private JPanel buttonPanel, textPanel, inventoryPanel, imagePanel;
     private JButton searchButton, forwardButton, backButton, interactButton, inventoryButton, previousButton;
     private int moveIndex = 0;
     private ViewSwitcher viewSwitcher;
+
     public GamePlay(ViewSwitcher viewSwitcher) {
         setLayout(new BorderLayout());
         this.viewSwitcher = viewSwitcher;
@@ -67,6 +68,26 @@ public class GamePlay extends JPanel {
         add(buttonPanel, BorderLayout.SOUTH);
         add(inventoryPanel, BorderLayout.NORTH);
 
+        // Add button panel to the main panel
+        JPanel bottomPanel = new JPanel(new BorderLayout());
+        bottomPanel.add(buttonPanel, BorderLayout.CENTER);
+        bottomPanel.add(inventoryPanel, BorderLayout.NORTH);
+        // Create an image panel
+        imagePanel = new JPanel(new BorderLayout());
+        try {
+            ImageIcon imageIcon = new ImageIcon("src/Resources/Detective's office.png");
+            JLabel imageLabel = new JLabel(imageIcon);
+            imagePanel.add(imageLabel, BorderLayout.CENTER);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // Use JSplitPane to divide the frame into three parts
+        JSplitPane splitPaneTop = new JSplitPane(JSplitPane.VERTICAL_SPLIT, textPanel, imagePanel);
+        splitPaneTop.setResizeWeight(0.5); // This means 50% of space is given to the top component (textPanel)
+        JSplitPane splitPaneMain = new JSplitPane(JSplitPane.VERTICAL_SPLIT, splitPaneTop, bottomPanel);
+        splitPaneMain.setResizeWeight(0.7); // This means 70% of space is given to the top component (splitPaneTop)
+        add(splitPaneMain, BorderLayout.CENTER);
+
 
         forwardButton.addActionListener(new ActionListener() {
             @Override
@@ -82,6 +103,17 @@ public class GamePlay extends JPanel {
 
                     } else {
                         JOptionPane.showMessageDialog(GamePlay.this, "There is no room to go forward", "Warning", JOptionPane.WARNING_MESSAGE);
+                    }
+                    if(moveIndex==0){
+                        updateImage("src/Resources/Detective's office.png");
+                    }
+                    if (moveIndex == 1) {
+                        updateImage("src/Resources/coach.png");
+                    } else if (moveIndex == 2 ) {
+                        updateImage("src/Resources/hallway.png");
+                    }
+                    if(moveIndex == 3){
+                        updateImage("src/Resources/closet.png");
                     }
                     if (moveIndex == 1 && MissionsBackBone.missionOneCompleted()) {
                         MissionDetails.mission2(textArea);
@@ -99,6 +131,19 @@ public class GamePlay extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    if(moveIndex==1){
+                        updateImage("src/Resources/Detective's office.png");
+                    }
+                    if (moveIndex == 2) {
+                        updateImage("src/Resources/coach.png");
+                    } else if (moveIndex == 3 ) {
+                        updateImage("src/Resources/hallway.png");
+                    }
+                    if (moveIndex == 1 && MissionsBackBone.missionOneCompleted()) {
+                        MissionDetails.mission2(textArea);
+                    } else if (moveIndex == 2 && MissionsBackBone.missionSecondCompleted()) {
+                        MissionDetails.mission3(textArea);
+                    }
                     if (moveIndex > 0) {
                         moveIndex--;
                         Engine.move(moveIndex, textArea);
@@ -139,7 +184,7 @@ public class GamePlay extends JPanel {
                     if (!items.isEmpty()) {
                         textArea.append("\nYou discovered: \n");
                         textArea.append("  Items: \n");
-                        for(Clue clue : items){
+                        for (Clue clue : items) {
                             textArea.append("     " + count + ". " + clue.getName() + "\n");
                             count++;
                         }
@@ -163,7 +208,7 @@ public class GamePlay extends JPanel {
         previousButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    viewSwitcher.switchView("INTRODUCTION");
+                viewSwitcher.switchView("INTRODUCTION");
 
             }
         });
@@ -196,9 +241,19 @@ public class GamePlay extends JPanel {
         });
 
 
+    }
 
-
-
+    private void updateImage(String path) {
+        try {
+            ImageIcon imageIcon = new ImageIcon(path);
+            JLabel imageLabel = new JLabel(imageIcon);
+            imagePanel.removeAll();  // Remove the old image
+            imagePanel.add(imageLabel, BorderLayout.CENTER);
+            imagePanel.revalidate();
+            imagePanel.repaint();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
