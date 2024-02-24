@@ -2,5 +2,5 @@
 
 MJ: ChatGPT, Engine, UI, Utility, Location, Dialogues, Person
 Yash: Person, Hero, DallE, GameFrame, Weapons, Worked on Notebook.json and Locations.json
-Eshmael: MissionsDetails, MissionsBackBone
+Eshmael: MissionsDetails, MissionsBackBone, sounds, gameplay, DiaglogueInterface, OpeningScene, KeyWordsHelp, EndMessage, storyDescription, Dialogues
 Mohammed: Location class, Buttons that were used to move forward and backwards. 
