@@ -1,18 +1,7 @@
 package Missions;
 
-import javax.swing.*;
-<<<<<<< HEAD
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import javax.swing.JOptionPane;
-=======
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
-
 public class MissionsBackBone {
 
-    public static boolean stageOne = false; // represent that mission one is still false
     static boolean magGlass = false; // represents that the Magnifying glass has not been found
     static boolean noteBook = false; // represents that the Notebook has not been found
     static boolean trenchCoat = false; // represents that the Trench Coat has not been found

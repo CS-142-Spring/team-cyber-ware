@@ -26,10 +26,8 @@ import java.util.List;
 import static Engine.Engine.addItems;
 import static Engine.Engine.currLocation;
 import static Missions.MissionsBackBone.*;
-<<<<<<< HEAD
 import static Resources.EndMessage.displayEndMessage1;
-=======
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
+
 
 public class InteractFrame {
     private JButton notebookButton, talkButton, accessComputerButton;
@@ -157,15 +155,9 @@ public class InteractFrame {
                         } else if (answer.equals(pass)) {
                             JOptionPane.showMessageDialog(null, "    Hello Coach Marlowe!");
                             MissionsBackBone.setPuzzleTrue();
-<<<<<<< HEAD
-                            passwordCorrect = true;
-
                             // Call the displayEndMessage1 method here
                             displayEndMessage1();
-=======
-
                             passwordCorrect = true;
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
                         } else {
                             JOptionPane.showMessageDialog(null, "Incorrect password. Must be a bench warmer! Please try again.");
                         }

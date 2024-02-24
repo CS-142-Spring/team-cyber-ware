@@ -4,18 +4,12 @@ import Engine.Engine;
 import Inventory.Clue;
 import Missions.MissionDetails;
 import Missions.MissionsBackBone;
-<<<<<<< HEAD
-=======
-import People.Hero;
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
+
 import People.Person;
 import Utility.JsonUtil;
 
 import Location.*;
-<<<<<<< HEAD
 
-=======
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
 import java.io.IOException;
 
 import java.util.ArrayList;
@@ -25,35 +19,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-<<<<<<< HEAD
 import javax.swing.JOptionPane;
-=======
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
+
 
 
 import static Engine.Engine.currLocation;
 import static Missions.MissionDetails.mission1;
-<<<<<<< HEAD
 import static Resources.Sounds.PlayMusic;
 import static Resources.Sounds.clip;
 
 public class GamePlay extends JPanel {
     private JTextArea textArea;
-    private JPanel buttonPanel, textPanel, inventoryPanel, musicControlPanel, northPanel;
+    private JPanel buttonPanel, textPanel, inventoryPanel, musicControlPanel, northPanel, imagePanel;
     private JButton searchButton, forwardButton, backButton, interactButton, inventoryButton, previousButton,
             playmusicButton, stopmusicButton;
     private int moveIndex = 0;
     private ViewSwitcher viewSwitcher;
-=======
 
-public class GamePlay extends JPanel {
-    private JTextArea textArea;
-    private JPanel buttonPanel, textPanel, inventoryPanel, imagePanel;
-    private JButton searchButton, forwardButton, backButton, interactButton, inventoryButton, previousButton;
-    private int moveIndex = 0;
-    private ViewSwitcher viewSwitcher;
-
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
     public GamePlay(ViewSwitcher viewSwitcher) {
         setLayout(new BorderLayout());
         this.viewSwitcher = viewSwitcher;
@@ -76,11 +58,9 @@ public class GamePlay extends JPanel {
         interactButton = new JButton("Interact");
         inventoryButton = new JButton("Inventory");
         previousButton = new JButton("Previous");
-<<<<<<< HEAD
         playmusicButton = new JButton("Play");
         stopmusicButton = new JButton("Stop");
-=======
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
+
 
         // Add buttons to a panel
         buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -91,7 +71,6 @@ public class GamePlay extends JPanel {
         buttonPanel.add(backButton);
         buttonPanel.add(interactButton);
 
-<<<<<<< HEAD
         musicControlPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         musicControlPanel.add(playmusicButton);
         musicControlPanel.add(stopmusicButton);
@@ -123,7 +102,6 @@ public class GamePlay extends JPanel {
                 }
             }
         });
-=======
         inventoryPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         inventoryPanel.add(inventoryButton);
         // Add button panel to the main panel
@@ -150,33 +128,26 @@ public class GamePlay extends JPanel {
         splitPaneMain.setResizeWeight(0.7); // This means 70% of space is given to the top component (splitPaneTop)
         add(splitPaneMain, BorderLayout.CENTER);
 
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
 
         forwardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
                 Resources.Sounds.doorEffect();
-=======
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
+
                 try {
                     if (moveIndex < 3) {
                         if (Engine.getLocation(moveIndex + 1).getAccessibility()) {
                             moveIndex++;
                             Engine.move(moveIndex, textArea);
                         } else {
-<<<<<<< HEAD
                             JOptionPane.showMessageDialog(GamePlay.this, "You need a key for this room", "Janitor Closet", JOptionPane.OK_OPTION);
-=======
-                            JOptionPane.showMessageDialog(GamePlay.this, "You need a key for this room", "No Access", JOptionPane.OK_OPTION);
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
+
                         }
 
                     } else {
                         JOptionPane.showMessageDialog(GamePlay.this, "There is no room to go forward", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
-<<<<<<< HEAD
-=======
+
                     if(moveIndex==0){
                         updateImage("src/Resources/Detective's office.png");
                     }
@@ -188,7 +159,7 @@ public class GamePlay extends JPanel {
                     if(moveIndex == 3){
                         updateImage("src/Resources/closet.png");
                     }
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
+
                     if (moveIndex == 1 && MissionsBackBone.missionOneCompleted()) {
                         MissionDetails.mission2(textArea);
                     } else if (moveIndex == 2 && MissionsBackBone.missionSecondCompleted()) {
@@ -204,10 +175,7 @@ public class GamePlay extends JPanel {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
                 Resources.Sounds.doorEffect();
-                try {
-=======
                 try {
                     if(moveIndex==1){
                         updateImage("src/Resources/Detective's office.png");
@@ -222,7 +190,6 @@ public class GamePlay extends JPanel {
                     } else if (moveIndex == 2 && MissionsBackBone.missionSecondCompleted()) {
                         MissionDetails.mission3(textArea);
                     }
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
                     if (moveIndex > 0) {
                         moveIndex--;
                         Engine.move(moveIndex, textArea);
@@ -239,10 +206,7 @@ public class GamePlay extends JPanel {
         });
         searchButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
                 Resources.Sounds.searchSound();
-=======
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
                 List<Location> locations;
                 try {
                     locations = JsonUtil.getAllLocations();
@@ -253,7 +217,6 @@ public class GamePlay extends JPanel {
                         if (location.getName().equals(currLocation())) {
                             items = location.getItems();
                             people = location.getPeople();
-//                            hero = JsonUtil.getMainHero().get(0);
                             location.setIsExamined(true);
                             break;
                         }
@@ -267,11 +230,7 @@ public class GamePlay extends JPanel {
                     if (!items.isEmpty()) {
                         textArea.append("\nYou discovered: \n");
                         textArea.append("  Items: \n");
-<<<<<<< HEAD
                         for(Clue clue : items){
-=======
-                        for (Clue clue : items) {
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
                             textArea.append("     " + count + ". " + clue.getName() + "\n");
                             count++;
                         }
@@ -295,11 +254,7 @@ public class GamePlay extends JPanel {
         previousButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
-                    viewSwitcher.switchView("INTRODUCTION");
-=======
                 viewSwitcher.switchView("INTRODUCTION");
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
 
             }
         });
@@ -307,10 +262,7 @@ public class GamePlay extends JPanel {
 
         inventoryButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
                 Resources.Sounds.inventorySound();
-=======
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
                 try {
                     InventoryFrame.initializeUI();
                 } catch (IOException ex) {
@@ -321,10 +273,8 @@ public class GamePlay extends JPanel {
 
         interactButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
+
                 Resources.Sounds.interactSound();
-=======
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
                 try {
                     ArrayList<String> items = Engine.interact(GamePlay.this);
                     ArrayList<String> peopleNames = Engine.getPeopleNames();
@@ -340,11 +290,7 @@ public class GamePlay extends JPanel {
         });
 
 
-<<<<<<< HEAD
 
-
-
-=======
     }
 
     private void updateImage(String path) {
@@ -358,7 +304,6 @@ public class GamePlay extends JPanel {
         } catch (Exception e) {
             e.printStackTrace();
         }
->>>>>>> ca636992474b57b149fd2c43ee6c6830cc583ce3
     }
 }
 
