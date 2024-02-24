@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b23dff4c-e317-479a-bd50-62a2b9c5485e" name="Changes" comment="Added sounds, Fixed grammatical errors, and Play and stop button.">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/Detective's office.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/closet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/coach.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/hallway.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Missions/MissionsBackBone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Missions/MissionsBackBone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Clues.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/Clues.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Sounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/Sounds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/DialogueInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/DialogueInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/GameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/GamePlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/GamePlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/InteractFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/InteractFrame.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2cmy8ip7uCMhCIPd1cOUdYvD4nr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging main",
+    "ignore.preview.features.used": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Redvs/OneDrive/Desktop/team-cyber-ware",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="AwapProject-main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="AwapProject-main" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b23dff4c-e317-479a-bd50-62a2b9c5485e" name="Changes" comment="" />
+      <created>1708730890461</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708730890461</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Added sounds, Fixed grammatical errors, and Play and stop button.">
+      <option name="closed" value="true" />
+      <created>1708754475833</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708754475834</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added sounds, Fixed grammatical errors, and Play and stop button." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sounds, Fixed grammatical errors, and Play and stop button." />
+  </component>
+</project>

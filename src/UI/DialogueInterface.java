@@ -82,7 +82,7 @@ public class DialogueInterface extends JDialog {
 
     public void presentChoices(DialogueChoice... choices) {
         optionsPanel.removeAll();
-        dialogueTextArea.append("Janitor Joe: Hey, Detective! How can I help you?" );
+        dialogueTextArea.append("Janitor Joe: How you doing, is there something you need?");
         for (DialogueChoice choice : choices) {
             JButton choiceButton = new JButton(choice.getPrompt());
             choiceButton.addActionListener((ActionEvent e) -> {
